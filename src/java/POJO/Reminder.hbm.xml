@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 6, 2015 3:45:07 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="exes" name="POJO.Reminder" optimistic-lock="version" table="REMINDER">
+    <id name="id" type="java.lang.Integer">
+      <column name="id"/>
+      <generator class="identity"/>
+    </id>
+    <property name="idUser" type="java.lang.Integer">
+      <column name="id_user"/>
+    </property>
+    <property name="tglBuat" type="timestamp">
+      <column length="19" name="tgl_buat" not-null="true"/>
+    </property>
+    <property name="tglKirim" type="timestamp">
+      <column length="19" name="tgl_kirim" not-null="true"/>
+    </property>
+    <property name="deskripsi" type="string">
+      <column length="100" name="deskripsi"/>
+    </property>
+  </class>
+</hibernate-mapping>
