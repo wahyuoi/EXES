@@ -3,13 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="2"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/wahyuoi/NetBeansProjects/Exes/src/java/Route/Auth/Activate.java</file>
-            <file>file:/home/wahyuoi/NetBeansProjects/Exes/src/java/Controller/User.java</file>
             <file>file:/home/wahyuoi/NetBeansProjects/Exes/src/java/Route/Auth/Change.java</file>
-            <file>file:/home/wahyuoi/NetBeansProjects/Exes/web/Auth/change.jsp</file>
-            <file>file:/home/wahyuoi/NetBeansProjects/Exes/src/java/Route/Auth/Reset.java</file>
             <file>file:/home/wahyuoi/NetBeansProjects/Exes/web/Auth/resetForm.jsp</file>
+            <file>file:/home/wahyuoi/NetBeansProjects/Exes/src/java/Controller/User.java</file>
+            <file>file:/home/wahyuoi/NetBeansProjects/Exes/web/Auth/change.jsp</file>
+            <file>file:/home/wahyuoi/NetBeansProjects/Exes/src/java/Util/EmailValidator.java</file>
             <file>file:/home/wahyuoi/NetBeansProjects/Exes/web/Auth/reset.jsp</file>
+            <file>file:/home/wahyuoi/NetBeansProjects/Exes/src/java/Route/Auth/Activate.java</file>
+            <file>file:/home/wahyuoi/NetBeansProjects/Exes/src/java/Util/SendEmail.java</file>
+            <file>file:/home/wahyuoi/NetBeansProjects/Exes/test/Util/HibernateUtilTest.java</file>
+            <file>file:/home/wahyuoi/NetBeansProjects/Exes/src/java/Route/Auth/Reset.java</file>
         </group>
     </open-files>
 </project-private>
