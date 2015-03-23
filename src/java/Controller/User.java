@@ -163,18 +163,18 @@ public class User {
 
     }
 
-    public void doLogout(HttpServletRequest request, HttpServletResponse response) {
-        Cookie[] cookies = request.getCookies();
+    public Cookie[] doLogout(Cookie[] cookies) {        
         for (Cookie cooky : cookies) {
             if ("LSESSID".equals(cooky.getName())) {
+                cooky.setMaxAge(0);                                
+            } else if ("EMAIL".equals(cooky.getName())){
                 cooky.setMaxAge(0);
-                response.addCookie(cooky);
             }
         }
+        return cookies;
     }
 
-    public boolean isLogin(HttpServletRequest request) {
-        Cookie[] cookies = request.getCookies();
+    public boolean isLogin(Cookie[] cookies) {        
         for (Cookie cooky : cookies) {
             if ("LSESSID".equals(cooky.getName())) {
                 return true;
@@ -183,21 +183,21 @@ public class User {
         return false;
     }
 
-    public void changePassword(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public Map<String, String> changePassword(Map<String, String> map) throws ServletException, IOException {
 
-        request.setAttribute("messages", messages);
-
-        String oldPassword = request.getParameter("oldPassword");
+        
+        String oldPassword = map.get("oldPassword");
+        String newPassword = map.get("newPassword");
+        String confirmPassword = map.get("confirmPassword");
+        String email = map.get("email");
         if (oldPassword == null || oldPassword.trim().isEmpty()) {
             messages.put("oldPassword", "Fill your old password!");
         }
 
-        String newPassword = request.getParameter("newPassword");
         if (newPassword == null || newPassword.trim().isEmpty()) {
             messages.put("newPassword", "Fill your new password");
         }
 
-        String confirmPassword = request.getParameter("confirmPassword");
         if (confirmPassword == null || confirmPassword.trim().isEmpty() || !newPassword.equals(confirmPassword)) {
             messages.put("confirmPassword", "Your new password is mismatch!");
         }
@@ -205,14 +205,7 @@ public class User {
         if (messages.isEmpty()) {
             oldPassword = Token.generateToken(oldPassword);
             confirmPassword = Token.generateToken(confirmPassword);
-            newPassword = Token.generateToken(newPassword);
-            String email = null;
-            Cookie[] cookies = request.getCookies();
-            for (Cookie cooky : cookies) {
-                if ("EMAIL".equals(cooky.getName())) {
-                    email = cooky.getValue();
-                }
-            }
+            newPassword = Token.generateToken(newPassword);            
             if (email != null) {
                 List<Object> users = dbInfo.getByEmail(email, "POJO.User");
                 if (!users.isEmpty()) {
@@ -228,7 +221,7 @@ public class User {
             }
         }
 
-        request.getRequestDispatcher("Auth/change.jsp").forward(request, response);
+        return messages;
     }
 
     public void doValidateResetToken(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

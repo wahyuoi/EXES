@@ -3,6 +3,7 @@ package Route.Auth;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,7 +27,12 @@ public class Logout extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Controller.User userController = new Controller.User();
-        userController.doLogout(request, response);
+        Cookie[] cooky = userController.doLogout(request.getCookies());
+        for (Cookie cook:cooky){
+            response.addCookie(cook);
+        }
+        
+        response.sendRedirect("/Exes");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

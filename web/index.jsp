@@ -6,7 +6,17 @@
 
 <jsp:include page="header.jsp"></jsp:include>
 <body>
-    <h1>Hello World!</h1>
-
+    <% 
+        Cookie[] cookies = request.getCookies();
+        String email = null;
+        for(Cookie cook: cookies){
+            if ("EMAIL".equals(cook.getName())){
+                email = cook.getValue();
+            }
+        }
+        if (null == email) email = "";
+    %>
+    <h1>Hello World! <%= email %> -- </h1>
+        
 </body>
 </html>

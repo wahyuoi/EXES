@@ -2,8 +2,11 @@ package Route.Auth;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,7 +30,7 @@ public class Change extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Controller.User userController = new Controller.User();
-        if (userController.isLogin(request)) {
+        if (userController.isLogin(request.getCookies())) {
             request.getRequestDispatcher("Auth/change.jsp").forward(request, response);
         } else {
             response.sendRedirect("/Exes");
@@ -46,11 +49,33 @@ public class Change extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Controller.User userController = new Controller.User();
-        if (userController.isLogin(request)) {            
-            userController.changePassword(request, response);
+        if (userController.isLogin(request.getCookies())) {
+            String oldPassword = request.getParameter("oldPassword");
+            String newPassword = request.getParameter("newPassword");
+            String confirmPassword = request.getParameter("confirmPassword");
+            
+            String email = null;
+            Cookie[] cookies = request.getCookies();
+            for (Cookie cooky : cookies) {
+                if ("EMAIL".equals(cooky.getName())) {
+                    email = cooky.getValue();
+                }
+            }
+            
+            
+            Map<String, String> map = new HashMap<String, String>();
+            map.put("oldPassword", oldPassword);
+            map.put("newPassword", newPassword);
+            map.put("confirmPassword", confirmPassword);
+            map.put("email", email);
+            
+            Map<String, String> messages = userController.changePassword(map);
+            
+            request.setAttribute("messages", messages);
+            request.getRequestDispatcher("Auth/change.jsp").forward(request, response);
         } else {
             response.sendRedirect("/Exes");
-        }        
+        }
     }
 
     /**

@@ -60,7 +60,7 @@ public class Reset extends HttpServlet {
             userController.doSaveNewPassword(request, response);
         }
         
-        response.sendRedirect("reset.jsp");
+        response.sendRedirect("Auth/reset.jsp");
     }
 
     /**
