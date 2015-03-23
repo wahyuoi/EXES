@@ -90,19 +90,10 @@ public class User {
      * @param request
      * @param response
      */
-    public void doActivate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("messages", messages);
-
-        String token = request.getParameter("token");
-        String id = request.getParameter("id");
-
-        // error in GET parameters
-        if (token == null || token.trim().isEmpty()) {
-            request.getRequestDispatcher("Auth/register.jsp").forward(request, response);
-        } else if (id == null || id.trim().isEmpty()) {
-            request.getRequestDispatcher("Auth/register.jsp").forward(request, response);
-        }
-        // else everything allright
+    public Map<String, String> doActivate(Map<String, String> map) throws ServletException, IOException {        
+        
+        String token = map.get("token");
+        String id = map.get("id");                
 
         DatabaseInfo dbInfo = new DatabaseInfo();
         // get user info from unverified user, based on id
@@ -120,13 +111,11 @@ public class User {
             // insert new user and delete old one
             dbInfo.insert(newUser);
             dbInfo.delete(user.getId(), "POJO.UnverifiedUser");
-            messages.put("success", "You can login now!");
-            request.getRequestDispatcher("Auth/login.jsp").forward(request, response);
+            messages.put("success", "You can login now!");            
         } else {
-            messages.put("success", "Sorry, your account not found or had been activated!");
-            request.getRequestDispatcher("Auth/login.jsp").forward(request, response);
+            messages.put("success", "Sorry, your account not found or had been activated!");            
         }
-
+        return messages;
     }
 
     public void doLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

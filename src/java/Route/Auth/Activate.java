@@ -1,6 +1,8 @@
 package Route.Auth;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,8 +27,27 @@ public class Activate extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String token = request.getParameter("token");
+        String id = request.getParameter("id");
+        
+        // error in GET parameters
+        if (token == null || token.trim().isEmpty()) {
+            request.getRequestDispatcher("Auth/register.jsp").forward(request, response);
+        } else if (id == null || id.trim().isEmpty()) {
+            request.getRequestDispatcher("Auth/register.jsp").forward(request, response);
+        }
+        
+        // send parameter to controller
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("id", id);
+        map.put("token", token);
+        
         Controller.User userController = new Controller.User();
-        userController.doActivate(request, response);
+        Map<String, String> messages = userController.doActivate(map);
+        
+        // responses
+        request.setAttribute("messages", messages);
+        request.getRequestDispatcher("Auth/login.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
