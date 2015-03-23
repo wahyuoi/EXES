@@ -31,18 +31,16 @@ public class User {
         messages = new HashMap<String, String>();
     }
 
-    public void doRegister(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
-            request.setAttribute("messages", messages);
-
+    public Map<String, String> doRegister(Map<String, String> map) throws ServletException, IOException {
+        try {            
             // get name value
-            String name = request.getParameter("name");
+            String name = map.get("name");
             if (name == null || name.trim().isEmpty()) {
                 messages.put("name", "Fill your name, please!");
             }
 
             // get email value
-            String email = request.getParameter("email");
+            String email = map.get("email");
             if (email == null || email.trim().isEmpty() || !EmailValidator.validate(email)) {
                 messages.put("email", "Enter valid email!");
             } else if (dbInfo.getByEmail(email, "POJO.UnverifiedUser").size() > 0) {
@@ -52,7 +50,7 @@ public class User {
             }
 
             // get password value
-            String password = request.getParameter("password");
+            String password = map.get("password");
             if (password == null || password.trim().isEmpty()) {
                 messages.put("password", "Fill your password, please!");
             }
@@ -78,11 +76,11 @@ public class User {
                 sendEmail.sendEmail(email, subject, body);
             }
 
-            // whatever the result, just redirect to Register page
-            request.getRequestDispatcher("/register.jsp").forward(request, response);
+            // whatever the result, just redirect to Register page            
         } catch (SendGridException ex) {
             Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return messages;
     }
 
     /**
@@ -100,9 +98,9 @@ public class User {
 
         // error in GET parameters
         if (token == null || token.trim().isEmpty()) {
-            request.getRequestDispatcher("/register.jsp").forward(request, response);
+            request.getRequestDispatcher("Auth/register.jsp").forward(request, response);
         } else if (id == null || id.trim().isEmpty()) {
-            request.getRequestDispatcher("/register.jsp").forward(request, response);
+            request.getRequestDispatcher("Auth/register.jsp").forward(request, response);
         }
         // else everything allright
 
@@ -123,10 +121,10 @@ public class User {
             dbInfo.insert(newUser);
             dbInfo.delete(user.getId(), "POJO.UnverifiedUser");
             messages.put("success", "You can login now!");
-            request.getRequestDispatcher("/login.jsp").forward(request, response);
+            request.getRequestDispatcher("Auth/login.jsp").forward(request, response);
         } else {
             messages.put("success", "Sorry, your account not found or had been activated!");
-            request.getRequestDispatcher("/login.jsp").forward(request, response);
+            request.getRequestDispatcher("Auth/login.jsp").forward(request, response);
         }
 
     }
@@ -150,7 +148,7 @@ public class User {
             List<Object> user = dbInfo.getByEmail(email, "POJO.User");
             if (user.isEmpty()) {
                 messages.put("success", "Wrong email or password");
-                request.getRequestDispatcher("/login.jsp").forward(request, response);
+                request.getRequestDispatcher("Auth/login.jsp").forward(request, response);
             } else if (Token.generateToken(password).equals(((POJO.User) user.get(0)).getPassword())) {
                 System.err.println("Login");
                 Cookie[] cookies = request.getCookies();
@@ -170,7 +168,7 @@ public class User {
                 response.sendRedirect("index.jsp");
             } else {
                 messages.put("success", "Wrong email or password");
-                request.getRequestDispatcher("/login.jsp").forward(request, response);
+                request.getRequestDispatcher("Auth/login.jsp").forward(request, response);
             }
         }
 
@@ -252,14 +250,14 @@ public class User {
 
         if (id == null || token == null) {
 
-            response.sendRedirect("reset.jsp");
+            response.sendRedirect("Auth/reset.jsp");
 
         } else {
             // both exists
             POJO.User user = (POJO.User) dbInfo.getById(Integer.parseInt(id), "POJO.User");
             if (user == null) {
                 // no id in database
-                response.sendRedirect("reset.jsp");
+                response.sendRedirect("Auth/reset.jsp");
             }
             // valid id
             if (token.equals(user.getToken())) {
@@ -339,7 +337,7 @@ public class User {
         String confirmPassword = request.getParameter("confirmPassword");
 
         if (id == null || token == null) {
-            response.sendRedirect("reset.jsp");
+            response.sendRedirect("Auth/reset.jsp");
         } else if (newPassword == null || !newPassword.equals(confirmPassword)) {
             messages.put("newPassword", "Mismatch password!");
             messages.put("id", id);
@@ -350,7 +348,7 @@ public class User {
             POJO.User user = (POJO.User) dbInfo.getById(Integer.parseInt(id), "POJO.User");
             if (user == null) {
                 // no id in database
-                response.sendRedirect("reset.jsp");
+                response.sendRedirect("Auth/reset.jsp");
 
             }
             // valid id
@@ -362,12 +360,12 @@ public class User {
                 dbInfo.update(user, "POJO.User");
                 // show form
                 messages.put("success", "Reset berhasil, silakan login");
-                request.getRequestDispatcher("login.jsp").forward(request, response);
+                request.getRequestDispatcher("Auth/login.jsp").forward(request, response);
 
             } else {
                 // invalid token
                 messages.put("success", "Expired token!");
-                request.getRequestDispatcher("login.jsp").forward(request, response);
+                request.getRequestDispatcher("Auth/login.jsp").forward(request, response);
             }
         }
 

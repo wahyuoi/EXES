@@ -4,7 +4,7 @@
     Author     : wahyuoi
 --%>
 
-<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="../header.jsp"></jsp:include>
     <body>
         <h1>Hello World!</h1>
         <form action="login" method="post">

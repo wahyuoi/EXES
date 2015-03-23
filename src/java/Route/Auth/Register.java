@@ -1,6 +1,9 @@
 package Route.Auth;
 
 import java.io.IOException;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,7 +29,7 @@ public class Register extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("register.jsp").forward(request, response);
+        request.getRequestDispatcher("Auth/register.jsp").forward(request, response);
     }
 
     /**
@@ -40,8 +43,19 @@ public class Register extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");        
+        
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("name", name);
+        map.put("email", email);
+        map.put("password", password);
+        
         Controller.User userController = new Controller.User();
-        userController.doRegister(request, response);
+        Map<String, String> messages = userController.doRegister(map);
+        request.setAttribute("messages", messages);
+        request.getRequestDispatcher("Auth/register.jsp").forward(request, response);
     }
 
     /**

@@ -9,8 +9,8 @@ import com.sendgrid.SendGridException;
  */
 public class SendEmail {
 
-    private static String USERNAME = "Username";
-    private static String PASSWORD = "password";
+    private static String USERNAME = "wahyuoi";
+    private static String PASSWORD = "bangsat";
     private static String FROM = "gede.wahyu@ui.ac.id";
     private SendGrid sendgrid;
     SendGrid.Email email;

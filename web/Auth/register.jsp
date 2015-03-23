@@ -3,7 +3,7 @@
     Created on : Feb 27, 2015, 10:25:17 PM
     Author     : wahyuoi
 --%>
-<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="../header.jsp"></jsp:include>
     <body>
         <h1>Hello World!</h1>
         <form action="register" method="post">
