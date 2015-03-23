@@ -62,14 +62,8 @@ public class Change extends HttpServlet {
                 }
             }
             
-            
-            Map<String, String> map = new HashMap<String, String>();
-            map.put("oldPassword", oldPassword);
-            map.put("newPassword", newPassword);
-            map.put("confirmPassword", confirmPassword);
-            map.put("email", email);
-            
-            Map<String, String> messages = userController.changePassword(map);
+            Map<String, String> messages = userController.changePassword(
+                    oldPassword, newPassword, confirmPassword, email);
             
             request.setAttribute("messages", messages);
             request.getRequestDispatcher("Auth/change.jsp").forward(request, response);

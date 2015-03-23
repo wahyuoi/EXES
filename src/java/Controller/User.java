@@ -31,16 +31,12 @@ public class User {
         messages = new HashMap<String, String>();
     }
 
-    public Map<String, String> doRegister(Map<String, String> map) throws ServletException, IOException {
-        try {            
-            // get name value
-            String name = map.get("name");
+    public Map<String, String> doRegister(String name, String email, String password) throws ServletException, IOException {
+        try {                        
             if (name == null || name.trim().isEmpty()) {
                 messages.put("name", "Fill your name, please!");
             }
-
-            // get email value
-            String email = map.get("email");
+           
             if (email == null || email.trim().isEmpty() || !EmailValidator.validate(email)) {
                 messages.put("email", "Enter valid email!");
             } else if (dbInfo.getByEmail(email, "POJO.UnverifiedUser").size() > 0) {
@@ -49,8 +45,6 @@ public class User {
                 messages.put("email", "Email already registered, please login!");
             }
 
-            // get password value
-            String password = map.get("password");
             if (password == null || password.trim().isEmpty()) {
                 messages.put("password", "Fill your password, please!");
             }
@@ -90,10 +84,7 @@ public class User {
      * @param request
      * @param response
      */
-    public Map<String, String> doActivate(Map<String, String> map) throws ServletException, IOException {        
-        
-        String token = map.get("token");
-        String id = map.get("id");                
+    public Map<String, String> doActivate(String token, String id) throws ServletException, IOException {        
 
         DatabaseInfo dbInfo = new DatabaseInfo();
         // get user info from unverified user, based on id
@@ -111,24 +102,19 @@ public class User {
             // insert new user and delete old one
             dbInfo.insert(newUser);
             dbInfo.delete(user.getId(), "POJO.UnverifiedUser");
-            messages.put("success", "You can login now!");            
+            messages.put("success", "You can login now!");
         } else {
-            messages.put("success", "Sorry, your account not found or had been activated!");            
+            messages.put("success", "Sorry, your account not found or had been activated!");
         }
         return messages;
     }
 
-    public void doLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("messages", messages);
-
-        // get email value
-        String email = request.getParameter("email");
+    public Map<String, String> doLogin(String email, String password) throws ServletException, IOException {
+        
         if (email == null || email.trim().isEmpty() || !EmailValidator.validate(email)) {
             messages.put("email", "Enter valid email!");
         }
 
-        // get password value
-        String password = request.getParameter("password");
         if (password == null || password.trim().isEmpty()) {
             messages.put("password", "Fill your password, please!");
         }
@@ -136,45 +122,35 @@ public class User {
         if (messages.isEmpty()) {
             List<Object> user = dbInfo.getByEmail(email, "POJO.User");
             if (user.isEmpty()) {
-                messages.put("success", "Wrong email or password");
-                request.getRequestDispatcher("Auth/login.jsp").forward(request, response);
-            } else if (Token.generateToken(password).equals(((POJO.User) user.get(0)).getPassword())) {
-                System.err.println("Login");
-                Cookie[] cookies = request.getCookies();
-                boolean isLogin = false;
-                for (Cookie cooky : cookies) {
-                    if ("LSESSID".equals(cooky.getName())) {
-                        isLogin = true;
-                    }
-                }
-                if (!isLogin) {
-                    Cookie newCookie = new Cookie("LSESSID", Token.generateToken(System.currentTimeMillis() + ""));
-                    response.addCookie(newCookie);
-
-                    newCookie = new Cookie("EMAIL", email);
-                    response.addCookie(newCookie);
-                }
-                response.sendRedirect("index.jsp");
+                messages.put("error", "Wrong email or password");
+            } else if (Token.generateToken(password).equals(((POJO.User) user.get(0)).getPassword())) {                
+                messages.put("LSESSID", Token.generateToken(System.currentTimeMillis() + ""));                
+                messages.put("EMAIL", email);                                
+                
+                // update token
+                // if user login, token will automatically updated
+                POJO.User curUser = (POJO.User) user.get(0);
+                curUser.setToken(messages.get("LSESSID"));
+                dbInfo.update(curUser, "POJO.User");
             } else {
-                messages.put("success", "Wrong email or password");
-                request.getRequestDispatcher("Auth/login.jsp").forward(request, response);
+                messages.put("error", "Wrong email or password");
             }
         }
-
+        return messages;
     }
 
-    public Cookie[] doLogout(Cookie[] cookies) {        
+    public Cookie[] doLogout(Cookie[] cookies) {
         for (Cookie cooky : cookies) {
             if ("LSESSID".equals(cooky.getName())) {
-                cooky.setMaxAge(0);                                
-            } else if ("EMAIL".equals(cooky.getName())){
+                cooky.setMaxAge(0);
+            } else if ("EMAIL".equals(cooky.getName())) {
                 cooky.setMaxAge(0);
             }
         }
         return cookies;
     }
 
-    public boolean isLogin(Cookie[] cookies) {        
+    public boolean isLogin(Cookie[] cookies) {
         for (Cookie cooky : cookies) {
             if ("LSESSID".equals(cooky.getName())) {
                 return true;
@@ -183,13 +159,10 @@ public class User {
         return false;
     }
 
-    public Map<String, String> changePassword(Map<String, String> map) throws ServletException, IOException {
+    public Map<String, String> changePassword(String oldPassword, 
+            String newPassword, String confirmPassword, String email) 
+            throws ServletException, IOException {
 
-        
-        String oldPassword = map.get("oldPassword");
-        String newPassword = map.get("newPassword");
-        String confirmPassword = map.get("confirmPassword");
-        String email = map.get("email");
         if (oldPassword == null || oldPassword.trim().isEmpty()) {
             messages.put("oldPassword", "Fill your old password!");
         }
@@ -205,7 +178,7 @@ public class User {
         if (messages.isEmpty()) {
             oldPassword = Token.generateToken(oldPassword);
             confirmPassword = Token.generateToken(confirmPassword);
-            newPassword = Token.generateToken(newPassword);            
+            newPassword = Token.generateToken(newPassword);
             if (email != null) {
                 List<Object> users = dbInfo.getByEmail(email, "POJO.User");
                 if (!users.isEmpty()) {

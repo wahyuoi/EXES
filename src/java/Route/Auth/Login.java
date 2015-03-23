@@ -1,8 +1,11 @@
 package Route.Auth;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -39,8 +42,28 @@ public class Login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Controller.User userController = new Controller.User();
-        userController.doLogin(request, response);
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+
+        Controller.User userController = new Controller.User();        
+        Cookie[] cookies = request.getCookies();
+        
+        if (userController.isLogin(cookies)){
+            response.sendRedirect("/Exes");
+        }
+        
+        Map<String, String> messages = userController.doLogin(email, password);
+        request.setAttribute("messages", messages);
+        
+        if (messages.containsKey("LSESSID")){
+            Cookie cook = new Cookie("LSESSID", messages.get("LSESSID"));
+            response.addCookie(cook);
+            cook = new Cookie("EMAIL", messages.get("EMAIL"));
+            response.addCookie(cook);
+            response.sendRedirect("index.jsp");
+        } else {
+            request.getRequestDispatcher("Auth/login.jsp").forward(request, response);
+        }        
     }
 
     /**

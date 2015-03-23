@@ -17,7 +17,6 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "Register", urlPatterns = {"/register"})
 public class Register extends HttpServlet {
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -47,13 +46,8 @@ public class Register extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");        
         
-        Map<String, String> map = new HashMap<String, String>();
-        map.put("name", name);
-        map.put("email", email);
-        map.put("password", password);
-        
         Controller.User userController = new Controller.User();
-        Map<String, String> messages = userController.doRegister(map);
+        Map<String, String> messages = userController.doRegister(name, email, password);
         request.setAttribute("messages", messages);
         request.getRequestDispatcher("Auth/register.jsp").forward(request, response);
     }

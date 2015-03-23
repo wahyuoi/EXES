@@ -36,14 +36,9 @@ public class Activate extends HttpServlet {
         } else if (id == null || id.trim().isEmpty()) {
             request.getRequestDispatcher("Auth/register.jsp").forward(request, response);
         }
-        
-        // send parameter to controller
-        Map<String, String> map = new HashMap<String, String>();
-        map.put("id", id);
-        map.put("token", token);
-        
+               
         Controller.User userController = new Controller.User();
-        Map<String, String> messages = userController.doActivate(map);
+        Map<String, String> messages = userController.doActivate(token, id);
         
         // responses
         request.setAttribute("messages", messages);
