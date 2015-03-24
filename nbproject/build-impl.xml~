@@ -856,7 +856,7 @@ exists or setup the property manually. For example like this:
     <target depends="init" if="no.dist.ear.dir" name="deps-module-jar" unless="no.deps"/>
     <target depends="init" if="dist.ear.dir" name="deps-ear-jar" unless="no.deps"/>
     <target depends="init, deps-module-jar, deps-ear-jar" name="deps-jar" unless="no.deps"/>
-    <target depends="init,deps-jar,wsimport-client-generate" name="-pre-pre-compile">
+    <target depends="init,deps-jar" name="-pre-pre-compile">
         <mkdir dir="${build.classes.dir}"/>
     </target>
     <target name="-pre-compile">
@@ -1017,13 +1017,7 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${file.reference.mysql-connector-java-5.1.34-bin.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${libs.hibernate4-support.classpath}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${libs.jpa2-persistence.classpath}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copyfiles files="${libs.metro.classpath}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copyfiles files="${file.reference.mysql-connector-java-5.1.34-bin.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copyfiles files="${file.reference.sendgrid-java.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copyfiles files="${file.reference.mysql-connector-java-5.1.34-bin.jar-2}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copyfiles files="${file.reference.sendgrid-java.jar-2}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copyfiles files="${file.reference.mysql-connector-java-5.1.34-bin.jar-2}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copyfiles files="${file.reference.sendgrid-java.jar-2}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copyfiles files="${libs.metro.classpath}" todir="${build.web.dir}/WEB-INF/lib"/>        
     </target>
     <target depends="init" if="dist.ear.dir" name="-clean-webinf-lib">
         <delete dir="${build.web.dir}/WEB-INF/lib"/>
