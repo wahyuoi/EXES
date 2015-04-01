@@ -11,7 +11,7 @@
       <column name="id_user" not-null="true"/>
     </property>
     <property name="tglTransaksi" type="timestamp">
-      <column length="19" name="tgl_transaksi" not-null="true"/>
+      <column length="19" name="tgl_transaksi"/>
     </property>
     <property name="deskripsi" type="string">
       <column length="145" name="deskripsi"/>

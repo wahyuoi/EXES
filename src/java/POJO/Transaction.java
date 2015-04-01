@@ -20,11 +20,6 @@ public class Transaction implements java.io.Serializable {
     public Transaction() {
     }
 
-    public Transaction(int idUser, Date tglTransaksi) {
-        this.idUser = idUser;
-        this.tglTransaksi = tglTransaksi;
-    }
-
     public Transaction(int idUser, Date tglTransaksi, String deskripsi, Integer amount, Integer jenis, Integer idKategori, String mataUang) {
         this.idUser = idUser;
         this.tglTransaksi = tglTransaksi;

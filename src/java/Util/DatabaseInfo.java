@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Order;
 
 /**
  *
@@ -43,13 +44,13 @@ public class DatabaseInfo {
         afterClass();
     }
 
-    // delete object from database
+    // delete obj from database
     public void delete(int id, String clazz) {
         beforeClass();
         try {
             Class cls = Class.forName(clazz);
             Object obj = cls.newInstance();
-            obj = session.load(cls, id);
+            obj = session.load(cls, id);            
             session.delete(obj);
         } catch (Exception e) {
             e.printStackTrace();
@@ -57,6 +58,20 @@ public class DatabaseInfo {
         afterClass();
     }
 
+    // delete object belongs to user
+    public void deleteWithUserId(int id, int idUser, String clazz) {
+        beforeClass();
+        try {
+            Class cls = Class.forName(clazz);
+            Object obj = cls.newInstance();
+            obj = session.load(cls, id);
+            
+            session.delete(obj);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        afterClass();
+    }
     // get all rows
     public List<Object> getAll(String clazz) {
         beforeClass();
@@ -69,6 +84,20 @@ public class DatabaseInfo {
         return ret;
     }
 
+    // get limited rows
+    public List<Object> getLimitedRows(String clazz, int limits) {
+        beforeClass();
+
+        List<Object> ret = new ArrayList<Object>();
+        
+        ret = session.createCriteria(clazz)                
+                .addOrder(Order.desc("id"))
+                .setMaxResults(limits).list();
+
+        afterClass();
+        return ret;
+    }
+    
     // get row by id
     public Object getById(int id, String clazz) {
         beforeClass();

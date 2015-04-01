@@ -1,8 +1,6 @@
-package Route.Auth;
+package Route.Transaction;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -14,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author wahyuoi
  */
-@WebServlet(name = "Login", urlPatterns = {"/login"})
-public class Login extends HttpServlet {
+@WebServlet(name = "AddTransaction", urlPatterns = {"/transaction/add"})
+public class Add extends HttpServlet {
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -28,7 +26,14 @@ public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("Auth/login.jsp").forward(request, response);
+        Controller.User userController = new Controller.User();
+        Cookie[] cookies = request.getCookies();
+        if (userController.isLogin(cookies)) {                                
+            request.getRequestDispatcher("/View/Transaction/add.jsp").forward(request, response);
+        } else { // user does not login
+            response.sendRedirect("/Exes");
+        }
+        
     }
 
     /**
@@ -42,30 +47,23 @@ public class Login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
-
-        Controller.User userController = new Controller.User();        
+        Controller.User userController = new Controller.User();
         Cookie[] cookies = request.getCookies();
-        
-        if (userController.isLogin(cookies)){
+        if (!userController.isLogin(cookies)){
             response.sendRedirect("/Exes");
         }
+        int idUser = userController.getUserId(cookies);
+        String matauang = request.getParameter("matauang");
+        int nominal = Integer.parseInt(request.getParameter("nominal"));
+        int kategori = Integer.parseInt(request.getParameter("kategori"));
+        String deskripsi = request.getParameter("deskripsi");
+        int jenis = Integer.parseInt(request.getParameter("jenis"));
         
-        Map<String, String> messages = userController.doLogin(email, password);
-        request.setAttribute("messages", messages);
+        Controller.Transaction trxController = new Controller.Transaction();
         
-        if (messages.containsKey("LSESSID")){
-            Cookie cook = new Cookie("LSESSID", messages.get("LSESSID"));
-            response.addCookie(cook);
-            cook = new Cookie("EMAIL", messages.get("EMAIL"));
-            response.addCookie(cook);
-            cook = new Cookie("IDUSER", messages.get("IDUSER"));
-            response.addCookie(cook);
-            response.sendRedirect("index.jsp");
-        } else {
-            request.getRequestDispatcher("Auth/login.jsp").forward(request, response);
-        }        
+        trxController.add(idUser, matauang, nominal, kategori, deskripsi, jenis);  
+        
+        response.sendRedirect("/Exes/transaction");
     }
 
     /**

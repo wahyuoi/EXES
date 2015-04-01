@@ -39,9 +39,9 @@ public class User {
            
             if (email == null || email.trim().isEmpty() || !EmailValidator.validate(email)) {
                 messages.put("email", "Enter valid email!");
-            } else if (dbInfo.getByEmail(email, "POJO.UnverifiedUser").size() > 0) {
+            } else if (dbInfo.getByEmail(email, POJO.UnverifiedUser.class.getName()).size() > 0) {
                 messages.put("email", "Already registered, please activate your account. Check your email for instructions!");
-            } else if (dbInfo.getByEmail(email, "POJO.User").size() > 0) {
+            } else if (dbInfo.getByEmail(email, POJO.User.class.getName()).size() > 0) {
                 messages.put("email", "Email already registered, please login!");
             }
 
@@ -88,7 +88,7 @@ public class User {
 
         DatabaseInfo dbInfo = new DatabaseInfo();
         // get user info from unverified user, based on id
-        UnverifiedUser user = (UnverifiedUser) dbInfo.getById(Integer.parseInt(id), "POJO.UnverifiedUser");
+        UnverifiedUser user = (UnverifiedUser) dbInfo.getById(Integer.parseInt(id), POJO.UnverifiedUser.class.getName());
 
         // if user token equals to token in database
         if (user != null && user.getToken().equals(token)) {
@@ -99,9 +99,9 @@ public class User {
             newUser.setPassword(user.getPassword());
             token = Token.generateToken(System.currentTimeMillis() + "");
             newUser.setToken(token);
-            // insert new user and delete old one
+            // insert new user and deleteWithUserId old one
             dbInfo.insert(newUser);
-            dbInfo.delete(user.getId(), "POJO.UnverifiedUser");
+            dbInfo.delete(user.getId(), POJO.UnverifiedUser.class.getName());
             messages.put("success", "You can login now!");
         } else {
             messages.put("success", "Sorry, your account not found or had been activated!");
@@ -120,18 +120,18 @@ public class User {
         }
 
         if (messages.isEmpty()) {
-            List<Object> user = dbInfo.getByEmail(email, "POJO.User");
+            List<Object> user = dbInfo.getByEmail(email, POJO.User.class.getName());
             if (user.isEmpty()) {
                 messages.put("error", "Wrong email or password");
             } else if (Token.generateToken(password).equals(((POJO.User) user.get(0)).getPassword())) {                
                 messages.put("LSESSID", Token.generateToken(System.currentTimeMillis() + ""));                
                 messages.put("EMAIL", email);                                
-                
+                messages.put("IDUSER", ((POJO.User) user.get(0)).getId().toString());
                 // update token
                 // if user login, token will automatically updated
                 POJO.User curUser = (POJO.User) user.get(0);
                 curUser.setToken(messages.get("LSESSID"));
-                dbInfo.update(curUser, "POJO.User");
+                dbInfo.update(curUser, POJO.User.class.getName());
             } else {
                 messages.put("error", "Wrong email or password");
             }
@@ -144,6 +144,8 @@ public class User {
             if ("LSESSID".equals(cooky.getName())) {
                 cooky.setMaxAge(0);
             } else if ("EMAIL".equals(cooky.getName())) {
+                cooky.setMaxAge(0);
+            } else if ("IDUSER".equals(cooky.getName())) {
                 cooky.setMaxAge(0);
             }
         }
@@ -180,12 +182,12 @@ public class User {
             confirmPassword = Token.generateToken(confirmPassword);
             newPassword = Token.generateToken(newPassword);
             if (email != null) {
-                List<Object> users = dbInfo.getByEmail(email, "POJO.User");
+                List<Object> users = dbInfo.getByEmail(email, POJO.User.class.getName());
                 if (!users.isEmpty()) {
                     POJO.User user = (POJO.User) users.get(0);
                     if (oldPassword.equals(user.getPassword())) {
                         user.setPassword(newPassword);
-                        dbInfo.update(user, "POJO.User");
+                        dbInfo.update(user, POJO.User.class.getName());
                         messages.put("success", "Password changed!");
                     } else {
                         messages.put("oldPassword", "Wrong password!");
@@ -209,7 +211,7 @@ public class User {
 
         } else {
             // both exists
-            POJO.User user = (POJO.User) dbInfo.getById(Integer.parseInt(id), "POJO.User");
+            POJO.User user = (POJO.User) dbInfo.getById(Integer.parseInt(id), POJO.User.class.getName());
             if (user == null) {
                 // no id in database
                 response.sendRedirect("Auth/reset.jsp");
@@ -248,7 +250,7 @@ public class User {
             messages.put("email", "Enter valid email");
         } else {
             // valid email
-            List<Object> users = dbInfo.getByEmail(email, "POJO.User");
+            List<Object> users = dbInfo.getByEmail(email, POJO.User.class.getName());
             if (users.isEmpty()) {
                 messages.put("email", "Email not registered");
             } else {
@@ -262,7 +264,7 @@ public class User {
 
                     // save new token
                     user.setToken(token);
-                    dbInfo.update(user, "POJO.User");
+                    dbInfo.update(user, POJO.User.class.getName());
                     // send token to user
                     SendEmail sendEmail = new SendEmail();
                     String subject = "Reset Your EXES Password";
@@ -300,7 +302,7 @@ public class User {
             request.getRequestDispatcher("Auth/resetForm.jsp").forward(request, response);
         } else {
             // both exists
-            POJO.User user = (POJO.User) dbInfo.getById(Integer.parseInt(id), "POJO.User");
+            POJO.User user = (POJO.User) dbInfo.getById(Integer.parseInt(id), POJO.User.class.getName());
             if (user == null) {
                 // no id in database
                 response.sendRedirect("Auth/reset.jsp");
@@ -312,7 +314,7 @@ public class User {
 
                 user.setPassword(Token.generateToken(newPassword));
                 user.setToken(Token.generateToken(System.currentTimeMillis() + ""));
-                dbInfo.update(user, "POJO.User");
+                dbInfo.update(user, POJO.User.class.getName());
                 // show form
                 messages.put("success", "Reset berhasil, silakan login");
                 request.getRequestDispatcher("Auth/login.jsp").forward(request, response);
@@ -324,5 +326,14 @@ public class User {
             }
         }
 
+    }
+
+    public int getUserId(Cookie[] cookies) {        
+        for (Cookie cooky : cookies) {
+            if ("IDUSER".equals(cooky.getName())) {
+                return Integer.parseInt(cooky.getValue());
+            }
+        }
+        return -1;
     }
 }

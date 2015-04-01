@@ -32,7 +32,7 @@
     }
     %>
     <%-- end web service invocation --%><hr/>
-    <h1>Hello World! <%= email  + result%> -- </h1>
+    <h1>Hello World! <%= email + result%> -- </h1>
 
     
         
