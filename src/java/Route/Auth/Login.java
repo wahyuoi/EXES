@@ -50,6 +50,7 @@ public class Login extends HttpServlet {
         
         if (userController.isLogin(cookies)){
             response.sendRedirect("/Exes");
+            return;
         }
         
         Map<String, String> messages = userController.doLogin(email, password);

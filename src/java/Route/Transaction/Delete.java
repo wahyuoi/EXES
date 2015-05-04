@@ -32,6 +32,7 @@ public class Delete extends HttpServlet {
         Cookie[] cookies = request.getCookies();
         if (!userController.isLogin(cookies)){
             response.sendRedirect("/Exes");
+            return;
         }
         String id = (String) request.getParameter("id");
         int _id = 0;

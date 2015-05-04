@@ -1,5 +1,6 @@
 package Route.Transaction;
 
+import Controller.Transaction;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -29,6 +30,7 @@ public class Update extends HttpServlet {
         Controller.User userController = new Controller.User();
         if (!userController.isLogin(request.getCookies())){
             response.sendRedirect("/Exes");
+            return;
         }
         Controller.Transaction trxController = new Controller.Transaction();
         String id = request.getParameter("id");
@@ -67,6 +69,8 @@ public class Update extends HttpServlet {
         int kategori = Integer.parseInt(request.getParameter("kategori"));
         int jenis = Integer.parseInt(request.getParameter("jenis"));
         
+        Transaction trx = new Transaction();
+        trx.update(id, idUser, nominal, matauang, deskripsi, kategori, jenis);
     }
 
     /**

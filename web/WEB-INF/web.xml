@@ -8,16 +8,25 @@
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>UserWS</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AuthWS</servlet-name>
         <url-pattern>/AuthWS</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserWS</servlet-name>
+        <url-pattern>/UserWS</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-<!--    <jsp-config>
+    <!--    <jsp-config>
         <jsp-property-group>
             <url-pattern>*.jsp</url-pattern>
             <scripting-invalid>true</scripting-invalid>

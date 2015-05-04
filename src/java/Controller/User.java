@@ -336,4 +336,13 @@ public class User {
         }
         return -1;
     }
+    
+    public String getCookiesByName(Cookie[] cookies, String name){
+        for (Cookie cooky : cookies) {
+            if (cooky.getName().equals(name)){
+                return cooky.getValue();
+            }
+        }
+        return null;
+    }
 }

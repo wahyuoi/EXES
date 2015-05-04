@@ -41,5 +41,16 @@ public class Transaction {
         POJO.Transaction ret = (POJO.Transaction) dbInfo.getById(_ids, POJO.Transaction.class.getName());
         return ret;
     }
+
+    public void update(int id, int idUser, int nominal, String matauang, String deskripsi, int kategori, int jenis) {
+        POJO.Transaction trx = (POJO.Transaction) dbInfo.getById(id, POJO.Transaction.class.getName());
+        trx.setAmount(nominal);
+        trx.setDeskripsi(deskripsi);
+        trx.setIdKategori(kategori);
+        trx.setJenis(jenis);
+        trx.setMataUang(matauang);
+        
+        dbInfo.update(trx, POJO.Transaction.class.getName());
+    }
     
 }

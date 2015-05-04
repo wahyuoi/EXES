@@ -1,11 +1,10 @@
-package Route.Transaction;
+package Route.Auth;
 
+import Util.DatabaseInfo;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,10 +13,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author wahyuoi
  */
-@WebServlet(name = "retrieve", urlPatterns = {"/transaction", "/transaction/"})
-public class Retrieve extends HttpServlet {
-
-    private int DEFAULT_N = 20;
+@WebServlet(name = "DeleteAccount", urlPatterns = {"/auth/delete"})
+public class Delete extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,29 +26,16 @@ public class Retrieve extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {        
+            throws ServletException, IOException {
         Controller.User userController = new Controller.User();
-        if (!userController.isLogin(request.getCookies())){
-            response.sendRedirect("/Exes");
-            return;
-        }
-        String number = request.getParameter("number");
-        int N;
-        if (number == null) {
-            N = DEFAULT_N;
-        } else {
-            N = Integer.parseInt(number);
-            if (N < 1){
-                N = DEFAULT_N;
-            }
-        }
-        
-        
-        
-        Controller.Transaction trxController = new Controller.Transaction();
-        ArrayList<Object> ret = (ArrayList<Object>) trxController.getTransaction(N);
-        request.setAttribute("list", ret);        
-        request.getRequestDispatcher("/View/Transaction/retrieve.jsp").forward(request, response);
+        Cookie[] cookies = request.getCookies();
+        if (userController.isLogin(cookies)) {                                
+            DatabaseInfo dbInfo = new DatabaseInfo();
+            String idUser = userController.getCookiesByName(cookies, "IDUSER");
+            dbInfo.delete(Integer.parseInt(idUser), POJO.User.class.getName());
+            
+        } 
+        response.sendRedirect("/Exes");        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
