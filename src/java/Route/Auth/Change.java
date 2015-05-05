@@ -28,13 +28,8 @@ public class Change extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        Controller.User userController = new Controller.User();
-        if (userController.isLogin(request.getCookies())) {
-            request.getRequestDispatcher("Auth/change.jsp").forward(request, response);
-        } else {
-            response.sendRedirect("/Exes");
-        }
+            throws ServletException, IOException {        
+            response.sendRedirect("/Exes/profile");        
     }
 
     /**
@@ -66,7 +61,7 @@ public class Change extends HttpServlet {
                     oldPassword, newPassword, confirmPassword, email);
             
             request.setAttribute("messages", messages);
-            request.getRequestDispatcher("Auth/change.jsp").forward(request, response);
+            request.getRequestDispatcher("View/profile.jsp").forward(request, response);
         } else {
             response.sendRedirect("/Exes");
         }

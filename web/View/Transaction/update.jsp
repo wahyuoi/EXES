@@ -4,41 +4,36 @@
     Author     : wahyuoi
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Update Transaction</title>
-    </head>
-    <body>
-        <form action="update" method="post">
-            <table>               
-                <tr>
-                    <td>Jenis Mata Uang</td>
-                    <td><input name="matauang" type="text" value="${trx.getMataUang()}"></td> 
-                </tr>
-                <tr>
-                    <td>Nominal</td>
-                    <td><input name="nominal" type="number" value="${trx.getAmount()}"> </td>                    
-                </tr>
-                <tr>
-                    <td>Kategori</td>
-                    <td><input name="kategori" type="number"  value="${trx.getIdKategori()}"></td>                    
-                </tr>
-                <tr>
-                    <td>Deskripsi</td>
-                    <td><input name="deskripsi" type="text"  value="${trx.getDeskripsi()}"></td>
-                </tr>
-                <tr>
-                    <td>Jenis Transaksi</td>
-                    <td><input name="jenis" type="number"  value="${trx.getJenis()}"></td>                    
-                </tr>
-            </table>            
+<%@include file="../navmenu.jsp" %>
+<div class="row" style="padding-left: 260px;">
+    <div class="col-lg-8">  
+        <form action="add" method="post">                          
+                <div class="form-group">
+                    <label>Currency</label>
+                    <input class="form-control" name="matauang" type="text" value="${trx.getMataUang()}">                    
+                </div>
+                <div class="form-group">
+                    <label>Amount</label>
+                    <input class="form-control" name="nominal" type="number" value="${trx.getAmount()}">                    
+                </div>
+                <div class="form-group">
+                    <label>Category</label>
+                    <input class="form-control" name="kategori" type="number" value="${trx.getIdKategori()}">                    
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <input class="form-control" name="deskripsi" type="text" value="${trx.getDeskripsi()}">                    
+                </div>
+                <div class="form-group">
+                    <label>Type</label>
+                    <input class="form-control" name="jenis" type="number" value="${trx.getJenis()}">                    
+                </div>
+                       
             <input name="idUser"  value="${trx.getIdUser()}" type="hidden">
             <input name="id"  value="${trx.getId()}" type="hidden">
-            <input name="submit" type="submit" class="submit" id="loginButton" value="Submit">
+            <input name="submit" type="submit" class=" btn btn-primary" id="loginButton" value="Submit">
             <span class="success">${messages.success}</span>
         </form>
-    </body>
-</html>
+    </div>
+</div>
+<%@include file="../footer.jsp" %>

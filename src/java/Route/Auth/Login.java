@@ -28,6 +28,13 @@ public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Controller.User userController = new Controller.User(); 
+        Cookie[] cookies = request.getCookies();
+        
+        if (userController.isLogin(cookies)){
+            response.sendRedirect("/Exes/transaction");
+            return;
+        }
         request.getRequestDispatcher("Auth/login.jsp").forward(request, response);
     }
 
@@ -49,7 +56,7 @@ public class Login extends HttpServlet {
         Cookie[] cookies = request.getCookies();
         
         if (userController.isLogin(cookies)){
-            response.sendRedirect("/Exes");
+            response.sendRedirect("/Exes/transaction");
             return;
         }
         
@@ -63,7 +70,7 @@ public class Login extends HttpServlet {
             response.addCookie(cook);
             cook = new Cookie("IDUSER", messages.get("IDUSER"));
             response.addCookie(cook);
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("/Exes/transaction");
         } else {
             request.getRequestDispatcher("Auth/login.jsp").forward(request, response);
         }        

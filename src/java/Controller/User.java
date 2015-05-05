@@ -345,4 +345,8 @@ public class User {
         }
         return null;
     }
+
+    public void deleteAccount(int id) {
+        dbInfo.delete(id, POJO.User.class.getName());
+    }
 }

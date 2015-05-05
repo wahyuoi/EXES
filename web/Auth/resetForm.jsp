@@ -4,32 +4,35 @@
     Author     : wahyuoi
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Reset Form</h1>
-        <form action="reset" method="post">
-            <table>                               
-                <tr>
-                    <td>Enter Your New Password</td>
-                    <td><input name="newPassword" type="password" id="newPassword"></td>
-                    <td><span class="success">${messages.newPassword}</span></td>
-                </tr>
-                <tr>
-                    <td>Re-enter Your Email Address</td>
-                    <td><input name="confirmPassword" type="password" id="confirmPassword"></td>
-                    <td><span class="success">${messages.confirmPassword}</span></td>
-                </tr>
-            </table>   
-                <input name="id" type="hidden" value=${messages.id}>
-                <input name="token" type="hidden" value=${messages.token}>
-            <input name="submit" type="submit" class="submit" id="loginButton" value="Save">
-            <span class="success">${messages.success}</span>
-        </form>
-    </body>
-</html>
+<jsp:include page="../frontheader.jsp"></jsp:include>
+
+<header>
+    <div class="header-content">
+        <div class="header-content-inner">
+            <h2>RESET PASSWORD</h2>
+            <hr>
+            <form action="reset" method="post">
+                <div style="padding-left:300px;padding-right: 300px;">
+                    <div class="form-group">
+                        <div class="input-group"> <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                            <input name="newPassword" type="password" id="newPassword" class="form-control" placeholder="Password" required>
+                            <span class="success">${messages.newPassword}</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group"> <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+                            <input name="confirmPassword" type="password" id="confirmPassword" class="form-control" placeholder="Confirm Password" required>
+                            <span class="success">${messages.confirmPassword}</span>
+                        </div>
+                    </div>                    
+                    
+                    <input name="id" type="hidden" value=${messages.id}/>
+                    <input name="token" type="hidden" value=${messages.token}/>
+                    <input name="submit" type="submit" id="loginButton" value="Reset" class="btn btn-default">
+                    <span class="success">${messages.success}</span>
+                </div>
+            </form>
+        </div>
+    </div>
+</header>
+                    

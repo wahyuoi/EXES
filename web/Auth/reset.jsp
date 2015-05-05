@@ -5,24 +5,26 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-        <form action="reset" method="post">
-            <table>                               
-                <tr>
-                    <td>Enter Your Email Address</td>
-                    <td><input name="email" type="text" id="email"></td>
-                    <td><span class="success">${messages.email}</span></td>
-                </tr>
-            </table>            
-            <input name="submit" type="submit" class="submit" id="loginButton" value="Reset">
-            <span class="success">${messages.success}</span>
-        </form>
-    </body>
-</html>
+<%@include file="../frontheader.jsp" %>
+
+<header>
+    <div class="header-content">
+        <div class="header-content-inner">
+            <h2>RESET PASSWORD</h2>
+            <hr>
+
+            <p>Enter your email address below to reset your password.</p>
+            <form method="post" action="/Exes/reset">
+                <div style="padding-left:280px;padding-right: 280px;">
+                    <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control">
+                </div>
+                <div style="padding-left:280px;padding-right: 280px;">
+                    <div class="modal-footer">                        
+                        <input name="submit" type="submit" class="btn btn-default" value="Reset Password">
+                         <span class="success">${messages.success}</span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</header>

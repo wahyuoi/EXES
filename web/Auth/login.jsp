@@ -4,7 +4,39 @@
     Author     : wahyuoi
 --%>
 
-<jsp:include page="../header.jsp"></jsp:include>
+<jsp:include page="../frontheader.jsp"></jsp:include>
+<header>
+    <div class="header-content">
+        <div class="header-content-inner">
+            <h2>LOGIN</h2>
+            <hr>
+            <div style="padding-left:300px;padding-right: 300px;">
+                <form action="/Exes/login" method="post">
+                    <div class="form-group">
+                        <div class="input-group"> <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                            <input class="form-control" placeholder="Email" name="email" type="text" id="email" required>
+                            <span class="success">${messages.email}</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group"> <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                            <input type="password" class="form-control" name="password" id="password" placeholder="Password" required >
+                            <span class="success">${messages.password}</span>
+                        </div>
+                    </div>
+                    <span class="pull-right">
+                        <a href="/Exes/reset"> Forgot Password?</a>
+                    </span>
+                    <br>
+                    <input class="btn btn-default" name="submit" type="submit" id="loginButton" value="Login">
+                    <br>
+                    <span class="success">${messages.error}</span>
+                </form>
+            </div>     
+        </div>
+    </div>
+</header>
+<!--
     <body>
         <h1>Hello World!</h1>
         <form action="login" method="post">
@@ -28,5 +60,5 @@
         <input name="submit" type="submit" class="submit" id="loginButton" value="Logout">
         <span class="success">${messages.success}</span>
     </form>
-</body>
+</body>-->
 </html>
