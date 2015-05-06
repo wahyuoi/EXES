@@ -29,7 +29,7 @@ public class Reset extends HttpServlet {
         String id = request.getParameter("id");
         // tanpa parameter
         if (id == null || id.trim().isEmpty()){            
-            request.getRequestDispatcher("Auth/reset.jsp").forward(request, response);
+            request.getRequestDispatcher("View/Auth/reset.jsp").forward(request, response);
         } else {
             // dengan parameter token
             Controller.User userController = new Controller.User();
@@ -60,7 +60,7 @@ public class Reset extends HttpServlet {
             userController.doSaveNewPassword(request, response);
         }
         
-        response.sendRedirect("Auth/reset.jsp");
+        response.sendRedirect("View/Auth/reset.jsp");
     }
 
     /**

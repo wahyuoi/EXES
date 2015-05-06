@@ -36,7 +36,7 @@ public class Register extends HttpServlet {
             response.sendRedirect("/Exes");
             return;
         }
-        request.getRequestDispatcher("Auth/register.jsp").forward(request, response);
+        request.getRequestDispatcher("View/Auth/register.jsp").forward(request, response);
     }
 
     /**
@@ -57,7 +57,7 @@ public class Register extends HttpServlet {
         Controller.User userController = new Controller.User();
         Map<String, String> messages = userController.doRegister(name, email, password);
         request.setAttribute("messages", messages);
-        request.getRequestDispatcher("Auth/register.jsp").forward(request, response);
+        request.getRequestDispatcher("View/Auth/register.jsp").forward(request, response);
     }
 
     /**

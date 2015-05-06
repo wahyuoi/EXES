@@ -35,7 +35,7 @@ public class Login extends HttpServlet {
             response.sendRedirect("/Exes/transaction");
             return;
         }
-        request.getRequestDispatcher("Auth/login.jsp").forward(request, response);
+        request.getRequestDispatcher("View/Auth/login.jsp").forward(request, response);
     }
 
     /**
@@ -72,7 +72,7 @@ public class Login extends HttpServlet {
             response.addCookie(cook);
             response.sendRedirect("/Exes/transaction");
         } else {
-            request.getRequestDispatcher("Auth/login.jsp").forward(request, response);
+            request.getRequestDispatcher("View/Auth/login.jsp").forward(request, response);
         }        
     }
 

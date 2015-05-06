@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="frontheader.jsp" %>
+<%@include file="View/frontheader.jsp" %>
 
 <header>
     <div class="header-content">

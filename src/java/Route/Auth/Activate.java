@@ -32,9 +32,9 @@ public class Activate extends HttpServlet {
         
         // error in GET parameters
         if (token == null || token.trim().isEmpty()) {
-            request.getRequestDispatcher("Auth/register.jsp").forward(request, response);
+            request.getRequestDispatcher("View/Auth/register.jsp").forward(request, response);
         } else if (id == null || id.trim().isEmpty()) {
-            request.getRequestDispatcher("Auth/register.jsp").forward(request, response);
+            request.getRequestDispatcher("View/Auth/register.jsp").forward(request, response);
         }
                
         Controller.User userController = new Controller.User();
@@ -42,7 +42,7 @@ public class Activate extends HttpServlet {
         
         // responses
         request.setAttribute("messages", messages);
-        request.getRequestDispatcher("Auth/login.jsp").forward(request, response);
+        request.getRequestDispatcher("View/Auth/login.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
