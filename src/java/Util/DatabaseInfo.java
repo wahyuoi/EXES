@@ -121,4 +121,15 @@ public class DatabaseInfo {
         afterClass();
         return ret;
     }
+
+    public List<Object> getAllByUserId(String clazz, int id_user) {
+        beforeClass();
+
+        List<Object> ret = new ArrayList<Object>();
+        String query = "from " + clazz + " where id_user = '" + id_user + "'";
+        ret = session.createQuery(query).list();
+
+        afterClass();
+        return ret;
+    }
 }

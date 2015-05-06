@@ -31,6 +31,10 @@ public class Transaction {
         List<Object> ret = dbInfo.getLimitedRows(POJO.Transaction.class.getName(), N);
         return ret;
     }
+    
+    public List<Object> getTransactionByUserId(int id_user){
+        return dbInfo.getAllByUserId(POJO.Transaction.class.getName(), id_user);
+    }
 
     public void delete(int _id, int idUser) {
         if (_id>0)

@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,25 +32,15 @@ public class Retrieve extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {        
         Controller.User userController = new Controller.User();
-        if (!userController.isLogin(request.getCookies())){
+        Cookie[] cookies = request.getCookies();
+        if (!userController.isLogin(cookies)){
             response.sendRedirect("/Exes");
             return;
-        }
-        String number = request.getParameter("number");
-        int N;
-        if (number == null) {
-            N = DEFAULT_N;
-        } else {
-            N = Integer.parseInt(number);
-            if (N < 1){
-                N = DEFAULT_N;
-            }
-        }
+        }    
         
-        
-        
+        int id = userController.getUserId(cookies);
         Controller.Transaction trxController = new Controller.Transaction();
-        ArrayList<Object> ret = (ArrayList<Object>) trxController.getTransaction(N);
+        ArrayList<Object> ret = (ArrayList<Object>) trxController.getTransactionByUserId(id);
         request.setAttribute("list", ret);        
         request.getRequestDispatcher("/View/Transaction/retrieve.jsp").forward(request, response);
     }
