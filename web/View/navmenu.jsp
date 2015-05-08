@@ -20,6 +20,8 @@
 
         <!-- Bootstrap core CSS -->
         <link href="/Exes/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/Exes/css/bootstrap-select.css" rel="stylesheet">
+        <link href="/Exes/css/bootstrap-select.min.css" rel="stylesheet">
 
         <!-- Custom styles for this template -->
         <link href="/Exes/css/dashboard.css" rel="stylesheet">
