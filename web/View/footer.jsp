@@ -10,6 +10,7 @@
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="/Exes/js/jquery.min.js"></script>
         <script src="/Exes/js/bootstrap.min.js"></script>
+        <script src="/Exes/js/bootstrap-select.js"></script>
         <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
         <script src="/Exes/js/holder.js"></script>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
