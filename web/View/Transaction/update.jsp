@@ -36,7 +36,12 @@
                     </tr>
                     <tr>
                         <td><label>Type</label></td>
-                        <td><input class="form-control" name="jenis" type="number" value="${trx.getJenis()}"></td>
+                        <td>
+                            <select class="selectpicker" name="jenis" value="${trx.getJenis()}">
+                                <option value="0">Income</option>
+                                <option value="1">Expense</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td><span class="success">${messages.success}</span></td>
