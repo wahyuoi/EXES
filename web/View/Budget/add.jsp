@@ -23,7 +23,13 @@
                     <tr>
                         <td><label>Overall Spending Limit</label></td>
                         <td><input class="form-control" name="limit" type="number" placeholder="Amount"></td>
-                        <td><input class="form-control" name="siklus" type="number" placeholder="per Month"></td>
+                        <td>
+                            <select class="selectpicker">
+                                <option>per Week</option>
+                                <option>per Month</option>
+                                <option>per Year</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td colspan="4"><label>Spending Limit per Category</label></td>
