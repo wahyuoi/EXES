@@ -24,7 +24,7 @@
                         <td><label>Overall Spending Limit</label></td>
                         <td><input class="form-control" name="limit" type="number" placeholder="Amount"></td>
                         <td>
-                            <select class="selectpicker">
+                            <select class="selectpicker" name="siklus">
                                 <option>per Week</option>
                                 <option>per Month</option>
                                 <option>per Year</option>
@@ -37,7 +37,13 @@
                     <tr>
                         <td><input class="form-control" name="limit" type="number" placeholder="Category"></td>
                         <td><input class="form-control" name="nominal" type="number" placeholder="Amount"></td>
-                        <td><input class="form-control" name="siklus" type="number" placeholder="per Month"></td>
+                        <td>
+                            <select class="selectpicker" name="siklus">
+                                <option>per Week</option>
+                                <option>per Month</option>
+                                <option>per Year</option>
+                            </select>
+                        </td>
                         <td>
                             <div class="checkbox">
                                 <label>
@@ -49,7 +55,13 @@
                     <tr>
                         <td><input class="form-control" name="limit" type="number" placeholder="Category"></td>
                         <td><input class="form-control" name="nominal" type="number" placeholder="Amount"></td>
-                        <td><input class="form-control" name="siklus" type="number" placeholder="per Month"></td>
+                        <td>
+                            <select class="selectpicker" name="siklus">
+                                <option>per Week</option>
+                                <option>per Month</option>
+                                <option>per Year</option>
+                            </select>
+                        </td>
                         <td>
                             <div class="checkbox">
                                 <label>
