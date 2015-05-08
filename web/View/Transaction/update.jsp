@@ -20,7 +20,14 @@
                 <tbody>
                     <tr>
                         <td><label>Currency</label></td>
-                        <td><input class="form-control" name="matauang" type="text" value="${trx.getMataUang()}"></td>
+                        <td>
+                            <select class="selectpicker" name="matauang" value="${trx.getMataUang()}">
+                                <option value="IDR">Indonesian Rupiah</option>
+                                <option value="USD">United States Dollar</option>
+                                <option value="EUR">Euro</option>
+                                <option value="JPY">Japanese Yen</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td><label>Amount</label></td>
