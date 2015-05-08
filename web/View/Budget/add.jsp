@@ -25,9 +25,9 @@
                         <td><input class="form-control" name="limit" type="number" placeholder="Amount"></td>
                         <td>
                             <select class="selectpicker" name="siklus">
-                                <option>per Week</option>
-                                <option>per Month</option>
-                                <option>per Year</option>
+                                <option value="1">per Week</option>
+                                <option value="2">per Month</option>
+                                <option value="3">per Year</option>
                             </select>
                         </td>
                     </tr>
@@ -39,9 +39,9 @@
                         <td><input class="form-control" name="nominal" type="number" placeholder="Amount"></td>
                         <td>
                             <select class="selectpicker" name="siklus">
-                                <option>per Week</option>
-                                <option>per Month</option>
-                                <option>per Year</option>
+                                <option value="1">per Week</option>
+                                <option value="2">per Month</option>
+                                <option value="3">per Year</option>
                             </select>
                         </td>
                         <td>
@@ -57,9 +57,9 @@
                         <td><input class="form-control" name="nominal" type="number" placeholder="Amount"></td>
                         <td>
                             <select class="selectpicker" name="siklus">
-                                <option>per Week</option>
-                                <option>per Month</option>
-                                <option>per Year</option>
+                                <option value="1">per Week</option>
+                                <option value="2">per Month</option>
+                                <option value="3">per Year</option>
                             </select>
                         </td>
                         <td>
