@@ -22,8 +22,8 @@
                         <td><label>Type</label></td>
                         <td>
                             <select class="selectpicker" name="jenis">
-                                <option>Income</option>
-                                <option>Expense</option>
+                                <option value="0">Income</option>
+                                <option value="1">Expense</option>
                             </select>
                         </td>
                     </tr>
