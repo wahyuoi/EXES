@@ -20,7 +20,12 @@
                 <tbody>
                     <tr>
                         <td><label>Type</label></td>
-                        <td><input class="form-control" name="jenis" type="number" value="1"></td>
+                        <td>
+                            <select class="selectpicker" name="jenis">
+                                <option>Income</option>
+                                <option>Expense</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td><label>Category</label></td>
