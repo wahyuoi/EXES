@@ -11,15 +11,17 @@ public class Budget implements java.io.Serializable {
     private Integer idUser;
     private String siklus;
     private Integer batas;
-
+    private Integer rollover;
+    
     public Budget() {
     }
 
-    public Budget(Integer idKategori, Integer idUser, String siklus, Integer batas) {
+    public Budget(Integer idKategori, Integer idUser, String siklus, Integer batas, Integer rollover) {
         this.idKategori = idKategori;
         this.idUser = idUser;
         this.siklus = siklus;
         this.batas = batas;
+        this.rollover = rollover;
     }
 
     public Integer getId() {
@@ -61,4 +63,14 @@ public class Budget implements java.io.Serializable {
     public void setBatas(Integer batas) {
         this.batas = batas;
     }
+
+    public Integer getRollover() {
+        return rollover;
+    }
+
+    public void setRollover(Integer rollover) {
+        this.rollover = rollover;
+    }
+    
+    
 }

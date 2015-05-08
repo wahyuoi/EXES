@@ -19,5 +19,8 @@
     <property name="batas" type="java.lang.Integer">
       <column name="batas"/>
     </property>
+    <property name="rollover" type="java.lang.Integer">
+      <column name="rollover"/>
+    </property>
   </class>
 </hibernate-mapping>
