@@ -36,7 +36,12 @@
                     </tr>
                     <tr>
                         <td><label>Type</label></td>
-                        <td><input class="form-control" name="jenis" type="number"></td>
+                        <td>
+                            <select class="selectpicker" name="jenis">
+                                <option>Income</option>
+                                <option>Expense</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td></td>
