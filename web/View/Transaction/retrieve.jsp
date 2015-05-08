@@ -26,8 +26,8 @@
                         <th>Amount</th>
                         <th>Type</th>
                         <th>Category</th>                        
-                        <th>Delete</th>
                         <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -42,8 +42,8 @@
                         <td><%= trx.getAmount()%></td>
                         <td><%= trx.getJenis()%></td>
                         <td><%= trx.getIdKategori()%></td>
-                        <td><a href="/Exes/transaction/delete?id=<%= trx.getId()%>">Delete</a></td>
-                        <td><a href="/Exes/transaction/update?id=<%= trx.getId()%>">Edit</a></td>
+                        <td><a href="/Exes/transaction/update?id=<%= trx.getId()%>"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                        <td><a href="/Exes/transaction/delete?id=<%= trx.getId()%>"><span class="glyphicon glyphicon-remove"></span></a></td>
                     </tr>
                     <%
                         }

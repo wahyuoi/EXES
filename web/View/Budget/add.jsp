@@ -24,6 +24,7 @@
                         <td><label>Overall Spending Limit</label></td>
                         <td><input class="form-control" name="limit" type="number" placeholder="Amount"></td>
                         <td>
+                            <input class="form-control" name="kategori" type="hidden" value="-1">                            
                             <select class="selectpicker" name="siklus">
                                 <option value="1">per Week</option>
                                 <option value="2">per Month</option>
@@ -35,8 +36,8 @@
                         <td colspan="4"><label>Spending Limit per Category</label></td>
                     </tr>
                     <tr>
-                        <td><input class="form-control" name="limit" type="number" placeholder="Category"></td>
-                        <td><input class="form-control" name="nominal" type="number" placeholder="Amount"></td>
+                        <td><input class="form-control" name="kategori" type="number" placeholder="Category"></td>
+                        <td><input class="form-control" name="limit" type="number" placeholder="Amount"></td>
                         <td>
                             <select class="selectpicker" name="siklus">
                                 <option value="1">per Week</option>
@@ -47,14 +48,14 @@
                         <td>
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox"> Rollover
+                                    <input type="checkbox" name="rollover" value="1"> Rollover
                                 </label>
                             </div>
                         </td>
                     </tr>
                     <tr>
-                        <td><input class="form-control" name="limit" type="number" placeholder="Category"></td>
-                        <td><input class="form-control" name="nominal" type="number" placeholder="Amount"></td>
+                        <td><input class="form-control" name="kategori" type="number" placeholder="Category"></td>
+                        <td><input class="form-control" name="limit" type="number" placeholder="Amount"></td>
                         <td>
                             <select class="selectpicker" name="siklus">
                                 <option value="1">per Week</option>
@@ -65,15 +66,14 @@
                         <td>
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox"> Rollover
+                                    <input type="checkbox" name="rollover" value="2"> Rollover
                                 </label>
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td colspan="3"><span class="success">${messages.success}</span></td>
-                        <td align="right">
-                            <input class="form-control" name="idUser" value="<%= request.getAttribute("idUser")%>" type="hidden">
+                        <td align="right">                            
                             <input name="submit" type="submit" class=" btn btn-primary" id="loginButton" value="Save Budget">
                         </td>
                     </tr>
