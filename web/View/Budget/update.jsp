@@ -14,7 +14,9 @@
                 <thead>
                     <tr>
                         <th width="200px"></th>
-                        <th colspan="3"></th>
+                        <th></th>
+                        <th width="200px"></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
