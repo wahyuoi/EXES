@@ -14,7 +14,7 @@
                 <thead>
                     <tr>
                         <th width="200px"></th>
-                        <th></th>
+                        <th colspan="3"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,6 +28,7 @@
                                 <option>per Year</option>
                             </select>
                         </td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td colspan="4"><label>Spending Limit per Category</label></td>
