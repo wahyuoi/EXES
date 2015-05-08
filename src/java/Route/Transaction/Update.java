@@ -65,12 +65,14 @@ public class Update extends HttpServlet {
         int idUser = Integer.parseInt(request.getParameter("idUser"));
         int nominal = Integer.parseInt(request.getParameter("nominal"));
         String matauang = (request.getParameter("matauang"));
-        String deskripsi = (request.getParameter("nominal"));
+        String deskripsi = (request.getParameter("deskripsi"));
         int kategori = Integer.parseInt(request.getParameter("kategori"));
         int jenis = Integer.parseInt(request.getParameter("jenis"));
         
         Transaction trx = new Transaction();
         trx.update(id, idUser, nominal, matauang, deskripsi, kategori, jenis);
+        
+        response.sendRedirect("/Exes/transaction");
     }
 
     /**

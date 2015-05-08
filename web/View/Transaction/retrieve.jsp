@@ -25,7 +25,7 @@
                         <th>Currency</th>
                         <th>Amount</th>
                         <th>Type</th>
-                        <th>Currency</th>
+                        <th>Category</th>                        
                         <th>Delete</th>
                         <th>Edit</th>
                     </tr>

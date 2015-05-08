@@ -7,8 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="navmenu.jsp" %>
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-    <h1 class="page-header">Profile</h1>
-    <div align="right"><a data-toggle="modal" href="#delete"  class="btn btn-danger" ><i class="fa fa-warning"></i> Delete Account</a></div>
+    <h1 class="page-header">Profile</h1>    
     <div class="table-responsive">
         <table class="table">
             <thead>
@@ -18,14 +17,11 @@
                     <th width="40px;"></th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td><label>Username</label></td>
-                    <td colspan="2"><input type="text" class="form-control" placeholder="Andi" readonly>
-                </tr>
+            <% String email = (new Controller.User()).getUserEmail(request.getCookies()); %>
+            <tbody>                                
                 <tr>
                     <td><label>Email</label></td>
-                    <td colspan="2"><input type="text" class="form-control" placeholder="Andi@gmail.com" readonly></td>
+                    <td colspan="2"><input type="text" class="form-control" placeholder="<%= email %>" readonly></td>
                 </tr>
                 <tr>
                     <td><label>Password</label></td>
@@ -42,7 +38,7 @@
                     </td>
                     <td>
                         <input class="form-control" name="idUser" value="<%= request.getAttribute("idUser")%>" type="hidden">
-                        <input name="submit" type="submit" class=" btn btn-primary" id="loginButton" value="Submit">
+                        <div align="right"><a data-toggle="modal" href="#delete"  class="btn btn-danger" ><i class="fa fa-warning"></i> Delete Account</a></div>
                     </td>
                 </tr>
             </tbody>

@@ -329,12 +329,14 @@ public class User {
     }
 
     public int getUserId(Cookie[] cookies) {        
-        for (Cookie cooky : cookies) {
-            if ("IDUSER".equals(cooky.getName())) {
-                return Integer.parseInt(cooky.getValue());
-            }
-        }
-        return -1;
+        String id = getCookiesByName(cookies, "IDUSER");
+        if (id == null)
+            return -1;
+        return Integer.parseInt(id);
+    }
+    
+    public String getUserEmail(Cookie[] cookies){
+        return getCookiesByName(cookies, "EMAIL");
     }
     
     public String getCookiesByName(Cookie[] cookies, String name){

@@ -45,8 +45,8 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/Exes/View/profile.jsp">Profile</a></li>
-                        <li><a href="/Exes/View/logout">Logout</a></li>
+                        <li><a href="/Exes/profile">Profile</a></li>
+                        <li><a href="/Exes/logout">Logout</a></li>
                     </ul>
                 </div>
             </div>
