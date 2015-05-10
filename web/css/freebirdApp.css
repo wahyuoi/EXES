@@ -1,0 +1,1364 @@
+/*! jQuery UI - v1.10.3 - 2013-06-22
+* http://jqueryui.com
+* Includes: jquery.ui.core.css, jquery.ui.autocomplete.css, jquery.ui.datepicker.css, jquery.ui.menu.css
+* Copyright 2013 jQuery Foundation and other contributors Licensed MIT */.ui-helper-hidden{display:none}
+.ui-helper-hidden-accessible{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}
+.ui-helper-reset{margin:0;padding:0;border:0;outline:0;line-height:1.3;text-decoration:none;font-size:100%;list-style:none}
+.ui-helper-clearfix:before,.ui-helper-clearfix:after{content:"";display:table;border-collapse:collapse}
+.ui-helper-clearfix:after{clear:both}
+.ui-helper-clearfix{min-height:0}
+.ui-helper-zfix{width:100%;height:100%;top:0;left:0;position:absolute;opacity:0;filter:Alpha(Opacity=0)}
+.ui-front{z-index:100}
+.ui-state-disabled{cursor:default !important}
+.ui-icon{display:block;text-indent:-99999px;overflow:hidden;background-repeat:no-repeat}
+.ui-widget-overlay{position:fixed;top:0;left:0;width:100%;height:100%}
+.ui-autocomplete{position:absolute;top:0;left:0;cursor:default}
+.ui-datepicker{width:17em;padding:.2em .2em 0;display:none}
+.ui-datepicker .ui-datepicker-header{position:relative;padding:.2em 0}
+.ui-datepicker .ui-datepicker-prev,.ui-datepicker .ui-datepicker-next{position:absolute;top:2px;width:1.8em;height:1.8em}
+.ui-datepicker .ui-datepicker-prev-hover,.ui-datepicker .ui-datepicker-next-hover{top:1px}
+.ui-datepicker .ui-datepicker-prev{left:2px}
+.ui-datepicker .ui-datepicker-next{right:2px}
+.ui-datepicker .ui-datepicker-prev-hover{left:1px}
+.ui-datepicker .ui-datepicker-next-hover{right:1px}
+.ui-datepicker .ui-datepicker-prev span,.ui-datepicker .ui-datepicker-next span{display:block;position:absolute;left:50%;margin-left:-8px;top:50%;margin-top:-8px}
+.ui-datepicker .ui-datepicker-title{margin:0 2.3em;line-height:1.8em;text-align:center}
+.ui-datepicker .ui-datepicker-title select{font-size:1em;margin:1px 0}
+.ui-datepicker select.ui-datepicker-month-year{width:100%}
+.ui-datepicker select.ui-datepicker-month,.ui-datepicker select.ui-datepicker-year{width:49%}
+.ui-datepicker table{width:100%;font-size:.9em;border-collapse:collapse;margin:0 0 .4em}
+.ui-datepicker th{padding:.7em .3em;text-align:center;font-weight:bold;border:0}
+.ui-datepicker td{border:0;padding:1px}
+.ui-datepicker td span,.ui-datepicker td a{display:block;padding:.2em;text-align:right;text-decoration:none}
+.ui-datepicker .ui-datepicker-buttonpane{background-image:none;margin:.7em 0 0 0;padding:0 .2em;border-left:0;border-right:0;border-bottom:0}
+.ui-datepicker .ui-datepicker-buttonpane button{float:right;margin:.5em .2em .4em;cursor:pointer;padding:.2em .6em .3em .6em;width:auto;overflow:visible}
+.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current{float:left}
+.ui-datepicker.ui-datepicker-multi{width:auto}
+.ui-datepicker-multi .ui-datepicker-group{float:left}
+.ui-datepicker-multi .ui-datepicker-group table{width:95%;margin:0 auto .4em}
+.ui-datepicker-multi-2 .ui-datepicker-group{width:50%}
+.ui-datepicker-multi-3 .ui-datepicker-group{width:33.3%}
+.ui-datepicker-multi-4 .ui-datepicker-group{width:25%}
+.ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header,.ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header{border-left-width:0}
+.ui-datepicker-multi .ui-datepicker-buttonpane{clear:left}
+.ui-datepicker-row-break{clear:both;width:100%;font-size:0}
+.ui-datepicker-rtl{direction:rtl}
+.ui-datepicker-rtl .ui-datepicker-prev{right:2px;left:auto}
+.ui-datepicker-rtl .ui-datepicker-next{left:2px;right:auto}
+.ui-datepicker-rtl .ui-datepicker-prev:hover{right:1px;left:auto}
+.ui-datepicker-rtl .ui-datepicker-next:hover{left:1px;right:auto}
+.ui-datepicker-rtl .ui-datepicker-buttonpane{clear:right}
+.ui-datepicker-rtl .ui-datepicker-buttonpane button{float:left}
+.ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current,.ui-datepicker-rtl .ui-datepicker-group{float:right}
+.ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header,.ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header{border-right-width:0;border-left-width:1px}
+.ui-menu{list-style:none;padding:2px;margin:0;display:block;outline:0}
+.ui-menu .ui-menu{margin-top:-3px;position:absolute}
+.ui-menu .ui-menu-item{margin:0;padding:0;width:100%;list-style-image:url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7)}
+.ui-menu .ui-menu-divider{margin:5px -2px 5px -2px;height:0;font-size:0;line-height:0;border-width:1px 0 0 0}
+.ui-menu .ui-menu-item a{text-decoration:none;display:block;padding:2px .4em;line-height:1.5;min-height:0;font-weight:normal}
+.ui-menu .ui-menu-item a.ui-state-focus,.ui-menu .ui-menu-item a.ui-state-active{font-weight:normal;margin:-1px}
+.ui-menu .ui-state-disabled{font-weight:normal;margin:.4em 0 .2em;line-height:1.5}
+.ui-menu .ui-state-disabled a{cursor:default}
+.ui-menu-icons{position:relative}
+.ui-menu-icons .ui-menu-item a{position:relative;padding-left:2em}
+.ui-menu .ui-icon{position:absolute;top:.2em;left:.2em}
+.ui-menu .ui-menu-icon{position:static;float:right}
+.ui-widget{font-family:Helvetica,Arial,sans-serif;font-size:1.1em}
+.ui-widget .ui-widget{font-size:1em}
+.ui-widget input,.ui-widget select,.ui-widget textarea,.ui-widget button{font-family:Helvetica,Arial,sans-serif;font-size:1em}
+.ui-widget-content{border:1px solid #ddd;background:#fff url(/media/jquery/flick/images/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x;color:#444}
+.ui-widget-content a{color:#444}
+.ui-widget-header{border:1px solid #ddd;background:#ddd url(/media/jquery/flick/images/ui-bg_highlight-soft_50_dddddd_1x100.png) 50% 50% repeat-x;color:#444;font-weight:bold}
+.ui-widget-header a{color:#444}
+.ui-state-default,.ui-widget-content .ui-state-default,.ui-widget-header .ui-state-default{border:1px solid #ddd;background:#f6f6f6 url(/media/jquery/flick/images/ui-bg_highlight-soft_100_f6f6f6_1x100.png) 50% 50% repeat-x;font-weight:bold;color:#0073ea}
+.ui-state-default a,.ui-state-default a:link,.ui-state-default a:visited{color:#0073ea;text-decoration:none}
+.ui-state-hover,.ui-widget-content .ui-state-hover,.ui-widget-header .ui-state-hover,.ui-state-focus,.ui-widget-content .ui-state-focus,.ui-widget-header .ui-state-focus{border:1px solid #0073ea;background:#0073ea url(/media/jquery/flick/images/ui-bg_highlight-soft_25_0073ea_1x100.png) 50% 50% repeat-x;font-weight:bold;color:#fff}
+.ui-state-hover a,.ui-state-hover a:hover,.ui-state-hover a:link,.ui-state-hover a:visited{color:#fff;text-decoration:none}
+.ui-state-active,.ui-widget-content .ui-state-active,.ui-widget-header .ui-state-active{border:1px solid #ddd;background:#fff url(/media/jquery/flick/images/ui-bg_glass_65_ffffff_1x400.png) 50% 50% repeat-x;font-weight:bold;color:#ff0084}
+.ui-state-active a,.ui-state-active a:link,.ui-state-active a:visited{color:#ff0084;text-decoration:none}
+.ui-state-highlight,.ui-widget-content .ui-state-highlight,.ui-widget-header .ui-state-highlight{border:1px solid #ccc;background:#fff url(/media/jquery/flick/images/ui-bg_flat_55_ffffff_40x100.png) 50% 50% repeat-x;color:#444}
+.ui-state-highlight a,.ui-widget-content .ui-state-highlight a,.ui-widget-header .ui-state-highlight a{color:#444}
+.ui-state-error,.ui-widget-content .ui-state-error,.ui-widget-header .ui-state-error{border:1px solid #ff0084;background:#fff url(/media/jquery/flick/images/ui-bg_flat_55_ffffff_40x100.png) 50% 50% repeat-x;color:#222}
+.ui-state-error a,.ui-widget-content .ui-state-error a,.ui-widget-header .ui-state-error a{color:#222}
+.ui-state-error-text,.ui-widget-content .ui-state-error-text,.ui-widget-header .ui-state-error-text{color:#222}
+.ui-priority-primary,.ui-widget-content .ui-priority-primary,.ui-widget-header .ui-priority-primary{font-weight:bold}
+.ui-priority-secondary,.ui-widget-content .ui-priority-secondary,.ui-widget-header .ui-priority-secondary{opacity:.7;filter:Alpha(Opacity=70);font-weight:normal}
+.ui-state-disabled,.ui-widget-content .ui-state-disabled,.ui-widget-header .ui-state-disabled{opacity:.35;filter:Alpha(Opacity=35);background-image:none}
+.ui-state-disabled .ui-icon{filter:Alpha(Opacity=35)}
+.ui-icon{width:16px;height:16px}
+.ui-icon,.ui-widget-content .ui-icon{background-image:url(/media/jquery/flick/images/ui-icons_ff0084_256x240.png)}
+.ui-widget-header .ui-icon{background-image:url(/media/jquery/flick/images/ui-icons_0073ea_256x240.png)}
+.ui-state-default .ui-icon{background-image:url(/media/jquery/flick/images/ui-icons_666666_256x240.png)}
+.ui-state-hover .ui-icon,.ui-state-focus .ui-icon{background-image:url(/media/jquery/flick/images/ui-icons_ffffff_256x240.png)}
+.ui-state-active .ui-icon{background-image:url(/media/jquery/flick/images/ui-icons_454545_256x240.png)}
+.ui-state-highlight .ui-icon{background-image:url(/media/jquery/flick/images/ui-icons_0073ea_256x240.png)}
+.ui-state-error .ui-icon,.ui-state-error-text .ui-icon{background-image:url(/media/jquery/flick/images/ui-icons_ff0084_256x240.png)}
+.ui-icon-blank{background-position:16px 16px}
+.ui-icon-carat-1-n{background-position:0 0}
+.ui-icon-carat-1-ne{background-position:-16px 0}
+.ui-icon-carat-1-e{background-position:-32px 0}
+.ui-icon-carat-1-se{background-position:-48px 0}
+.ui-icon-carat-1-s{background-position:-64px 0}
+.ui-icon-carat-1-sw{background-position:-80px 0}
+.ui-icon-carat-1-w{background-position:-96px 0}
+.ui-icon-carat-1-nw{background-position:-112px 0}
+.ui-icon-carat-2-n-s{background-position:-128px 0}
+.ui-icon-carat-2-e-w{background-position:-144px 0}
+.ui-icon-triangle-1-n{background-position:0 -16px}
+.ui-icon-triangle-1-ne{background-position:-16px -16px}
+.ui-icon-triangle-1-e{background-position:-32px -16px}
+.ui-icon-triangle-1-se{background-position:-48px -16px}
+.ui-icon-triangle-1-s{background-position:-64px -16px}
+.ui-icon-triangle-1-sw{background-position:-80px -16px}
+.ui-icon-triangle-1-w{background-position:-96px -16px}
+.ui-icon-triangle-1-nw{background-position:-112px -16px}
+.ui-icon-triangle-2-n-s{background-position:-128px -16px}
+.ui-icon-triangle-2-e-w{background-position:-144px -16px}
+.ui-icon-arrow-1-n{background-position:0 -32px}
+.ui-icon-arrow-1-ne{background-position:-16px -32px}
+.ui-icon-arrow-1-e{background-position:-32px -32px}
+.ui-icon-arrow-1-se{background-position:-48px -32px}
+.ui-icon-arrow-1-s{background-position:-64px -32px}
+.ui-icon-arrow-1-sw{background-position:-80px -32px}
+.ui-icon-arrow-1-w{background-position:-96px -32px}
+.ui-icon-arrow-1-nw{background-position:-112px -32px}
+.ui-icon-arrow-2-n-s{background-position:-128px -32px}
+.ui-icon-arrow-2-ne-sw{background-position:-144px -32px}
+.ui-icon-arrow-2-e-w{background-position:-160px -32px}
+.ui-icon-arrow-2-se-nw{background-position:-176px -32px}
+.ui-icon-arrowstop-1-n{background-position:-192px -32px}
+.ui-icon-arrowstop-1-e{background-position:-208px -32px}
+.ui-icon-arrowstop-1-s{background-position:-224px -32px}
+.ui-icon-arrowstop-1-w{background-position:-240px -32px}
+.ui-icon-arrowthick-1-n{background-position:0 -48px}
+.ui-icon-arrowthick-1-ne{background-position:-16px -48px}
+.ui-icon-arrowthick-1-e{background-position:-32px -48px}
+.ui-icon-arrowthick-1-se{background-position:-48px -48px}
+.ui-icon-arrowthick-1-s{background-position:-64px -48px}
+.ui-icon-arrowthick-1-sw{background-position:-80px -48px}
+.ui-icon-arrowthick-1-w{background-position:-96px -48px}
+.ui-icon-arrowthick-1-nw{background-position:-112px -48px}
+.ui-icon-arrowthick-2-n-s{background-position:-128px -48px}
+.ui-icon-arrowthick-2-ne-sw{background-position:-144px -48px}
+.ui-icon-arrowthick-2-e-w{background-position:-160px -48px}
+.ui-icon-arrowthick-2-se-nw{background-position:-176px -48px}
+.ui-icon-arrowthickstop-1-n{background-position:-192px -48px}
+.ui-icon-arrowthickstop-1-e{background-position:-208px -48px}
+.ui-icon-arrowthickstop-1-s{background-position:-224px -48px}
+.ui-icon-arrowthickstop-1-w{background-position:-240px -48px}
+.ui-icon-arrowreturnthick-1-w{background-position:0 -64px}
+.ui-icon-arrowreturnthick-1-n{background-position:-16px -64px}
+.ui-icon-arrowreturnthick-1-e{background-position:-32px -64px}
+.ui-icon-arrowreturnthick-1-s{background-position:-48px -64px}
+.ui-icon-arrowreturn-1-w{background-position:-64px -64px}
+.ui-icon-arrowreturn-1-n{background-position:-80px -64px}
+.ui-icon-arrowreturn-1-e{background-position:-96px -64px}
+.ui-icon-arrowreturn-1-s{background-position:-112px -64px}
+.ui-icon-arrowrefresh-1-w{background-position:-128px -64px}
+.ui-icon-arrowrefresh-1-n{background-position:-144px -64px}
+.ui-icon-arrowrefresh-1-e{background-position:-160px -64px}
+.ui-icon-arrowrefresh-1-s{background-position:-176px -64px}
+.ui-icon-arrow-4{background-position:0 -80px}
+.ui-icon-arrow-4-diag{background-position:-16px -80px}
+.ui-icon-extlink{background-position:-32px -80px}
+.ui-icon-newwin{background-position:-48px -80px}
+.ui-icon-refresh{background-position:-64px -80px}
+.ui-icon-shuffle{background-position:-80px -80px}
+.ui-icon-transfer-e-w{background-position:-96px -80px}
+.ui-icon-transferthick-e-w{background-position:-112px -80px}
+.ui-icon-folder-collapsed{background-position:0 -96px}
+.ui-icon-folder-open{background-position:-16px -96px}
+.ui-icon-document{background-position:-32px -96px}
+.ui-icon-document-b{background-position:-48px -96px}
+.ui-icon-note{background-position:-64px -96px}
+.ui-icon-mail-closed{background-position:-80px -96px}
+.ui-icon-mail-open{background-position:-96px -96px}
+.ui-icon-suitcase{background-position:-112px -96px}
+.ui-icon-comment{background-position:-128px -96px}
+.ui-icon-person{background-position:-144px -96px}
+.ui-icon-print{background-position:-160px -96px}
+.ui-icon-trash{background-position:-176px -96px}
+.ui-icon-locked{background-position:-192px -96px}
+.ui-icon-unlocked{background-position:-208px -96px}
+.ui-icon-bookmark{background-position:-224px -96px}
+.ui-icon-tag{background-position:-240px -96px}
+.ui-icon-home{background-position:0 -112px}
+.ui-icon-flag{background-position:-16px -112px}
+.ui-icon-calendar{background-position:-32px -112px}
+.ui-icon-cart{background-position:-48px -112px}
+.ui-icon-pencil{background-position:-64px -112px}
+.ui-icon-clock{background-position:-80px -112px}
+.ui-icon-disk{background-position:-96px -112px}
+.ui-icon-calculator{background-position:-112px -112px}
+.ui-icon-zoomin{background-position:-128px -112px}
+.ui-icon-zoomout{background-position:-144px -112px}
+.ui-icon-search{background-position:-160px -112px}
+.ui-icon-wrench{background-position:-176px -112px}
+.ui-icon-gear{background-position:-192px -112px}
+.ui-icon-heart{background-position:-208px -112px}
+.ui-icon-star{background-position:-224px -112px}
+.ui-icon-link{background-position:-240px -112px}
+.ui-icon-cancel{background-position:0 -128px}
+.ui-icon-plus{background-position:-16px -128px}
+.ui-icon-plusthick{background-position:-32px -128px}
+.ui-icon-minus{background-position:-48px -128px}
+.ui-icon-minusthick{background-position:-64px -128px}
+.ui-icon-close{background-position:-80px -128px}
+.ui-icon-closethick{background-position:-96px -128px}
+.ui-icon-key{background-position:-112px -128px}
+.ui-icon-lightbulb{background-position:-128px -128px}
+.ui-icon-scissors{background-position:-144px -128px}
+.ui-icon-clipboard{background-position:-160px -128px}
+.ui-icon-copy{background-position:-176px -128px}
+.ui-icon-contact{background-position:-192px -128px}
+.ui-icon-image{background-position:-208px -128px}
+.ui-icon-video{background-position:-224px -128px}
+.ui-icon-script{background-position:-240px -128px}
+.ui-icon-alert{background-position:0 -144px}
+.ui-icon-info{background-position:-16px -144px}
+.ui-icon-notice{background-position:-32px -144px}
+.ui-icon-help{background-position:-48px -144px}
+.ui-icon-check{background-position:-64px -144px}
+.ui-icon-bullet{background-position:-80px -144px}
+.ui-icon-radio-on{background-position:-96px -144px}
+.ui-icon-radio-off{background-position:-112px -144px}
+.ui-icon-pin-w{background-position:-128px -144px}
+.ui-icon-pin-s{background-position:-144px -144px}
+.ui-icon-play{background-position:0 -160px}
+.ui-icon-pause{background-position:-16px -160px}
+.ui-icon-seek-next{background-position:-32px -160px}
+.ui-icon-seek-prev{background-position:-48px -160px}
+.ui-icon-seek-end{background-position:-64px -160px}
+.ui-icon-seek-start{background-position:-80px -160px}
+.ui-icon-seek-first{background-position:-80px -160px}
+.ui-icon-stop{background-position:-96px -160px}
+.ui-icon-eject{background-position:-112px -160px}
+.ui-icon-volume-off{background-position:-128px -160px}
+.ui-icon-volume-on{background-position:-144px -160px}
+.ui-icon-power{background-position:0 -176px}
+.ui-icon-signal-diag{background-position:-16px -176px}
+.ui-icon-signal{background-position:-32px -176px}
+.ui-icon-battery-0{background-position:-48px -176px}
+.ui-icon-battery-1{background-position:-64px -176px}
+.ui-icon-battery-2{background-position:-80px -176px}
+.ui-icon-battery-3{background-position:-96px -176px}
+.ui-icon-circle-plus{background-position:0 -192px}
+.ui-icon-circle-minus{background-position:-16px -192px}
+.ui-icon-circle-close{background-position:-32px -192px}
+.ui-icon-circle-triangle-e{background-position:-48px -192px}
+.ui-icon-circle-triangle-s{background-position:-64px -192px}
+.ui-icon-circle-triangle-w{background-position:-80px -192px}
+.ui-icon-circle-triangle-n{background-position:-96px -192px}
+.ui-icon-circle-arrow-e{background-position:-112px -192px}
+.ui-icon-circle-arrow-s{background-position:-128px -192px}
+.ui-icon-circle-arrow-w{background-position:-144px -192px}
+.ui-icon-circle-arrow-n{background-position:-160px -192px}
+.ui-icon-circle-zoomin{background-position:-176px -192px}
+.ui-icon-circle-zoomout{background-position:-192px -192px}
+.ui-icon-circle-check{background-position:-208px -192px}
+.ui-icon-circlesmall-plus{background-position:0 -208px}
+.ui-icon-circlesmall-minus{background-position:-16px -208px}
+.ui-icon-circlesmall-close{background-position:-32px -208px}
+.ui-icon-squaresmall-plus{background-position:-48px -208px}
+.ui-icon-squaresmall-minus{background-position:-64px -208px}
+.ui-icon-squaresmall-close{background-position:-80px -208px}
+.ui-icon-grip-dotted-vertical{background-position:0 -224px}
+.ui-icon-grip-dotted-horizontal{background-position:-16px -224px}
+.ui-icon-grip-solid-vertical{background-position:-32px -224px}
+.ui-icon-grip-solid-horizontal{background-position:-48px -224px}
+.ui-icon-gripsmall-diagonal-se{background-position:-64px -224px}
+.ui-icon-grip-diagonal-se{background-position:-80px -224px}
+.ui-corner-all,.ui-corner-top,.ui-corner-left,.ui-corner-tl{border-top-left-radius:2px}
+.ui-corner-all,.ui-corner-top,.ui-corner-right,.ui-corner-tr{border-top-right-radius:2px}
+.ui-corner-all,.ui-corner-bottom,.ui-corner-left,.ui-corner-bl{border-bottom-left-radius:2px}
+.ui-corner-all,.ui-corner-bottom,.ui-corner-right,.ui-corner-br{border-bottom-right-radius:2px}
+.ui-widget-overlay{background:#eee url(/media/jquery/flick/images/ui-bg_flat_0_eeeeee_40x100.png) 50% 50% repeat-x;opacity:.8;filter:Alpha(Opacity=80)}
+.ui-widget-shadow{margin:-4px 0 0 -4px;padding:4px;background:#aaa url(/media/jquery/flick/images/ui-bg_flat_0_aaaaaa_40x100.png) 50% 50% repeat-x;opacity:.6;filter:Alpha(Opacity=60);border-radius:0}
+.ui-state-hover,.ui-widget-content .ui-state-hover,.ui-widget-header .ui-state-hover,.ui-state-focus,.ui-widget-content .ui-state-focus,.ui-widget-header .ui-state-focus{background:#5c9fc9}
+.ui-state-default,.ui-widget-content .ui-state-default,.ui-widget-header .ui-state-default{color:#5c9fc9}
+.ui-state-default a,.ui-state-default a:link,.ui-state-default a:visited{color:#5c9fc9}
+.ui-state-hover,.ui-widget-content .ui-state-hover,.ui-widget-header .ui-state-hover,.ui-state-focus,.ui-widget-content .ui-state-focus,.ui-widget-header .ui-state-focus{color:#fff}
+.ui-datepicker .ui-datepicker-header{padding:.1em 0}
+.ui-datepicker th{padding:.2em}
+.ui-datepicker{font-size:12px}
+.ui-autocomplete-category{font-weight:bold;border:1px solid #e0e0e0;border-width:1px 0;padding:2px 0 2px 5px;background:#eaeaea}
+.error{color:red;background-position:1% 5%;background-image:url("/media/icons/error-small.png");padding-left:30px}
+.warning,.info{background-repeat:no-repeat;background-position:0 3px;padding:2px 0 0 30px;min-height:20px}
+.warning{background-image:url("/media/icons/warning-small.gif")}
+.info{padding-left:20px;background-image:url("/media/icons/information.png");color:gray;font-style:normal}
+.iconBg,.error{background-repeat:no-repeat;background-position:1% 0;padding-left:30px}
+.newWindowLink{background-repeat:no-repeat;background-position:100% 50%;padding:0 15px 0 0;background-image:url("/media/icons/external.gif")}
+.fullWidth,table.fullWidth{width:100%}
+.minWidth{width:1%;white-space:nowrap}
+.i,.italic,.message{font-style:italic}
+.hOverflow{overflow:hidden;white-space:nowrap}
+.bold{font-weight:bold;color:#555}
+.normal{font-weight:normal;font-size:13px}
+div.relative{position:relative}
+div.absoluteRaw{position:absolute}
+div.absolute{position:absolute;top:0;left:0}
+div.rabsolute{position:absolute;top:0;right:0}
+div.fixed{position:fixed}
+table.nowrap td{white-space:nowrap}
+.noWrap{white-space:nowrap}
+.white,.a.white{color:white}
+.u{text-decoration:underline}
+.nDisplay{display:none}
+.hVisibility{visibility:hidden}
+a{color:#0e8bb0;text-decoration:none}
+a:not(.buttonText){outline:0}
+.a,.a b,.newWindowLink,input.cancelButton{color:#0e8bb0;cursor:pointer}
+blockquote{font-weight:normal;font-style:italic;line-height:1.3em;background:url(/media/icons/blockquote.png) left top no-repeat;padding-left:30px;margin-left:0}
+blockquote.whiteBg{background-color:white;background-position:5px 10px;border:1px solid #e0e0e0;padding:10px 10px 10px 35px}
+.overlayBg,.bxOverlayContainer{position:fixed;top:0;left:0;bottom:0;right:0;color:#000;display:none}
+.overlay,.UIModalDialog{position:absolute;margin-bottom:60px;display:none}
+.bxOverlayContainer{overflow:scroll}
+.pageBody.disableScroll{overflow:hidden}
+.pageBody.overlayVisible .bxOverlayContainer,.pageBody.overlayVisible .overlayBg{display:block}
+.overlayBg{overflow:hidden;background:#000;opacity:.45;filter:alpha(opacity=45)}
+.overlayTitle{background:url(/media/bg-1429302443-20.jpg) repeat-x bottom;padding:5px 10px;font-size:14px;font-weight:bold}
+.overlayTitle,.overlayTitle .a{color:white}
+.overlayTitle .warning{background-position:0 50%;padding:0 0 0 20px}
+table.uploadInfoContainer>tbody>tr>th,table.uploadInfoContainer>tbody>tr>td{padding:6px 6px;text-align:left;vertical-align:top}
+table.uploadInfoContainer>tbody>tr>td{border-bottom:1px solid #e0e0e0}
+table.list>tbody>tr>th,table.list>tbody>tr>td{padding:6px 6px;text-align:left;vertical-align:top}
+table.list td.rAlign{text-align:right}
+table.list>tbody>tr>th{white-space:nowrap;background:#e7f4fa}
+table.list>tbody>tr.header th{padding:3px 3px 3px 6px}
+table.list>tbody>tr>td{border-bottom:1px solid #e0e0e0}
+table.list.nBorder>tbody>tr>td{border:0}
+div.tList div.list{border:1px solid #830;border-width:1px 0}
+tr.header th{vertical-align:top;background:url(/media/bg-1429302443-21.jpg) repeat-x bottom;white-space:nowrap;color:#555;font-weight:bold;padding:3px 0 3px 5px;text-align:left}
+div.tList tr.footer th{background:url(/media/bg-1429302443-22.jpg) repeat-x bottom}
+div.tList tr.footer th{font-weight:bold;color:#555;padding:5px}
+div.tList table span.vetoer{color:#cf4040}
+div.tList table>tbody>tr.checked td{background-color:#e7f4fa}
+div.tList table.list{width:100%}
+div.tList div.navBar{background-color:#e7f4fa;font-size:12px;padding:4px 5px}
+.navLabel{cursor:pointer;padding:0 3px;color:#0e8bb0}
+.navLabel.c{text-decoration:underline;font-weight:bold}
+a.navLabel:hover{background:#5c9fc9;color:white;font-weight:bold}
+.navLabel.l{background:url("/media/icons/arrows/left.gif") no-repeat 50% 50%;border:1px solid #5c9fc9;width:15px}
+.navLabel.r{background:url("/media/icons/arrows/right.gif") no-repeat 50% 50%;border:1px solid #5c9fc9;width:15px}
+div.tList div.tools{background-color:#fafafa;border:1px solid #e0e0e0;border-width:1px 0 0;padding:0 5px 2px}
+div.tList div.tools div.item.r{float:right}
+div.tList div.tools div.item{padding:0 5px;margin-top:4px;float:left;cursor:pointer;color:#0e8bb0;font-size:12px;height:17px}
+div.tList div.tools div.item.t{padding:0 5px}
+div.tList div.tools div.item.d{color:#777;cursor:default}
+div.tList div.tools div.item.last{border-right:0;margin-top:3px;padding-right:0;padding-left:2px}
+div.tList div.tools div.item div.icon{padding:1px 5px 1px 17px;background-repeat:no-repeat;background-position:0 2px;margin-right:1px;border:0}
+div.tList div.tools div.item div.icon.on{background-color:#fff;border-width:1px;border-color:#000 #e0e0e0 #c0c0c0 #000;border-style:solid}
+div.tList div.tools div.subTitle{margin:4px 2px 0 0;font-weight:normal;float:left}
+.UIFileUpload,.UIFileUpload .uploadIframeContainer{width:270px}
+.uploadIframeContainer{height:25px}
+.UIFileUpload .uploadingMessageContainer{display:none;background-image:url(/media/icons/indicator.gif);background-position:0 50%;background-repeat:no-repeat;padding-left:25px}
+.UIFileUpload.uploading .uploadingMessageContainer{display:block}
+.UIFileUpload.uploading .uploadIframeContainer{display:none}
+div.reminderCalendar{margin-top:20px}
+div.reminderCalendar div.dayTitle,div.reminderCalendar div.day{float:left}
+div.reminderCalendar div.day{height:95px}
+div.reminderCalendar div.day.today{background:#e7f4fa}
+div.reminderCalendar div.dayTitle{background:#f3f3f3}
+div.reminderCalendar div.day div.label{font-size:12px;color:#777;padding:0}
+div.reminderCalendar div.event,div.reminderCalendar div.fullEvent{cursor:pointer;white-space:nowrap;padding-top:1px}
+div.reminderCalendar div.event{width:95%;overflow:hidden}
+div.helpSubTitle{width:100%;border-bottom:1px solid #e0e0e0;padding:2px 1px;margin:10px 5px 10px 0;font-weight:bold;color:#333}
+.helpTitle{background:url("/media/icons/question.gif") no-repeat 80% 50%}
+div.drpdwnSep{margin:3px 2px;border-right:0 solid #d3d3d3;border-left:0 solid #d3d3d3;border-top:1px solid silver;border-bottom:1px solid #fff}
+div.customDropdown div.slOpt,div.customDropdown div.smOpt,div.customDropdown div.opt,div.customDropdown div.sdOpt,div.customDropdown div.suOpt{padding:2px 20px;white-space:nowrap;color:#000;cursor:pointer;text-align:left}
+div.customDropdown div.slOpt{background-image:url("/media/icons/dropdowns/selected.gif");background-repeat:no-repeat;background-position:3% 50%}
+div.customDropdown div.smOpt{background-image:url("/media/icons/dropdowns/expand.gif");background-repeat:no-repeat;background-position:95% 50%}
+div.customDropdown div.hOpt{background-color:#7b79c7;color:#fff}
+div.customDropdown div.sdOpt,div.customDropdown div.suOpt{background-repeat:no-repeat;background-position:50% 50%;font-size:5px}
+div.customDropdown div.sdOpt{background-image:url("/media/icons/dropdowns/scroll-down.gif")}
+div.customDropdown div.suOpt{background-image:url("/media/icons/dropdowns/scroll-up.gif")}
+div.customDropdown{position:absolute;font-weight:normal;left:0;top:0;padding:0;margin:0}
+div.customDropdown div.oc{border:1px solid #000;border-top:1px solid silver;border-left:1px solid silver;background-color:#fff}
+div.customDropdown div.ic{border:1px solid gray;border-left:1px solid #fff;border-top:1px solid #fff}
+.drpdwnHandler{cursor:pointer;background-repeat:no-repeat;background-position:96% 50%;background-image:url("/media/icons/arrows/down-black.gif");padding:0 15px 2px 3px;text-decoration:none}
+.dropdownContainer{padding:5px;border-width:1px;border-style:solid;border-color:#e0e0e0 #808080 #808080 #e0e0e0}
+.dropdownContainer,table.list tr.item.ovr .dropdownContainer table tr td{background-color:#e7f4fa}
+@font-face{font-family:'Ubuntu Mono';src:url(/media/freebird/fonts/UbuntuMono-Bold.ttf)}
+.freebird.pageBody{font-family:"Proxima Nova Regular",Arial,sans-serif;font-size-adjust:.488;font-weight:normal;font-style:normal}
+.freebird b,.freebird strong,.freebird .bFontWeight,.freebird th{font-family:"Proxima Nova Bold"}
+.freebird .semiBold{font-family:"Proxima Nova Semibold";font-weight:600;font-style:normal}
+.freebird .lightFontWeight{font-family:"Proxima Nova Light"}
+.freebird .biggerFont{font-size:19px}
+.freebird .bigFont{font-size:17px}
+.freebird.pageBody,.freebird .regularFont{font-size:15px}
+.freebird .smallFont{font-size:14px}
+.freebird .smallerFont{font-size:13px}
+.freebird .smallestFont{font-size:12px}
+.freebird .styleItalic{font-style:italic;font-family:'Proxima Nova Italic'}
+@media only screen and (max-width:1280px){.freebird .biggerFont{font-size:18px}
+.freebird .bigFont{font-size:16px}
+.freebird.pageBody,.freebird .regularFont{font-size:14px}
+.freebird .smallFont{font-size:13px}
+.freebird .smallerFont{font-size:12px}
+.freebird .smallestFont{font-size:11px}
+}
+.freebird .subtitle.gray{color:#dfdfdf}
+.freebird .blue{color:#74c4e8}
+.freebird .green{color:#2bd96e}
+.freebird .red{color:#e64b30}
+.freebird a{color:inherit}
+.freebird input[type=text],.freebird input[type=password]{padding:6px 8px}
+.freebird input[type=text].fullWidth,.freebird input[type=password].fullWidth{width:100%}
+.freebird input[type=text].rAlign,.freebird input[type=password].rAlign{text-align:right;background-position:10px 50%;padding-left:30px;padding-right:10px}
+.freebird .inputLabel{margin-bottom:5px;font-size:13px;color:#606472}
+.freebird div{line-height:inherit}
+.freebird input[type=text].amount{width:120px}
+.freebird ::-webkit-input-placeholder{color:#dcdce2;font-style:italic}
+.freebird :-moz-placeholder{color:#dcdce2;font-style:italic}
+.freebird ::-moz-placeholder{color:#dcdce2;font-style:italic}
+.freebird :-ms-input-placeholder{color:#dcdce2;font-style:italic}
+html{background:white}
+.relativePageBodyContainer{position:relative}
+.pageContentContainer{min-height:500px}
+.freebird .ui-autocomplete{border:1px solid #dcdce2;border-width:0 1px 1px 1px;border-radius:0;box-shadow:1px 2px 5px 0 #000;padding:2px}
+.freebird .ui-autocomplete .ui-corner-all{border-radius:0}
+.freebird .ui-autocomplete.ui-menu .ui-menu-item a.ui-state-focus{background:#42b7ff;color:#fcfcfd;margin:0}
+.freebird .ui-autocomplete .ui-autocomplete-category,.freebird .ui-autocomplete .ui-menu-item>a{border:1px solid #eaebeb;border-width:0 0 1px;padding:5px;line-height:25px;font-size:15px}
+.freebird .ui-autocomplete .ui-menu-item>a{color:#353d42}
+.freebird .ui-autocomplete .ui-autocomplete-category{color:#abadaf;background-color:#f2f3f3}
+.freebird .appContent{background:#f5f5f5;padding-bottom:45px}
+.freebird.pageBody{padding-left:200px}
+.UIPageTitle{background:white;padding:0 25px}
+.UIPageTitle .pageTitleMetadata{font-size:13px;color:#777}
+.UIPageTitle .pageActionList>.UIGrid>tbody>tr>td{width:1px;vertical-align:middle}
+.UIPageTitle .secondaryActionShowButton,.UIPageTitle .secondaryActionHideButton{cursor:pointer;font-size:30px;width:60px;text-align:center;padding:13px 0 17px}
+.UIPageTitle .pageActionList.hasSecondaryActions{position:relative;margin-right:35px}
+.UIPageTitle .secondaryActionsContainer{position:absolute;left:100%;top:0;background:white}
+.UIPageTitle .secondaryActionList,.UIPageTitle .secondaryActionHideButton,.UIPageTitle.actionsExpanded .secondaryActionShowButton{display:none}
+.UIPageTitle.actionsExpanded .secondaryActionList,.UIPageTitle.actionsExpanded .secondaryActionHideButton,.UIPageTitle .secondaryActionShowButton{display:block}
+@media only screen and (max-width:1280px){.UIPageTitle .secondaryActionShowButton,.UIPageTitle .secondaryActionHideButton{padding-top:12px;padding-bottom:13px}
+}
+.UIAppContainer .sectionsContainer.UIGrid>tbody>tr>td,.UIAppContainer .pageSectionCard{border:1px solid #edf0f2;border:1px solid #dcdce2;padding:20px;background:white;border-radius:5px}
+.UIAppContainer .sectionsContainer.UIGrid>tbody>tr>td>div,.UIAppContainer .pageSectionCard{min-height:200px}
+.UIAppContainer table.sectionsContainer.UIGrid{border-spacing:20px}
+.UIAppContainer .pageSectionCard{margin:20px}
+.UIAppContainer .pageSection{padding:25px}
+.pageSection.UIAppNotice{margin-left:20px;margin-right:20px;padding:15px 20px}
+.UIAppNotice{margin-top:20px;padding:15px 10px 0;border:2px solid #f3a536;border-width:2px 0 0}
+.UIAppNotice.pageSection{border-width:2px;border-radius:5px}
+.UIAppNotice .noticeTextContainer{padding-top:5px}
+.UIAppNotice>.UIGrid>tbody>tr>td.firstColumn{padding-right:25px;text-align:center}
+.UIAppNotice.errorNotice{border-color:#ee624c}
+.UIAppNotice.errorNotice .noticeTextContainer{color:#ee624c}
+.UIAppFilters{font-size:30px;color:#49b8fc}
+.UIAppFilters>.UIGrid>tbody>tr>td{padding:15px 45px 15px 0;vertical-align:middle}
+.UIAppFilters .secondaryFilterContainer{display:block}
+.UIAppFilters .secondaryFilterContainer{margin-left:30px}
+.UIAppFilters .UIPeriodPicker .calendarHandleContainer{padding-right:20px}
+.UIAppFilters .UIPeriodPicker .calendarHandleContainer .periodDescriptionContainer{font-size:20px;padding-left:30px}
+.UIAppFilters .secondaryFilterContainer .popupHandleContainer{font-size:20px;display:table-cell;color:#606472;padding-left:30px}
+.UIAppFilters .secondaryFilterContainer .filterTitleContainer{background-image:url(/media/freebird/app/UIFilters/dropdown-dark.png);background-size:10px 5px;background-position:100% 50%;background-repeat:no-repeat;padding-right:20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIAppFilters .secondaryFilterContainer .filterTitleContainer{background-image:url(/media/freebird/app/UIFilters/dropdown-dark@2x.png)}
+}
+.UIAppFilters .selectedCategory{color:#2b2f3e}
+.UIAppFilters .categorySeparator{color:#606472;padding-left:10px;padding-right:10px}
+.UIAppFilters .pageTitleContainer{padding-left:30px;background-repeat:no-repeat;background-position:0 4px}
+.UIAppFilters .pageTitleContainer.navigationCategoryNone{padding-left:0}
+.UIAppFilters.loading .UIGrid .pageTitleContainer{padding-left:30px;background-image:url(/media/icons/indicator.gif)}
+.UIAppFilters .pageTitleContainer.navigationCategoryAccounts{background-image:url(/media/freebird/app/UIFilters/icon-accountsTitle.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIAppFilters .pageTitleContainer.navigationCategoryAccounts{background-image:url(/media/freebird/app/UIFilters/icon-accountsTitle@2x.png)}
+}
+.UIAppFilters .pageTitleContainer.navigationCategoryReports{background-image:url(/media/freebird/app/UIFilters/Icon-reportsTittle.png);background-size:21px 21px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIAppFilters .pageTitleContainer.navigationCategoryReports{background-image:url(/media/freebird/app/UIFilters/Icon-reportsTittle@2x.png)}
+}
+.UIAppFilters .pageTitleContainer.navigationCategoryBudgets{background-image:url(/media/freebird/app/UIFilters/icon-budgetsTitle.png);background-size:21px 21px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIAppFilters .pageTitleContainer.navigationCategoryBudgets{background-image:url(/media/freebird/app/UIFilters/icon-budgetsTitle@2x.png)}
+}
+.UIAppFilters .pageTitleContainer.navigationCategoryTags{background-image:url(/media/freebird/app/UIFilters/icon-tagsTitle.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIAppFilters .pageTitleContainer.navigationCategoryTags{background-image:url(/media/freebird/app/UIFilters/icon-tagsTitle@2x.png)}
+}
+.UIAppFilters .pageTitleContainer.navigationCategoryDashboard{background-image:url(/media/freebird/app/UIFilters/icon-dashboardTitle.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIAppFilters .pageTitleContainer.navigationCategoryDashboard{background-image:url(/media/freebird/app/UIFilters/icon-dashboardTitle@2x.png)}
+}
+.UIAppFilters .pageTitleContainer.navigationCategoryForecast{background-image:url(/media/freebird/app/UIFilters/icon-forecastTitle.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIAppFilters .pageTitleContainer.navigationCategoryForecast{background-image:url(/media/freebird/app/UIFilters/icon-forecastTitle@2x.png)}
+}
+.UIAppFilters .pageTitleContainer.navigationCategoryPayments{background-image:url(/media/freebird/app/UIFilters/icon-paymentsTitle.png);background-size:20px 19px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIAppFilters .pageTitleContainer.navigationCategoryPayments{background-image:url(/media/freebird/app/UIFilters/icon-paymentsTitle@2x.png)}
+}
+.UIAppFilters .pageTitleContainer.navigationCategoryContacts{background-image:url(/media/freebird/app/UIFilters/icon-contactsTitle.png);background-size:18px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIAppFilters .pageTitleContainer.navigationCategoryContacts{background-image:url(/media/freebird/app/UIFilters/icon-contactsTitle@2x.png)}
+}
+.UIAppFilters .pageTitleContainer.navigationCategoryGroups{background-image:url(/media/freebird/app/UIFilters/icon-GroupsTitle.png);background-size:20px 18px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIAppFilters .pageTitleContainer.navigationCategoryGroups{background-image:url(/media/freebird/app/UIFilters/icon-GroupsTitle@2x.png)}
+}
+.UIAppFilters .pageTitleContainer.navigationCategoryInvites{background-image:url(/media/freebird/app/UIFilters/icon-inviteTitle.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIAppFilters .pageTitleContainer.navigationCategoryInvites{background-image:url(/media/freebird/app/UIFilters/icon-inviteTitle@2x.png)}
+}
+.UIAppFilters .pageTitleContainer.navigationCategorySettings{background-image:url(/media/freebird/app/UIFilters/icon-settingsTitle.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIAppFilters .pageTitleContainer.navigationCategorySettings{background-image:url(/media/freebird/app/UIFilters/icon-settingsTitle@2x.png)}
+}
+.UIAppFilters .pageTitleContainer.navigationCategoryDownload{background-image:url(/media/freebird/app/UIFilters/icon-downloadTitle.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIAppFilters .pageTitleContainer.navigationCategoryDownload{background-image:url(/media/freebird/app/UIFilters/icon-downloadTitle@2x.png)}
+}
+.UIAppFilters .pageTitleContainer.navigationCategoryTransactions{background-image:url(/media/freebird/app/UIFilters/icon-transactionsTitle.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIAppFilters .pageTitleContainer.navigationCategoryTransactions{background-image:url(/media/freebird/app/UIFilters/icon-transactionsTitle@2x.png)}
+}
+.UIAppFilters .secondaryFilterContainer .popupHandleContainer{background-repeat:no-repeat;background-position:0 50%}
+.UIAppFilters .secondaryFilterContainer.accountFilter .popupHandleContainer{background-image:url(/media/freebird/UISidebar/icon-accountsNormal.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIAppFilters .secondaryFilterContainer.accountFilter .popupHandleContainer{background-image:url(/media/freebird/UISidebar/icon-accountsNormal@2x.png)}
+}
+.UIAppFilters .secondaryFilterContainer.tagFilter .popupHandleContainer{background-image:url(/media/freebird/app/UIFilters/icon-tags-Notselected.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIAppFilters .secondaryFilterContainer.tagFilter .popupHandleContainer{background-image:url(/media/freebird/app/UIFilters/icon-tags-Notselected@2x.png)}
+}
+.UIAppFilters .secondaryFilterContainer.tagFilter.selected .popupHandleContainer{background-image:url(/media/freebird/UISidebar/icon-tagsNormal.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIAppFilters .secondaryFilterContainer.tagFilter.selected .popupHandleContainer{background-image:url(/media/freebird/UISidebar/icon-tagsNormal@2x.png)}
+}
+@media only screen and (max-width:1280px){.UIAppFilters{font-size:25px}
+.UIAppFilters>.UIGrid>tbody>tr>td{padding:15px 30px 15px 0}
+.UIAppFilters .UIPeriodPicker .calendarHandleContainer .periodDescriptionContainer,.UIAppFilters .secondaryFilterContainer .popupHandleContainer{font-size:17px}
+.UIAppFilters .UIPeriodPicker.secondaryFilterContainer .calendarHandleContainer .periodDescriptionContainer,.UIAppFilters .secondaryFilterContainer .popupHandleContainer{background-size:16px}
+}
+.UIAppHeader .narrowHeader{height:auto;background:0}
+.UIAppHeader .pageHeaderContent,.UIAppHeader .pageHeaderContent>.UIGrid{height:50px}
+.UIAppHeader .pageHeaderContent{color:#606472;background:#d5d6d7;border-bottom:1px solid #dcdce2;padding:0 0 0 25px}
+.UIAppHeader .pageHeaderContent>.UIGrid>tbody>tr>td,.UIAppHeader .rightActionsContainer.UIGrid>tbody>tr>td{vertical-align:middle;white-space:nowrap}
+.UIAppHeader .pageHeaderContent>.UIGrid>tbody>tr>td{padding-right:15px}
+.UIAppHeader .pageHeaderContent>.UIGrid>tbody>tr>td.lastColumn{padding-right:25px}
+.UIAppHeader .iconActionContainer .iconContainer{text-align:center;height:20px}
+.UIAppHeader .iconActionContainer .textContainer{margin-top:3px;font-size:10px}
+.UIAppHeader input.globalSearchInput{font-size:14px;background-color:transparent;border-color:#abadaf;border-width:2px;border-radius:15px;background-position:12px 50%;background-image:url(/media/freebird/app/UIHeader/icons-search.png);background-size:17px 15px;padding:5px 10px 5px 35px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIAppHeader input.globalSearchInput{background-image:url(/media/freebird/app/UIHeader/icons-search@2x.png)}
+}
+.UIAppHeader ::-webkit-input-placeholder{color:#abadaf;font-style:italic}
+.UIAppHeader :-moz-placeholder{color:#abadaf;font-style:italic}
+.UIAppHeader ::-moz-placeholder{color:#abadaf;font-style:italic}
+.UIAppHeader :-ms-input-placeholder{color:#abadaf;font-style:italic}
+.UIAppHeader input.globalSearchInput.loading{background-image:url(/media/icons/indicator.gif);background-position:10px 50%}
+.UIAppHeader .rightActionsContainer{font-size:13px}
+.UIAppHeader .rightActionsContainer .UIPopup .popupHandleContainer{padding:13px 0}
+.UIAppHeader .primaryAction,.UIAppHeader .secondaryAction{background-repeat:no-repeat;background-position:0 50%;padding:20px 25px 17px 30px;font-size:13px}
+.UIAppHeader .primaryAction.loading,.UIAppHeader .secondaryAction.loading{background-image:url(/media/icons/indicator.gif)}
+.UIAppHeader .addAction{background-image:url(/media/freebird/app/UIHeader/icon-addtransactionNormal.png);background-size:20px 20px;background-position:0 50%;padding-left:30px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIAppHeader .addAction{background-image:url(/media/freebird/app/UIHeader/icon-addtransactionNormal@2x.png)}
+}
+.UIAppHeader .uploadAction{background-image:url(/media/freebird/app/UIHeader/icon-statmentNormal.png);background-size:18px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIAppHeader .uploadAction{background-image:url(/media/freebird/app/UIHeader/icon-statmentNormal@2x.png)}
+}
+.UIAppHeader .syncAction{background-image:url(/media/freebird/app/UIHeader/icon-syncAccountsNormal.png);background-size:25px 21px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIAppHeader .syncAction{background-image:url(/media/freebird/app/UIHeader/icon-syncAccountsNormal@2x.png)}
+}
+.UIAppHeader .downloadAction{background-image:url(/media/freebird/app/UIHeader/icon-downloadNormal.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIAppHeader .downloadAction{background-image:url(/media/freebird/app/UIHeader/icon-downloadNormal@2x.png)}
+}
+.UIAppHeader .UIPopup.opening .popupHandleContainer,.UIAppHeader .UIPopup.open .popupHandleContainer{background-color:#36c0ff;color:white}
+.UIAppHeader .rightActionsContainer{color:#777}
+.UIAppHeader .rightActionsContainer .UIPopup .popupHandleContainer,.UIAppHeader .rightActionsContainer .actionLink{background-repeat:no-repeat;background-position:50% 8px;text-align:center;padding:35px 10px 0;font-size:10px;height:50px}
+.UIAppHeader .rightActionsContainer .UIMenu.helpAction.UIPopup.open.closing .popupHandleContainer,.UIAppHeader .rightActionsContainer .UIMenu.helpAction.UIPopup .popupHandleContainer{background-image:url(/media/freebird/app/UIHeader/icon-helpNormal.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIAppHeader .rightActionsContainer .UIMenu.helpAction.UIPopup.open.closing .popupHandleContainer,.UIAppHeader .rightActionsContainer .UIMenu.helpAction.UIPopup .popupHandleContainer{background-image:url(/media/freebird/app/UIHeader/icon-helpNormal@2x.png)}
+}
+.UIAppHeader .rightActionsContainer .UIMenu.helpAction.UIPopup.opening .popupHandleContainer,.UIAppHeader .rightActionsContainer .UIMenu.helpAction.UIPopup.open .popupHandleContainer{background-image:url(/media/freebird/app/UIHeader/icon-helpActive.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIAppHeader .rightActionsContainer .UIMenu.helpAction.UIPopup.opening .popupHandleContainer,.UIAppHeader .rightActionsContainer .UIMenu.helpAction.UIPopup.open .popupHandleContainer{background-image:url(/media/freebird/app/UIHeader/icon-helpActive@2x.png)}
+}
+.UIAppHeader .rightActionsContainer .UIMenu.settingsAction.UIPopup.open.closing .popupHandleContainer,.UIAppHeader .rightActionsContainer .UIMenu.settingsAction.UIPopup .popupHandleContainer{background-image:url(/media/freebird/app/UIHeader/icon-settingsNormal.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIAppHeader .rightActionsContainer .UIMenu.settingsAction.UIPopup.open.closing .popupHandleContainer,.UIAppHeader .rightActionsContainer .UIMenu.settingsAction.UIPopup .popupHandleContainer{background-image:url(/media/freebird/app/UIHeader/icon-settingsNormal@2x.png)}
+}
+.UIAppHeader .rightActionsContainer .UIMenu.settingsAction.UIPopup.opening .popupHandleContainer,.UIAppHeader .rightActionsContainer .UIMenu.settingsAction.UIPopup.open .popupHandleContainer{background-image:url(/media/freebird/app/UIHeader/icon-settingsActive.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIAppHeader .rightActionsContainer .UIMenu.settingsAction.UIPopup.opening .popupHandleContainer,.UIAppHeader .rightActionsContainer .UIMenu.settingsAction.UIPopup.open .popupHandleContainer{background-image:url(/media/freebird/app/UIHeader/icon-settingsActive@2x.png)}
+}
+.UIAppHeader .rightActionsContainer .inviteAction{display:block;background-image:url(/media/freebird/app/UIHeader/icon-inviteNormal.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIAppHeader .rightActionsContainer .inviteAction{background-image:url(/media/freebird/app/UIHeader/icon-inviteNormal@2x.png)}
+}
+.UIAppHeader input.globalSearchInput{width:250px}
+.UIAppHeader.searchActive input.globalSearchInput{background-color:white}
+.UIAppHeader .UIButton.specialActionButton .buttonTitleContainer{background:#36c0ff;margin-left:10px}
+.UIAppFooter{height:45px;background:white;border-top:1px solid #ededed}
+.UIAppFooter>a,.UIAppFooter>div{float:right;display:block;padding:15px 20px;color:#d5d5d5}
+.UIAppFooter a:hover{color:#2b2f3e;text-decoration:underline}
+.UIPageStatus{padding:10px 20px;color:#2b2f3e;display:none;cursor:pointer}
+.UIPageStatus.success{background:#30d283;color:white}
+.UIPageStatus.warning{background:#fdbe2c}
+.UIPageStatus.info{background:#FFF}
+.UIPageStatus.error{background:#ee624c;color:white}
+.UIPageStatus .titleContainer{margin-right:10px;white-space:nowrap}
+.UIPageStatus .detailsContainer{margin-top:5px}
+.UIAppPlaceholder{position:absolute;right:0;bottom:0;top:0;left:0;z-index:1000}
+.UIAppPlaceholder .loading{font-size:30px;padding:15px 0 15px 55px;text-align:left;color:#55a5f8;background-color:white;background-image:url(/media/icons/indicator.gif);background-repeat:no-repeat;background-position:25px 50%}
+.UIPageAction{display:block;text-align:center;padding:12px 10px 0;min-width:65px;height:60px}
+.UIPageAction .labelContainer{text-align:center;margin-top:5px;font-size:11px;color:#606472;cursor:pointer;white-space:nowrap}
+.UIPageAction .imageContainer{height:22px}
+.UIPageAction.destructiveAction{background:transparent}
+.UIPageAction.destructiveAction .labelContainer{color:#e64b30}
+@media only screen and (max-width:1280px){.UIPageAction{padding:12px 10px;max-height:55px}
+.UIPageAction .labelContainer{font-size:10px}
+.UIPageAction .imageContainer,.UIPageAction .imageContainer img{height:15px}
+}
+.UIDownloadPageAction .titleContainer{padding:10px;text-align:center;background:#36c0ff}
+.UIDownloadPageAction .downloadContentContainer{padding:40px;text-align:center}
+.UISidebar{position:fixed;top:0;left:0;bottom:0;height:auto;padding:0}
+.UISidebar .navigationContainer{background-color:#282e33;width:200px;position:relative}
+.UISidebar .drawerContainer{color:white;border-right:1px solid #282e33;width:300px}
+.UISidebar>.UIGrid,.UISidebar>.UIGrid>tbody>tr>td,.UISidebar .navigationContainer,.UISidebar .drawerContainer{height:100%}
+.UISidebar .logoContainer{display:block;background-image:url(/media/freebird/UISidebar/Logo-sidebar.png);background-size:147px 20px;background-repeat:no-repeat;background-position:20px 50%;height:50px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebar .logoContainer{background-image:url(/media/freebird/UISidebar/Logo-sidebar@2x.png)}
+}
+.UISidebar .logo a{color:white;display:block}
+.UISidebar.closed .drawerContainer{display:none}
+.UISidebar.open .drawerContainer{display:block}
+.UISidebar .drawerContainer.sidebarLoading{background-image:url(/media/freebird/loading/Loading-small-sidebar-second.gif);background-repeat:no-repeat;background-position:50% 20%}
+.UISidebar .emptyStateContainer{padding:20px;font-size:25px}
+.UISidebar .navItem.loading .loadingContainer{bottom:-1px}
+.UISidebar .navItem{display:block;cursor:pointer;color:#606472;font-size:16px;height:60px;padding-top:22px;padding-right:25px;padding-left:60px;background-position:20px 50%;background-repeat:no-repeat;background-size:20px 20px;background-color:#282e33}
+.UISidebar .navItem.indexOdd{background-color:#2d3338}
+.UISidebar .logoContainer,.UISidebar .navItem{border-bottom:1px solid #1c2024}
+.UISidebar .navItem .navTitleContainer{background-image:url(/media/freebird/UISidebar/arrow-Normal.png);background-size:6px 10px;background-position:100% 50%;background-repeat:no-repeat;padding-right:30px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebar .navItem .navTitleContainer{background-image:url(/media/freebird/UISidebar/arrow-Normal@2x.png)}
+}
+.UISidebar .navItem.selected .navTitleContainer,.UISidebar .navItem.highlighted .navTitleContainer,.UISidebar a.navItem.UIHoverable:hover .navTitleContainer{background-image:url(/media/freebird/UISidebar/arrow-Active.png);background-size:6px 10px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebar .navItem.selected .navTitleContainer,.UISidebar .navItem.highlighted .navTitleContainer,.UISidebar a.navItem.UIHoverable:hover .navTitleContainer{background-image:url(/media/freebird/UISidebar/arrow-Active@2x.png)}
+}
+.UISidebar .navItem.selected,.UISidebar a.navItem.UIHoverable:hover{color:#f6f7f8;background-color:#495055}
+.UISidebar .navItem.highlighted,.UISidebar a.navItem.highlighted.UIHoverable:hover{color:#f6f7f8;background-color:#42b7ff}
+.UISidebar .navItem.itemTypeAccounts{background-image:url(/media/freebird/UISidebar/icon-accountsNormal.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebar .navItem.itemTypeAccounts{background-image:url(/media/freebird/UISidebar/icon-accountsNormal@2x.png)}
+}
+.UISidebar .navItem.itemTypeAccounts.highlighted,.UISidebar .navItem.itemTypeAccounts.selected,.UISidebar .navItem.itemTypeAccounts:hover{background-image:url(/media/freebird/UISidebar/icon-accountsActive.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebar .navItem.itemTypeAccounts.highlighted,.UISidebar .navItem.itemTypeAccounts.selected,.UISidebar .navItem.itemTypeAccounts:hover{background-image:url(/media/freebird/UISidebar/icon-accountsActive@2x.png)}
+}
+.UISidebar .navItem.itemTypeBudgets{background-image:url(/media/freebird/UISidebar/icon-budgetsNormal.png);background-size:21px 21px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebar .navItem.itemTypeBudgets{background-image:url(/media/freebird/UISidebar/icon-budgetsNormal@2x.png)}
+}
+.UISidebar .navItem.itemTypeBudgets.highlighted,.UISidebar .navItem.itemTypeBudgets.selected,.UISidebar .navItem.itemTypeBudgets:hover{background-image:url(/media/freebird/UISidebar/icon-budgetsActive.png);background-size:21px 21px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebar .navItem.itemTypeBudgets.highlighted,.UISidebar .navItem.itemTypeBudgets.selected,.UISidebar .navItem.itemTypeBudgets:hover{background-image:url(/media/freebird/UISidebar/icon-budgetsActive@2x.png)}
+}
+.UISidebar .navItem.itemTypeReminders{background-image:url(/media/freebird/UISidebar/icon-remindersNormal.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebar .navItem.itemTypeReminders{background-image:url(/media/freebird/UISidebar/icon-remindersNormal@2x.png)}
+}
+.UISidebar .navItem.itemTypeReminders.highlighted,.UISidebar .navItem.itemTypeReminders.selected,.UISidebar .navItem.itemTypeReminders:hover{background-image:url(/media/freebird/UISidebar/icon-remindersActive.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebar .navItem.itemTypeReminders.highlighted,.UISidebar .navItem.itemTypeReminders.selected,.UISidebar .navItem.itemTypeReminders:hover{background-image:url(/media/freebird/UISidebar/icon-remindersActive@2x.png)}
+}
+.UISidebar .navItem.itemTypeTags{background-image:url(/media/freebird/UISidebar/icon-tagsNormal.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebar .navItem.itemTypeTags{background-image:url(/media/freebird/UISidebar/icon-tagsNormal@2x.png)}
+}
+.UISidebar .navItem.itemTypeTags.highlighted,.UISidebar .navItem.itemTypeTags.selected,.UISidebar .navItem.itemTypeTags:hover{background-image:url(/media/freebird/UISidebar/icon-tagsActive.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebar .navItem.itemTypeTags.highlighted,.UISidebar .navItem.itemTypeTags.selected,.UISidebar .navItem.itemTypeTags:hover{background-image:url(/media/freebird/UISidebar/icon-tagsActive@2x.png)}
+}
+.UISidebar .navItem.itemTypeContacts{background-image:url(/media/freebird/UISidebar/icon-contactsNormal.png);background-size:18px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebar .navItem.itemTypeContacts{background-image:url(/media/freebird/UISidebar/icon-contactsNormal@2x.png)}
+}
+.UISidebar .navItem.itemTypeContacts.highlighted,.UISidebar .navItem.itemTypeContacts.selected,.UISidebar .navItem.itemTypeContacts:hover{background-image:url(/media/freebird/UISidebar/icon-contactsActive.png);background-size:18px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebar .navItem.itemTypeContacts.highlighted,.UISidebar .navItem.itemTypeContacts.selected,.UISidebar .navItem.itemTypeContacts:hover{background-image:url(/media/freebird/UISidebar/icon-contactsActive@2x.png)}
+}
+.UISidebar .navItem.itemTypeGroups{background-image:url(/media/freebird/UISidebar/icon-GroupsNormal.png);background-size:20px 18px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebar .navItem.itemTypeGroups{background-image:url(/media/freebird/UISidebar/icon-GroupsNormal@2x.png)}
+}
+.UISidebar .navItem.itemTypeGroups.highlighted,.UISidebar .navItem.itemTypeGroups.selected,.UISidebar .navItem.itemTypeGroups:hover{background-image:url(/media/freebird/UISidebar/icon-GroupsActive.png);background-size:20px 18px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebar .navItem.itemTypeGroups.highlighted,.UISidebar .navItem.itemTypeGroups.selected,.UISidebar .navItem.itemTypeGroups:hover{background-image:url(/media/freebird/UISidebar/icon-GroupsActive@2x.png)}
+}
+.UISidebar .navItem.itemTypeDashboard{background-image:url(/media/freebird/UISidebar/icon-dashboardNormal.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebar .navItem.itemTypeDashboard{background-image:url(/media/freebird/UISidebar/icon-dashboardNormal@2x.png)}
+}
+.UISidebar .navItem.itemTypeDashboard.highlighted,.UISidebar .navItem.itemTypeDashboard.selected,.UISidebar .navItem.itemTypeDashboard:hover{background-image:url(/media/freebird/UISidebar/icon-dashboardActive.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebar .navItem.itemTypeDashboard.highlighted,.UISidebar .navItem.itemTypeDashboard.selected,.UISidebar .navItem.itemTypeDashboard:hover{background-image:url(/media/freebird/UISidebar/icon-dashboardActive@2x.png)}
+}
+.UISidebar .navItem.itemTypeForecast{background-image:url(/media/freebird/UISidebar/icon-forecastNormal.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebar .navItem.itemTypeForecast{background-image:url(/media/freebird/UISidebar/icon-forecastNormal@2x.png)}
+}
+.UISidebar .navItem.itemTypeForecast.highlighted,.UISidebar .navItem.itemTypeForecast.selected,.UISidebar .navItem.itemTypeForecast:hover{background-image:url(/media/freebird/UISidebar/icon-forecastActive.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebar .navItem.itemTypeForecast.highlighted,.UISidebar .navItem.itemTypeForecast.selected,.UISidebar .navItem.itemTypeForecast:hover{background-image:url(/media/freebird/UISidebar/icon-forecastActive@2x.png)}
+}
+.UISidebar .navItem.itemTypePayments{background-image:url(/media/freebird/UISidebar/icon-paymentsNormal.png);background-size:20px 19px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebar .navItem.itemTypePayments{background-image:url(/media/freebird/UISidebar/icon-paymentsNormal@2x.png)}
+}
+.UISidebar .navItem.itemTypePayments.highlighted,.UISidebar .navItem.itemTypePayments.selected,.UISidebar .navItem.itemTypePayments:hover{background-image:url(/media/freebird/UISidebar/icon-paymentsActive.png);background-size:20px 19px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebar .navItem.itemTypePayments.highlighted,.UISidebar .navItem.itemTypePayments.selected,.UISidebar .navItem.itemTypePayments:hover{background-image:url(/media/freebird/UISidebar/icon-paymentsActive@2x.png)}
+}
+.UISidebar .navItem.itemTypeReports{background-image:url(/media/freebird/UISidebar/Icon-reportsNormal2.png);background-size:21px 21px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebar .navItem.itemTypeReports{background-image:url(/media/freebird/UISidebar/Icon-reportsNormal2@2x.png)}
+}
+.UISidebar .navItem.itemTypeReports.highlighted,.UISidebar .navItem.itemTypeReports.selected,.UISidebar .navItem.itemTypeReports:hover{background-image:url(/media/freebird/UISidebar/Icon-reportsActive2.png);background-size:21px 21px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebar .navItem.itemTypeReports.highlighted,.UISidebar .navItem.itemTypeReports.selected,.UISidebar .navItem.itemTypeReports:hover{background-image:url(/media/freebird/UISidebar/Icon-reportsActive2@2x.png)}
+}
+.UISidebar.minimized .navigationContainer{width:60px}
+.freebird.pageBody.sidebarMinimized{padding-left:60px}
+.freebird.pageBody.sidebarPinned{padding-left:410px}
+.UISidebar.minimized .navigationContainer .navItem{padding-right:0}
+.UISidebar.minimized .navigationContainer .navItem .navTitleContainer{display:none}
+.UISidebar.expandToggling .navigationContainer .navItem .navTitleContainer{display:block}
+.UISidebar .toggleButton{width:60px;height:40px;position:absolute;bottom:5px;background-repeat:no-repeat;background-position:50% 0;text-align:center;color:#606472;padding-top:26px;display:block;font-size:11px}
+.UISidebar .collapseLabelContainer,.UISidebar.minimized .expandLabelContainer,.UISidebar .pinLabelContainer,.UISidebar.pinned .unpinLabelContainer{display:block}
+.UISidebar .expandLabelContainer,.UISidebar.minimized .collapseLabelContainer,.UISidebar.pinned .pinLabelContainer,.UISidebar .unpinLabelContainer{display:none}
+.UISidebar a.toggleButton:hover{color:#f6f7f8}
+.UISidebar .expandToggleButton{left:0}
+.UISidebar .pinToggleButton{right:0}
+.UISidebar.closed .pinToggleButton{display:none}
+.UISidebar.minimized .pinToggleButton{bottom:60px}
+.UISidebar.expandToggling .pinToggleButton{display:none}
+.UISidebar .expandToggleButton{background-image:url(/media/freebird/UISidebar/icon-CloseSidebar-normal.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebar .expandToggleButton{background-image:url(/media/freebird/UISidebar/icon-CloseSidebar-normal@2x.png)}
+}
+.UISidebar a.expandToggleButton:hover{background-image:url(/media/freebird/UISidebar/icon-CloseSidebar-over.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebar a.expandToggleButton:hover{background-image:url(/media/freebird/UISidebar/icon-CloseSidebar-over@2x.png)}
+}
+.UISidebar.minimized .expandToggleButton{background-image:url(/media/freebird/UISidebar/icon-OpenSidebar-normal.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebar.minimized .expandToggleButton{background-image:url(/media/freebird/UISidebar/icon-OpenSidebar-normal@2x.png)}
+}
+.UISidebar.minimized a.expandToggleButton:hover{background-image:url(/media/freebird/UISidebar/icon-OpenSidebar-over.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebar.minimized a.expandToggleButton:hover{background-image:url(/media/freebird/UISidebar/icon-OpenSidebar-over@2x.png)}
+}
+.UISidebar .pinToggleButton{background-image:url(/media/freebird/UISidebar/icon-pin-normal.png);background-size:18px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebar .pinToggleButton{background-image:url(/media/freebird/UISidebar/icon-pin-normal@2x.png)}
+}
+.UISidebar a.pinToggleButton:hover{background-image:url(/media/freebird/UISidebar/icon-pin-over.png);background-size:18px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebar a.pinToggleButton:hover{background-image:url(/media/freebird/UISidebar/icon-pin-over@2x.png)}
+}
+.UISidebar.pinned .pinToggleButton{background-image:url(/media/freebird/UISidebar/icon-unpin-normal.png);background-size:19px 18px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebar.pinned .pinToggleButton{background-image:url(/media/freebird/UISidebar/icon-unpin-normal@2x.png)}
+}
+.UISidebar.pinned a.pinToggleButton:hover{background-image:url(/media/freebird/UISidebar/icon-unpin-over.png);background-size:19px 18px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebar.pinned a.pinToggleButton:hover{background-image:url(/media/freebird/UISidebar/icon-unpin-over@2x.png)}
+}
+.UISidebar a.navItem.UIHoverable .hoverContainer{left:60px;top:11px;bottom:auto;font-size:14px;padding-left:9px;background-image:url(/media/ui/UIPopup/popup-arrow-left.png);background-size:11px 18px;background-position:0 50%;background-repeat:no-repeat}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebar a.navItem.UIHoverable .hoverContainer{background-image:url(/media/ui/UIPopup/popup-arrow-left@2x.png)}
+}
+.UISidebar .navItem .tooltipContainer{padding:10px;background:#282e33}
+.UISidebar a.navItem.UIHoverable:hover .hoverContainer{display:none}
+.UISidebar.minimized a.navItem.UIHoverable:hover .hoverContainer{display:block}
+@media only screen and (max-width:1280px){.UISidebar .navItem{height:56px;padding-top:17px}
+.UISidebar.minimized .pinToggleButton{bottom:55px}
+}
+.UISidebar .drawerContainer{background-color:#353a4c}
+.UISidebarDrawer{width:100%}
+.UISidebarDrawer .listHeaderContainer .editActionContainer{float:right;color:#36c0ff}
+.UISidebarDrawer.editModeEnabled .listHeaderContainer .editActionContainer .editEnableAction,.UISidebarDrawer .listHeaderContainer .editActionContainer .editDisableAction{display:none}
+.UISidebarDrawer.editModeEnabled .listHeaderContainer .editActionContainer .editDisableAction{display:block}
+.UISidebarDrawer.editModeEnabled .actionButtonsContainer{display:none}
+.UISidebarDrawer .editModeTitle,.UISidebarDrawer.editModeEnabled .headerTitleContainer{display:none}
+.UISidebarDrawer.editModeEnabled .headerTitleContainer.editModeTitle{display:block}
+.UISidebarDrawer .scrollInfoLabel{display:none;padding:10px;color:#606472;text-align:center;white-space:nowrap}
+.UISidebarDrawer .itemContainer .itemContentContainer{padding:10px 15px;color:#eaebeb}
+.UISidebarDrawer .itemContentContainer .overflowContentContainer{overflow:hidden}
+.UISidebarDrawer a.itemContainer.UIHoverable:hover,.UISidebarDrawer.editModeEnabled .itemContainer.selected,.UISidebarDrawer a.itemContainer.UIHoverable:hover .itemBalance{background-color:#575c60}
+.UISidebarDrawer .itemContainer.highlighted,.UISidebarDrawer a.itemContainer.highlighted.UIHoverable:hover{background-color:#36c0ff;color:white}
+.UISidebarDrawer .itemContainer .itemName{width:10px;overflow:visible;white-space:nowrap}
+.UISidebarDrawer .itemContainer .itemBalance{background-color:#353a4c;padding-left:25px;white-space:nowrap;text-align:right}
+.UISidebarDrawer .itemContainer .itemDescription{display:none;color:#dcdce2;margin-top:5px;overflow:hidden;white-space:nowrap}
+.UISidebarDrawer .actionButtonsContainer{padding:10px 15px;border-top:1px solid #2b2f3e}
+.UISidebarDrawer .actionButtonsContainer .UIButton{margin-top:10px}
+.UISidebarDrawer .actionButtonsContainer .UIButton.firstButton{margin-top:0}
+.UISidebarDrawer .UIButton.styleDefault.enabled>.controlTitleContainer{background:#3492cc;color:#fff}
+.UISidebarDrawer .UIButton.styleDefault.enabled>a.controlTitleContainer:hover{background:#42b7ff;color:#fff}
+.UISidebarDrawer .UIButton.disabled>.controlTitleContainer{background:#282e33;color:#495055}
+.UISidebarDrawer .sectionListContainer .sectionTitleContainer{color:#fff;background:#474e66;padding:10px 15px;cursor:pointer;line-height:22px;border-bottom:1px solid #353a4c}
+.UISidebarDrawer .sectionListItemsContainer.closed{display:none}
+.UISidebarDrawer .emptyStateContainer{padding:30px 15px;text-align:center}
+.UISidebarDrawer .listHeaderContainer{padding:0 15px}
+.UISidebarDrawer .itemListScrollContainer{border-top:1px solid #2e2e2e;margin-top:5px}
+.UISidebarDrawer .listHeaderContainer .sortTitleContainer{color:#dcdce2;margin-top:5px;background-image:url(/media/freebird/UITransactionList/sortDown.png);background-size:6px 4px;background-position:100% 50%;background-repeat:no-repeat;padding-right:15px;cursor:pointer;display:inline-block}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebarDrawer .listHeaderContainer .sortTitleContainer{background-image:url(/media/freebird/UITransactionList/sortDown@2x.png)}
+}
+.UISidebarDrawer .listHeaderContainer .sortTitleContainer.sortedDesc{color:#36c0ff}
+.UISidebarDrawer .listHeaderContainer .sortTitleContainer.sortedAsc{color:#36c0ff;background-image:url(/media/freebird/UITransactionList/sortUp.png);background-size:6px 4px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebarDrawer .listHeaderContainer .sortTitleContainer.sortedAsc{background-image:url(/media/freebird/UITransactionList/sortUp@2x.png)}
+}
+.UISidebarDrawer .listHeaderContainer .rF .sortTitleContainer{background-position:0 50%;padding-left:15px;padding-right:0}
+.UISidebarDrawer .bulkActionsContainer,.UISidebarDrawer.editModeEnabled .actionsContainer{display:none}
+.UISidebarDrawer.editModeEnabled .bulkActionsContainer.UIGrid{display:table;margin-top:10px}
+.UISidebarDrawer .bulkActionsContainer.UIGrid>tbody>tr>td{padding-left:5px}
+.UISidebarDrawer .bulkActionsContainer.UIGrid>tbody>tr>td.firstColumn{padding-left:0}
+.UISidebarDrawer .itemContainer{border-bottom:1px solid transparent}
+.UISidebarDrawer.editModeEnabled .itemContainer{border-bottom:1px solid #000}
+.UISidebarDrawer.editModeEnabled .sectionTitleContainer .sectionBalanceContainer,.UISidebarDrawer.editModeEnabled .itemBalance{display:none}
+.UISidebarDrawer.editModeEnabled .bulkSelectCheckbox{margin:2px 0 0 20px;display:block;float:right}
+.UISidebarDrawer .bulkSelectCheckbox{display:none;width:12px;height:12px;background-image:url(/media/freebird/UISidebar/drawer/checkbox-unselected.png);background-size:12px 12px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebarDrawer .bulkSelectCheckbox{background-image:url(/media/freebird/UISidebar/drawer/checkbox-unselected@2x.png)}
+}
+.UISidebarDrawer .bulkSelectCheckbox.selected{background-image:url(/media/freebird/UISidebar/drawer/checkbox-selected.png);background-size:12px 12px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebarDrawer .bulkSelectCheckbox.selected{background-image:url(/media/freebird/UISidebar/drawer/checkbox-selected@2x.png)}
+}
+.UISidebarTagDrawer .itemContainer .itemContentContainer{padding-left:5px}
+.UISidebarTagDrawer .tagContainer.hasChildren>.itemContainer{background-image:url(/media/freebird/UISidebar/drawer/arrow-open.png);background-size:9px 6px;background-repeat:no-repeat;background-position:10px 50%}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebarTagDrawer .tagContainer.hasChildren>.itemContainer{background-image:url(/media/freebird/UISidebar/drawer/arrow-open@2x.png)}
+}
+.UISidebarTagDrawer .tagContainer.hasChildren.closed>.itemContainer{background-image:url(/media/freebird/UISidebar/drawer/arrrow-closed.png);background-size:6px 9px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebarTagDrawer .tagContainer.hasChildren.closed>.itemContainer{background-image:url(/media/freebird/UISidebar/drawer/arrrow-closed@2x.png)}
+}
+.UISidebarTagDrawer .tagContainer.hasChildren.closed>.childTagsContainer{display:none}
+.UISidebarAccountDrawer .itemContainer .outOfSync{background-image:url(/media/freebird/sync/icon-SyncError-Drawer.png);background-size:auto 100%;background-repeat:no-repeat;background-position:0 50%;padding-left:25px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISidebarAccountDrawer .itemContainer .outOfSync{background-image:url(/media/freebird/sync/icon-SyncError-Drawer@2x.png)}
+}
+.UIQuickSummary,.UIQuickSummary.pageSectionCard{margin:10px 10px 0 10px;padding:10px}
+.UIQuickSummary .quickSummaryTitle{color:#606472;font-size:13px}
+.UIQuickSummary .UIAmount{font-size:20px}
+.UIQuickSummary .UIAmount.movement{background-size:16px;padding-left:25px}
+.UIQuickSummary .summaryItemContainer{text-align:center;display:inline-block}
+.UIQuickSummary .itemListContainer.UIGrid>tbody>tr>td{padding-right:25px;text-align:center}
+@media only screen and (max-width:1280px){.UIQuickSummary .quickSummaryTitle{font-size:12px}
+.UIQuickSummary .UIAmount{font-size:18px}
+}
+.UIListNavigation{margin-top:15px;text-align:center;color:#bcbcbc}
+.UIListNavigation>.UIGrid>tbody>tr>td{vertical-align:middle}
+.UIListNavigation .infoTextContainer{margin-right:20px}
+.UIListNavigation .loadMoreLink{display:block;margin-right:10px}
+.UIListNavigation .loadMoreLink.selected{color:#606472}
+.UIListNavigation a.loadMoreLink:hover{color:#606472}
+.UICategories{min-height:300px}
+.UICategories .emptyChartContainer td.chartPlaceholder{vertical-align:middle;background-image:url(/media/freebird/UIDashboard/empty-expenses.png);background-size:350px 350px;background-size:contain;background-position:0 0;background-repeat:no-repeat;width:300px;height:300px;text-align:center}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UICategories .emptyChartContainer td.chartPlaceholder{background-image:url(/media/freebird/UIDashboard/empty-expenses@2x.png)}
+}
+.UICategories .emptyChartContainer>table.UIGrid>tbody>tr>td.lastColumn{padding-left:25px}
+.UICategories .emptyChartContainer .emptyTotalContainer{height:60px}
+.UICategories .emptyChartContainer .titleContainer .categoryNameContainer{font-style:italic}
+.UICategories .emptyChartContainer .buttonsContainer{margin-top:20px}
+.UICategories .pieChartLegend.legendContainer>.UIGrid td.topMoverCell{text-align:right;width:1%;background-repeat:no-repeat;background-position:5px 50%;background-size:16px}
+.UICategories .pieChartLegend.legendContainer>.UIGrid td.topMoverCell>a{padding-left:30px;padding-top:11px}
+.UICategories .pieChartLegend.legendContainer>.UIGrid .topMoverCell.moveGood a{color:#5ac24c}
+.UICategories .pieChartLegend.legendContainer>.UIGrid .topMoverCell.moveBad a{color:#e64b30}
+.UICategories .pieChartLegend.legendContainer>.UIGrid .topMoverCell .topMoverPercent{display:none}
+.UICategories.percentMode .pieChartLegend.legendContainer>.UIGrid .topMoverCell .topMoverPercent{display:block}
+.UICategories.percentMode .pieChartLegend.legendContainer>.UIGrid .topMoverCell .topMoverAmount{display:none}
+.UICategories .pieChartLegend.legendContainer>.UIGrid .topMoverCell.moveUp.moveGood{background-image:url(/media/freebird/UICategories/icon-TopGreen.png)}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UICategories .pieChartLegend.legendContainer>.UIGrid .topMoverCell.moveUp.moveGood{background-image:url(/media/freebird/UICategories/icon-TopGreen@2x.png)}
+}
+.UICategories .pieChartLegend.legendContainer>.UIGrid .topMoverCell.moveUp.moveBad{background-image:url(/media/freebird/UICategories/icon-TopRed.png)}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UICategories .pieChartLegend.legendContainer>.UIGrid .topMoverCell.moveUp.moveBad{background-image:url(/media/freebird/UICategories/icon-TopRed@2x.png)}
+}
+.UICategories .pieChartLegend.legendContainer>.UIGrid .topMoverCell.moveDown.moveGood{background-image:url(/media/freebird/UICategories/icon-DownGreen.png)}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UICategories .pieChartLegend.legendContainer>.UIGrid .topMoverCell.moveDown.moveGood{background-image:url(/media/freebird/UICategories/icon-DownGreen@2x.png)}
+}
+.UICategories .pieChartLegend.legendContainer>.UIGrid .topMoverCell.moveDown.moveBad{background-image:url(/media/freebird/UICategories/icon-DownRed.png)}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UICategories .pieChartLegend.legendContainer>.UIGrid .topMoverCell.moveDown.moveBad{background-image:url(/media/freebird/UICategories/icon-DownRed@2x.png)}
+}
+.UICategoryNavigation{background:white;text-align:center}
+.UICategoryNavigation .categoryName{color:#606472}
+.UICategoryNavigation .categoryName.selectedCategory{color:#2b2f3e}
+.UICategoryNavigation .categoryName.rootCategory{color:#36c0ff}
+.UICategoryNavigation .categorySeparator{color:#606472;padding-left:10px;padding-right:10px}
+.UIBudgetChart .contentContainer{margin:10px 45px 0 0}
+.UIBudgetChart .budgetListContainer{padding-bottom:20px;position:relative}
+.UIBudgetChart .budgetListContainer.legacy{margin-bottom:30px}
+.UIBudgetChart .spentAmount{color:#989898}
+.UIBudgetChart .progressBarContainer{position:relative;margin-top:3px}
+.UIBudgetChart .leftAmount{margin-right:2px}
+.UIBudgetChart .limitRed .leftAmount{color:#e64b30}
+.UIBudgetChart .limitOrange .leftAmount{color:#fdb77b}
+.UIBudgetChart .limitGreen .leftAmount{color:#51b44f}
+.UIBudgetChart .spentAmount,.UIBudgetChart .leftAmount{position:relative;background:white;padding-top:5px}
+.UIBudgetChart .marker{position:absolute;top:0;bottom:0;width:2px;border-left:1px dashed #fdb77b}
+.UIBudgetChart .marker.limit{border-color:#e64b30}
+.UIBudgetChart .markerLabel{position:absolute;padding:3px 5px;bottom:0;text-align:center;color:white;font-size:11px}
+.UIBudgetChart .today .markerLabel{right:-20px;color:#fdb77b;background:white}
+.UIBudgetChart .limit .markerLabel{left:-1px;color:#ee634c}
+.UIBudgetChart .date{font-size:11px;font-style:italic}
+.UIBudgetChart .buttonsContainer{padding-right:70px}
+.UIBudgetChart .UIGrid.buttonsContainer>tbody>tr td.firstColumn{padding-right:20px}
+.UIBudgetChart .UILinkSelector{font-size:13px}
+.UIBudgetChart .emptyStateContainer{padding-top:25px}
+.UIBudgetChart .emptyStateContainer .emptyStateChart{width:250px;min-height:300px;margin-right:25px;background-image:url(/media/freebird/UIDashboard/empty-budget.png);background-size:340px 260px;background-position:0 0;background-repeat:no-repeat}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIBudgetChart .emptyStateContainer .emptyStateChart{background-image:url(/media/freebird/UIDashboard/empty-budget@2x.png)}
+}
+.UIBudgetChart .emptyStateContainer .emptyStateTitle{margin-bottom:10px}
+.UIBudgetChart .budgetContainer{position:relative}
+.UIBudgetChart .budgetName{position:absolute;overflow:hidden;white-space:nowrap;top:18px;text-align:right}
+.UIBudgetChart .budgetListContainer{margin-left:150px}
+.UIBudgetChart .budgetName{left:-170px;width:150px}
+.UIBudgetChart.modeConcise .budgetListContainer{margin-left:90px}
+.UIBudgetChart.modeConcise .budgetName{left:-90px;width:75px;top:12px}
+.UIBudgetChart.modeConcise .UIBudgetProgressBar.UIProgressBar .outer,.UIBudgetChart.modeConcise .UIBudgetProgressBar.UIProgressBar .inner{height:12px}
+.UIBudgetChart.modeConcise .UIBudgetProgressBar.UIProgressBar{padding:0;border:0}
+.UIBudgetPeriod{margin-top:20px;color:#606472;font-size:12px}
+.UIBudgetPeriod .dateListContainer.UIGrid{border:1px solid #dcdce2;background:#f2f2f2;border-radius:5px}
+.UIBudgetPeriod .dateListContainer.UIGrid>tbody>tr td{text-align:left}
+.UIBudgetPeriod .dateListContainer .tickContainer{padding:5px;display:table-cell}
+.UIBudgetPeriod .dateListContainer.UIGrid>tbody>tr td.firstColumn .tickContainer,.UIBudgetPeriod .dateListContainer.UIGrid>tbody>tr td.lastColumn .tickContainer{background:white;border-radius:5px}
+.UIBudgetPeriod .dateListContainer.UIGrid>tbody>tr td.lastColumn{width:1%}
+.UIBudgetPeriod .periodDescriptionContainer{text-align:center;padding:0 2px 2px}
+.UIBudgetProgressBar.UIProgressBar .inner{min-width:0}
+.UIBudgetProgressBar.UIProgressBar.red.overLimitRegular{padding-right:0}
+.UIBudgetProgressBar.UIProgressBar.red.overLimitRegular,.UIBudgetProgressBar.UIProgressBar.red.overLimitRegular .outer{border-top-right-radius:0;border-bottom-right-radius:0}
+.UIBudgetProgressBar.UIProgressBar.overLimitExtended{position:absolute;top:0;padding-left:0}
+.UIBudgetProgressBar.UIProgressBar.red.overLimitExtended,.UIBudgetProgressBar.UIProgressBar.red.overLimitExtended .outer{border-top-left-radius:0;border-bottom-left-radius:0}
+.UIBudgetProgressBar.UIProgressBar .inner{background:#f2f2f2;border-top-right-radius:0;border-bottom-right-radius:0}
+.UIBudgetProgressBar.UIProgressBar.red.overLimitExtended .outer{background:#e97f70}
+.UIBudgetProgressBar.UIProgressBar.orange .outer{background:#fdb77b}
+.UIBudgetProgressBar.UIProgressBar.green .outer{background:#5fdc9f}
+.UIProgressBar.UIBudgetProgressBar.overLimitRegular{border-right:0}
+.UIProgressBar.UIBudgetProgressBar.overLimitExtended{border-left:0}
+.UIDashboard .UIGrid td.bBorder{border-bottom:1px solid #e0e0e0}
+.UIDashboard .sectionsContainer .UIListNavigation{padding-left:0;padding-right:0;font-size:13px}
+.UIDashboard .UICategories .legendContainer>.UIGrid{margin-left:0}
+.UIDashboard .sectionsContainer .UIPeriodPicker .calendarHandleContainer{background-size:8px;padding-right:12px}
+.UIDashboardForecast .UIForecastChart{margin:20px 20px 0 20px}
+.UIDashboardForecast .contentContainer.UIGrid>tbody>tr>td.lastColumn{padding-left:40px}
+.UIDashboardForecast .UIButton.seeAllButton{margin-top:30px}
+.UIDashboardReminders .reminderListContainer.UIGrid{margin-top:20px;border-top:1px solid #e4e3e7}
+.UIDashboardReminders .reminderListContainer.UIGrid>tbody>tr>td{padding:15px;white-space:nowrap;border-bottom:1px solid #e4e3e7}
+.UIDashboardReminders .reminderListContainer .UIAmount{text-align:right}
+.UICompare .UILineChart{margin:45px 15px 0}
+.UITimeline .UILineChart{margin:45px 15px 0}
+.UITimeline .pastPeriodTitle{color:#999}
+.UITimeline .budgetTitle{color:#dc8f23}
+.UITimeline .UIMembershipUpsell{margin-top:20px}
+.UITimeline.contentNotAvailable{-webkit-filter:blur(5px);filter:blur(5px)}
+.UITimeline.contentNotAvailable img{width:100%}
+.UITransactionList.pageSectionCard{padding-right:0;padding-left:0}
+.UITransactionList .titleContainer{padding-right:20px;padding-left:20px}
+.UITransactionList .UIGrid.transactions>tbody>tr>td,.UITransactionList .UIGrid.transactions>tbody>tr>th.firstColumn{cursor:pointer}
+.UITransactionList .UIGrid.transactions>tbody>tr>td.lastColumn,.UITransactionList .UIGrid.transactions>tbody>tr>th.lastColumn{border-right:0}
+.UITransactionList .UIGrid.transactions>tbody>tr>th,.UITransactionList .UIGrid.transactions>tbody>tr>td{vertical-align:top}
+.UITransactionList .UIGrid.transactions>tbody>tr>th{border-bottom:1px solid #e4e3e7;white-space:nowrap;text-align:left}
+.UITransactionList .UIGrid.transactions>tbody>tr>th.rAlign{text-align:right}
+.UITransactionList .UIGrid.transactions>tbody>tr>th,.UITransactionList .UIGrid.transactions>tbody>tr>th a{color:#7c7c7c}
+.UITransactionList .UIGrid.transactions>tbody>tr>th .sortableColumnTitle>div{background-image:url(/media/freebird/UITransactionList/icons-sortingNothing.png);background-size:6px 10px;background-repeat:no-repeat;background-position:100% 50%;padding-right:15px;display:inline-block}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UITransactionList .UIGrid.transactions>tbody>tr>th .sortableColumnTitle>div{background-image:url(/media/freebird/UITransactionList/icons-sortingNothing@2x.png)}
+}
+.UITransactionList .UIGrid.transactions>tbody>tr>th .sortableColumnTitle.sortedUp,.UITransactionList .UIGrid.transactions>tbody>tr>th .sortableColumnTitle.sortedDown{color:#36c0ff}
+.UITransactionList .UIGrid.transactions>tbody>tr>th .sortableColumnTitle.sortedUp>div{background-image:url(/media/freebird/UITransactionList/icons-sortingUp.png);background-size:6px 10px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UITransactionList .UIGrid.transactions>tbody>tr>th .sortableColumnTitle.sortedUp>div{background-image:url(/media/freebird/UITransactionList/icons-sortingUp@2x.png)}
+}
+.UITransactionList .UIGrid.transactions>tbody>tr>th .sortableColumnTitle.sortedDown>div{background-image:url(/media/freebird/UITransactionList/icons-sortingDown.png);background-size:6px 10px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UITransactionList .UIGrid.transactions>tbody>tr>th .sortableColumnTitle.sortedDown>div{background-image:url(/media/freebird/UITransactionList/icons-sortingDown@2x.png)}
+}
+.UITransactionList .UIGrid.transactions>tbody>tr>th{padding:15px 20px}
+.UITransactionList .UIGrid.transactions>tbody>tr>td{padding:8px 10px}
+.UITransactionList .UIGrid.transactions>tbody>tr>th .UICheckbox,.UITransactionList .UIGrid.transactions>tbody>tr>td .UICheckbox{width:17px;height:17px;background-size:contain}
+.UITransactionList .UIGrid.transactions>tbody>tr>th.firstColumn,.UITransactionList .UIGrid.transactions>tbody>tr>td.firstColumn{padding-left:15px}
+.UITransactionList .UIGrid.transactions>tbody>tr>th.firstColumn,.UITransactionList .UIGrid.transactions>tbody>tr>td.firstColumn{padding-top:0;padding-bottom:0;vertical-align:middle}
+.UITransactionList .UIGrid.transactions>tbody>tr>th.lastColumn,.UITransactionList .UIGrid.transactions>tbody>tr>td.lastColumn{padding-right:5px}
+.UITransactionList .UIGrid.transactions>tbody>tr.selected>td{background-color:#f9f9f9}
+.UITransactionList .emptyStateContainer{text-align:center;padding:70px 0 20px}
+.UITransactionList .emptyStateContainer .emptyStateTitle{color:#36c0ff;font-size:30px}
+.UITransactionList .emptyStateContainer .emptyStateContent{color:#2b2f3e;margin-top:10px}
+.UITransactionList .emptyStateContainer .emptyStateContent a{text-decoration:underline;margin-left:5px}
+.freebird .nextPage .UIGrid.transactions{margin-top:0;border-top:0}
+.UITransactionList .statusCountContainer{margin-left:10px;padding:2px 5px;font-size:9px;border:1px solid #dcdce2;color:#dcdce2}
+.UITransactionList .UILinkSelector a.selected .statusCountContainer,.UITransactionList .UILinkSelector a:hover .statusCountContainer{color:#2b2f3e}
+.UITransactionList .summaryContainer{margin-top:20px}
+.UITransactionList .summaryContainer .labelContainer{color:#999}
+.UITransactionList .summaryContainer .UIAmount{margin:0 20px 0 10px}
+.UITransactionList .UITransactionListBulkActions{margin-top:20px}
+.UITransactionList .UITransactionListAmountCell{white-space:nowrap;text-align:right}
+.UITransactionList .UITransactionListAmountCell .UIEditable input{text-align:right}
+.UITransactionList .UITransactionListDateCell{white-space:nowrap}
+.UITransactionList .UITransactionListAccountCell .accountName{white-space:nowrap}
+.UITransactionList .UITransactionListAccountCell .transferArrowContainer{background-image:url(/media/icons/arrows/right-short.gif);background-position:50% 50%;background-repeat:no-repeat;background-size:10px 6px;width:15px;display:inline-block}
+.UITagToken{white-space:nowrap;background:#f2f2f2;border:1px solid transparent}
+.UITransactionList .UIEditable.tagEditable>a.UIHoverable:hover .UITagToken,.UITransactionList .UIEditable.tagEditable>.editContainer .UITagToken{color:#152530;border-color:#e6e6e9}
+.UITagToken,.UITransactionList .UIEditable.addTagEditableEmpty .addTagEditableEmptyLabel,.UITransactionList .UIEditable>.UIHoverable>.contentContainer,.UITransactionList .UIEditable input.primaryInput,.UITransactionList .nonEditable{padding:6px 8px}
+.UITransactionList .UIEditable .addButton{margin-right:10px}
+.UITransactionList .UIEditable .addButton,.UITransactionList .UIEditable .editButton,.UITransactionList .UIEditable .deleteButton,.UITransactionList .UIEditable .primaryButton.UIButton.submitButton .buttonTitleContainer,.UITransactionList .UIEditable .primaryButton.UIButton.cancelButton .buttonTitleContainer{height:28px;width:28px}
+.UITransactionListTagInput input.primaryInput{width:200px}
+.UITransactionList .tagList .UIEditable .contentContainer{padding:0}
+.UITransactionList .tagList .UIEditable .UIHoverable .contentContainer,.UITransactionList .tagList .UIEditable a.UIHoverable:hover .contentContainer{border:0}
+.UITransactionList .tagList .UIEditable .editContainer{left:auto}
+.UITransactionList .tagList .UIEditable.addTagEditable .editContainer,.UITransactionList .tagList .UIEditable.addTagEditableEmpty .editContainer{left:auto;right:-55px}
+.UITransactionList .UIEditable.addTagEditable{visibility:hidden}
+.UITransactionList .UIEditable.addTagEditable.editingEnabled,.UITransactionList a.UIHoverable.tagListHoverable:hover .UIEditable.addTagEditable{visibility:visible}
+.UITransactionList .UIEditable.addTagEditableEmpty .hoverContainer{left:-30px;right:auto}
+.UITransactionList .UIEditable.addTagEditableEmpty .addTagEditableEmptyLabel{font-size:12px;font-style:italic;color:#dcdce2;white-space:nowrap}
+.UITransactionList .UIEditable.addTagEditableEmpty>a.UIHoverable:hover .addTagEditableEmptyLabel{color:#152530;text-decoration:underline}
+.UITransactionList .UIEditable .editContainer .UIGrid td{padding:0}
+.UITransactionList .UIGrid.chunkedTagList>tbody>tr>td{padding-top:10px}
+.UITransactionList .UIGrid.chunkedTagList>tbody>tr>td.firstRow{padding-top:0}
+.UITransactionList .UIGrid.singleTagChunkList>tbody>tr>td{padding-left:10px}
+.UITransactionList .UIGrid.singleTagChunkList>tbody>tr>td.firstColumn{padding-left:0}
+.UITransactionListTagRuleInput{position:relative}
+.UITransactionListTagRuleInput .outerContentContainer{position:absolute;top:0;left:0}
+.UITransactionListTagRuleInput .arrowContainer{background-image:url(/media/freebird/UITransactionList/arrow-addTag.png);background-size:14px 7px;background-repeat:no-repeat;background-position:10px 0;height:7px;position:relative}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UITransactionListTagRuleInput .arrowContainer{background-image:url(/media/freebird/UITransactionList/arrow-addTag@2x.png)}
+}
+.UITransactionListTagRuleInput .ruleContentContainer{margin-top:-1px;padding:5px;background-color:#f2f2f4;border:1px solid #dcdce2}
+.UITransactionListTagRuleInput .toggleContainer.UIGrid>tbody>tr>td{vertical-align:middle}
+.UITransactionListTagRuleInput .toggleContainer{font-size:12px;color:#777}
+.UITransactionListTagRuleInput .toggleContainer .labelsContainer{margin:2px 0 0 5px;white-space:nowrap}
+.UITransactionListTagRuleInput .ruleInputContainer{padding-top:5px}
+.UITransactionListTagRuleInput .ruleInputContainer input[type=text]{border:1px solid #dcdce2;width:100%}
+.UITransactionListFilters.expandedContainer{margin-top:10px}
+.UITransactionListFilters.expandedContainer .expandedFilterList.UIGrid{border-collapse:collapse}
+.UITransactionListFilters.expandedContainer .expandedFilterList.UIGrid>tbody>tr>td{border:1px solid #c6c6c6}
+.UITransactionListFilters .searchContainer .searchInput{width:210px;background-color:white;border:1px solid #e4e3e7;background-image:url(/media/ui/UISearchField/search.png);background-size:15px 14px;background-position:10px 50%;background-repeat:no-repeat;padding-left:35px;padding-right:40px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UITransactionListFilters .searchContainer .searchInput{background-image:url(/media/ui/UISearchField/search@2x.png)}
+}
+.UITransactionListFilters .searchContainer{margin-left:10px;position:relative}
+.UITransactionListFilters .searchContainer .advancedSearchButton{position:absolute;right:1px;top:1px;bottom:1px;width:30px;background-color:white;background-image:url(/media/ui/UIDropdown/Dropdown-inactive.png);background-size:10px 6px;background-repeat:no-repeat;background-position:50% 50%;border-left:1px solid #e4e3e7;cursor:pointer}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UITransactionListFilters .searchContainer .advancedSearchButton{background-image:url(/media/ui/UIDropdown/Dropdown-inactive@2x.png)}
+}
+.UITransactionListFilters.expanded .advancedSearchButton{display:none}
+.UITransactionListFilters.expanded .searchContainer .searchInput{padding-right:10px}
+.UITransactionListFilters.expandedContainer{display:none}
+.UITransactionListFilters.expandedContainer.expanded{display:block}
+.UITransactionList .UIGrid.transactions>tbody>tr>td.actionsContainer{border-bottom:1px solid #e4e3e7}
+.UITransactionList .UIGrid.transactions>tbody>tr>td.actionsToggleCell,.UITransactionList .UIGrid.transactions>tbody>tr>td.actionsContainer{padding:0}
+.UITransactionList .UIGrid.transactions>tbody>tr>td.actionsContainer>div{display:none;min-height:38px;background-color:#606472}
+.UITransactionList .actionsToggleButtonContainer{height:45px;width:40px;background-position:50% 50%;background-repeat:no-repeat}
+.UITransactionList .actionsToggleButtonContainer.closed{background-image:url(/media/freebird/UITransactionList/UIActions/openDetails.png);background-size:12px 7px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UITransactionList .actionsToggleButtonContainer.closed{background-image:url(/media/freebird/UITransactionList/UIActions/openDetails@2x.png)}
+}
+.UITransactionList .actionsToggleButtonContainer.open{background-image:url(/media/freebird/UITransactionList/UIActions/closeDetails.png);background-size:12px 7px;background-color:#606472}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UITransactionList .actionsToggleButtonContainer.open{background-image:url(/media/freebird/UITransactionList/UIActions/closeDetails@2x.png)}
+}
+.UITransactionDetails,.UITransactionDetails a{color:white}
+.UITransactionDetails .actionGrid.UIGrid>tbody>tr>td{padding:0;text-align:center;border-right:1px solid #2b2f3e;background-color:#606472}
+.UITransactionDetails .actionGrid.UIGrid>tbody>tr>td.lastColumn{border-right:0}
+.UITransactionDetails .actionGrid .UIMenu.open .popupHandleContainer{background:#000;color:#606472}
+.UITransactionDetails .actionGrid a.linkActionContainer{display:block}
+.UITransactionDetails .actionContainer{background-repeat:no-repeat;background-position:20px 50%;padding:12px 20px 12px 60px;font-size:14px}
+.UITransactionDetails .actionGrid .editAction{background-image:url(/media/freebird/UITransactionList/UIActions/edit.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UITransactionDetails .actionGrid .editAction{background-image:url(/media/freebird/UITransactionList/UIActions/edit@2x.png)}
+}
+.UITransactionDetails .actionGrid .itemizeAction{background-image:url(/media/freebird/UITransactionList/UIActions/itemize.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UITransactionDetails .actionGrid .itemizeAction{background-image:url(/media/freebird/UITransactionList/UIActions/itemize@2x.png)}
+}
+.UITransactionDetails .actionGrid .attachAction{background-image:url(/media/freebird/UITransactionList/UIActions/attach.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UITransactionDetails .actionGrid .attachAction{background-image:url(/media/freebird/UITransactionList/UIActions/attach@2x.png)}
+}
+.UITransactionDetails .actionGrid .repeatAction{background-image:url(/media/freebird/UITransactionList/UIActions/Repeat.png);background-size:23px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UITransactionDetails .actionGrid .repeatAction{background-image:url(/media/freebird/UITransactionList/UIActions/Repeat@2x.png)}
+}
+.UITransactionDetails .actionGrid .detailsAction{background-image:url(/media/freebird/UITransactionList/UIActions/details.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UITransactionDetails .actionGrid .detailsAction{background-image:url(/media/freebird/UITransactionList/UIActions/details@2x.png)}
+}
+.UITransactionDetails .actionGrid .deleteAction{background-image:url(/media/freebird/UITransactionList/UIActions/delete.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UITransactionDetails .actionGrid .deleteAction{background-image:url(/media/freebird/UITransactionList/UIActions/delete@2x.png)}
+}
+.UITransactionDetails .actionGrid .convertAction{background-image:url(/media/freebird/UITransactionList/UIActions/Convert.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UITransactionDetails .actionGrid .convertAction{background-image:url(/media/freebird/UITransactionList/UIActions/Convert@2x.png)}
+}
+.UITransactionDetails .sharedDetailsContainer{padding:10px 0 10px 65px;border-bottom:1px solid #2b2f3e}
+.UITransactionDetails .sharedDetailsContainer>table>tbody>tr>th,.UITransactionDetails .sharedDetailsContainer>table>tbody>tr>td{padding:10px 15px;vertical-align:top;text-align:left}
+.UITransactionDetails .sharedDetailsContainer>table>tbody>tr>th{color:#dcdce2;font-weight:normal;font-family:"Proxima Nova Light";font-size:12px}
+.UITransactionDetails .sharedDetailsContainer .amt{text-align:right}
+.UITransactionList .UIGrid.inlineActionsContainer>tbody>tr>td{vertical-align:middle}
+.UITransactionListItem.UIPopup .popupContentContainer{min-width:250px}
+.UITransactionListItem .iconContainer{height:20px;width:25px;background-repeat:no-repeat;background-position:0 50%}
+.UITransactionListAttachmentItem .iconContainer{background-image:url(/media/freebird/UITransactionList/items/icon-attachNormal.png);background-size:14px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UITransactionListAttachmentItem .iconContainer{background-image:url(/media/freebird/UITransactionList/items/icon-attachNormal@2x.png)}
+}
+.UITransactionListAttachmentItem.UIPopup.opening .iconContainer,.UITransactionListAttachmentItem.UIPopup.open .iconContainer{background-image:url(/media/freebird/UITransactionList/items/icon-attachActive.png);background-size:14px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UITransactionListAttachmentItem.UIPopup.opening .iconContainer,.UITransactionListAttachmentItem.UIPopup.open .iconContainer{background-image:url(/media/freebird/UITransactionList/items/icon-attachActive@2x.png)}
+}
+.UITransactionListReminderItem .iconContainer{background-image:url(/media/freebird/UITransactionList/items/icon-ReminderNormal.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UITransactionListReminderItem .iconContainer{background-image:url(/media/freebird/UITransactionList/items/icon-ReminderNormal@2x.png)}
+}
+.UITransactionListReminderItem.UIPopup.opening .iconContainer,.UITransactionListReminderItem.UIPopup.open .iconContainer{background-image:url(/media/freebird/UITransactionList/items/icon-ReminderActive.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UITransactionListReminderItem.UIPopup.opening .iconContainer,.UITransactionListReminderItem.UIPopup.open .iconContainer{background-image:url(/media/freebird/UITransactionList/items/icon-ReminderActive@2x.png)}
+}
+.UITransactionListItemizeItem .iconContainer{background-image:url(/media/freebird/UITransactionList/items/icon-itemizeNormal.png);background-size:20px 18px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UITransactionListItemizeItem .iconContainer{background-image:url(/media/freebird/UITransactionList/items/icon-itemizeNormal@2x.png)}
+}
+.UITransactionListItemizeItem.UIPopup.opening .iconContainer,.UITransactionListItemizeItem.UIPopup.open .iconContainer{background-image:url(/media/freebird/UITransactionList/items/icon-itemizeActive.png);background-size:20px 18px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UITransactionListItemizeItem.UIPopup.opening .iconContainer,.UITransactionListItemizeItem.UIPopup.open .iconContainer{background-image:url(/media/freebird/UITransactionList/items/icon-itemizeActive@2x.png)}
+}
+.UITransactionListStatusItem.statusPending .iconContainer{background-image:url(/media/freebird/UITransactionList/items/icon-pending.png);background-size:13px 12px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UITransactionListStatusItem.statusPending .iconContainer{background-image:url(/media/freebird/UITransactionList/items/icon-pending@2x.png)}
+}
+.UITransactionListStatusItem.statusReconciled .iconContainer{background-image:url(/media/freebird/UITransactionList/items/icon-reconciled.png);background-size:13px 12px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UITransactionListStatusItem.statusReconciled .iconContainer{background-image:url(/media/freebird/UITransactionList/items/icon-reconciled@2x.png)}
+}
+.UITransactionListItem .popupTitleContainer{background:#36c0ff;padding:5px 0 5px 10px;white-space:nowrap}
+.UITransactionListItem .popupTitleContainer div.lF{margin-top:8px}
+.UITransactionListItem .popupCloseContainer{background-image:url(/media/freebird/UITransactionList/items/CloseButton.png);background-size:20px 20px;background-position:50% 50%;background-repeat:no-repeat;margin-right:0;height:30px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UITransactionListItem .popupCloseContainer{background-image:url(/media/freebird/UITransactionList/items/CloseButton@2x.png)}
+}
+.UITransactionListItem .popupCloseContainer,.UITransactionListItem .deleteAction{width:30px}
+.UITransactionListItem .UIGrid.itemListContainer>tbody>tr>td{padding:10px;white-space:nowrap;border-bottom:1px solid #606472}
+.UITransactionListItem .UIGrid.itemListContainer>tbody>tr>td.lastColumn{border-left:1px solid #606472;padding:0;width:1px}
+.UITransactionListItem .deleteAction{background-image:url(/media/freebird/UITransactionList/items/DeleteButton.png);background-size:16px 18px;background-position:50% 50%;background-repeat:no-repeat;padding:15px 0;display:block}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UITransactionListItem .deleteAction{background-image:url(/media/freebird/UITransactionList/items/DeleteButton@2x.png)}
+}
+.UITransactionListItem img.fileTypeIcon{margin-right:5px}
+.UITransactionListItem .fileSizeContainer{color:#606472}
+.UITransactionListStatusItem .statusEditContainer.UIGrid>tbody>tr>td{padding:0 10px 10px 0;vertical-align:middle}
+.UITransactionItemize .addItemLink{margin:10px 0 0 25px}
+.UITransactionItemize .UIGrid.itemList td{padding:10px}
+.UITransactionItemize .UIGrid tr.hiddenRow{display:none}
+.UITransactionListBulkActions.selected{border-bottom:1px solid #dcdce2}
+.UITransactionListBulkActions table.UIGrid.bulkActionsContainer{border-collapse:collapse}
+.UITransactionListBulkActions .bulkActionsContainer.UIGrid>tbody>tr>td{padding-right:2px}
+.UITransactionListBulkActions .bulkActionsContainer.UIGrid>tbody>tr>td.lastColumn{padding-right:0}
+.UITransactionListBulkActions .bulkActionsContainer .UIButton.bulkActionButton>.buttonTitleContainer{text-align:left}
+.UITransactionListBulkActions .bulkActionsContainer .UIButton.copyButton.enabled>.buttonTitleContainer .buttonTitleImageContainer{width:19px;background-image:url(/media/freebird/UITransactionList/UIBulkActions/copy.png);background-size:contain}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UITransactionListBulkActions .bulkActionsContainer .UIButton.copyButton.enabled>.buttonTitleContainer .buttonTitleImageContainer{background-image:url(/media/freebird/UITransactionList/UIBulkActions/copy@2x.png)}
+}
+.UITransactionListBulkActions .bulkActionsContainer .UIButton.printButton.enabled>.buttonTitleContainer .buttonTitleImageContainer{width:20px;background-image:url(/media/freebird/UITransactionList/UIBulkActions/print.png);background-size:contain}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UITransactionListBulkActions .bulkActionsContainer .UIButton.printButton.enabled>.buttonTitleContainer .buttonTitleImageContainer{background-image:url(/media/freebird/UITransactionList/UIBulkActions/print@2x.png)}
+}
+.UITransactionListBulkActions .bulkActionsContainer .UIButton.deleteButton.enabled>.buttonTitleContainer .buttonTitleImageContainer{width:20px;background-image:url(/media/freebird/UITransactionList/UIBulkActions/delete.png);background-size:contain}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UITransactionListBulkActions .bulkActionsContainer .UIButton.deleteButton.enabled>.buttonTitleContainer .buttonTitleImageContainer{background-image:url(/media/freebird/UITransactionList/UIBulkActions/delete@2x.png)}
+}
+.UISyncPrivacy .explanationContainer{color:#606472;line-height:18px}
+.UISyncPrivacy .privacyOptionsContainer{margin-top:20px}
+.UISyncPrivacy .saveModeContainer .descriptionContainer{margin-top:10px;color:#606472}
+.UISyncPrivacy .privacyOptionsContainer>.UIGrid{border:1px solid #e0e0e0;border-radius:5px;margin:10px 0 20px}
+.UISyncPrivacy .privacyOptionsContainer>.UIGrid>tbody>tr>td{padding:20px 10px;vertical-align:middle;border-bottom:1px solid #e0e0e0;cursor:pointer}
+.UISyncPrivacy .privacyOptionsContainer>.UIGrid>tbody>tr>td.lastRow{border-bottom:0}
+.UISyncPrivacy .privacyOptionsContainer>.UIGrid>tbody>tr>td.saveModeContainer{background-repeat:no-repeat;background-position:10px 50%;padding-left:80px}
+.UISyncPrivacy .privacyOptionsContainer>.UIGrid>tbody>tr.selected,.UISyncPrivacy .privacyOptionsContainer>.UIGrid>tbody>tr.selected .descriptionContainer{color:white}
+.UISyncPrivacy .privacyOptionsContainer>.UIGrid>tbody>tr.selected>td{background-color:#36c0ff}
+.UISyncPrivacy .saveModeContainer.saveModeServer{background-image:url(/media/freebird/sync/UIPrivacy/icon-serverNormal.png);background-size:41px 42px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISyncPrivacy .saveModeContainer.saveModeServer{background-image:url(/media/freebird/sync/UIPrivacy/icon-serverNormal@2x.png)}
+}
+.UISyncPrivacy tr.selected .saveModeContainer.saveModeServer{background-image:url(/media/freebird/sync/UIPrivacy/icon-serverSelected.png);background-size:41px 42px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISyncPrivacy tr.selected .saveModeContainer.saveModeServer{background-image:url(/media/freebird/sync/UIPrivacy/icon-serverSelected@2x.png)}
+}
+.UISyncPrivacy .saveModeContainer.saveModeOffline{background-image:url(/media/freebird/sync/UIPrivacy/icon-browserNormal.png);background-size:53px 43px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISyncPrivacy .saveModeContainer.saveModeOffline{background-image:url(/media/freebird/sync/UIPrivacy/icon-browserNormal@2x.png)}
+}
+.UISyncPrivacy tr.selected .saveModeContainer.saveModeOffline{background-image:url(/media/freebird/sync/UIPrivacy/icon-browserSelected.png);background-size:53px 43px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISyncPrivacy tr.selected .saveModeContainer.saveModeOffline{background-image:url(/media/freebird/sync/UIPrivacy/icon-browserSelected@2x.png)}
+}
+.UISyncPrivacy .saveModeContainer.saveModeNone{background-image:url(/media/freebird/sync/UIPrivacy/icon-noStore.png);background-size:43px 43px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISyncPrivacy .saveModeContainer.saveModeNone{background-image:url(/media/freebird/sync/UIPrivacy/icon-noStore@2x.png)}
+}
+.UISyncPrivacy .cancelActionContainer{display:block;margin-top:8px;color:#777;font-size:11px}
+.UISyncStep{color:#606472}
+.UISyncStep .mainContentContainer input[name=bankName]{width:100%}
+.UISyncStep .securityContainer{margin-top:50px}
+.UISyncStep .UIGrid.securityContainer>tbody>tr td{vertical-align:middle;text-align:center}
+.UISyncStep .navigationContainer{margin-top:20px}
+.UISyncStep .navigationContainer .UIButton.continueButton .buttonTitleContainer{padding-right:50px;padding-left:50px}
+.UISyncLogin .titleContainer{color:#36c0ff;font-size:18px}
+.UISyncLogin .UIGrid.inputsContainer{margin-top:20px}
+.UISyncLogin .UIGrid.inputsContainer>tbody>tr td.firstColumn{padding-right:10px}
+.UISyncLogin .UIGrid.saveModeListContainer{margin-top:10px;font-size:13px;color:#888}
+.UISyncLogin .UIGrid.saveModeListContainer>tbody>tr td{white-space:nowrap;vertical-align:middle}
+.UISyncLogin .UIGrid.saveModeListContainer>tbody>tr td label{margin:0 15px 0 2px}
+.UISyncLogin .saveModeHelpLink,.UISyncStep .skipLink{color:#aaa;font-size:10px;margin-top:10px;display:block}
+.UISyncLogin .saveModeHelpLink{text-align:right}
+.UISyncStep .UIGrid.accountList{border-collapse:collapse;margin-top:15px}
+.UISyncStep .UIGrid.accountList>tbody>tr td{padding:15px;border:1px solid #dcdce2}
+.UISyncStep .UIGrid.accountList>tbody>tr td.firstColumn{border-right:0}
+.UISyncStep .UIGrid.accountList>tbody>tr td.lastColumn{border-left:0}
+.UISyncDownload .progressContainer{margin-top:15px}
+.UISyncDownload .progressContainer .UIProgressBar .outer{background:#f9f9f9}
+.UISyncDownload .progressContainer .UIProgressBar .inner{background-color:#73c4e9;background-image:url(/media/freebird/sync/UIDownload/progress-background.png);background-size:435px 30px;background-repeat:no-repeat;background-position:0 0}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISyncDownload .progressContainer .UIProgressBar .inner{background-image:url(/media/freebird/sync/UIDownload/progress-background@2x.png)}
+}
+.UISyncDownload.syncError .progressContainer .UIProgressBar .outer{background:#ee624c}
+.UISyncDownload.syncError .progressContainer .UIProgressBar .inner{background:transparent;width:0}
+.UISyncDownload .titleContainer{min-height:20px}
+.UISyncDownload.syncError .titleContainer{color:#ee624c;background-image:url("/media/icons/error-small.png");background-position:5px 50%;background-repeat:no-repeat;padding-left:25px}
+.UISyncChallenge .questionContainer{color:#36c0ff;font-size:20px}
+.UISyncChallenge .answerContainer{margin-top:5px}
+.UISyncAllProgress{background:#42b7ff;color:#f1f1f2;display:none}
+.UISyncAllProgress.running,.UISyncAllProgress.completed{display:block}
+.UISyncAllProgress>.UIGrid>tbody>tr>td{vertical-align:middle;white-space:nowrap;padding:5px 20px;text-align:center;height:50px}
+.UISyncAllProgress>.UIGrid>tbody>tr>td.lastColumn{border-right:0}
+.UISyncAllProgress>.UIGrid>tbody>tr>td.syncLabelContainer{background:url(/media/freebird/sync/all/UIProgress/sync-animated.gif) no-repeat 20px 50%;padding-left:55px;border-right:0}
+.UISyncAllProgress.completed>.UIGrid>tbody>tr>td.syncLabelContainer{background-image:url(/media/freebird/sync/all/UIProgress/icon-syncing.png);background-size:23px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UISyncAllProgress.completed>.UIGrid>tbody>tr>td.syncLabelContainer{background-image:url(/media/freebird/sync/all/UIProgress/icon-syncing@2x.png)}
+}
+.UISyncAllProgress .actionsContainer.UIGrid .UIButton{margin-left:15px}
+.UISyncAllProgress .labelContainer{color:#606472;white-space:normal;padding-right:0;border:0}
+.UISyncAllProgress .countContainer{margin-top:5px}
+.UISyncAllProgress .transactionsActionContainer,.UISyncAllProgress .closeActionContainer,.UISyncAllProgress.completed .cancelActionContainer{display:none}
+.UISyncAllProgress.completed .closeActionContainer{display:initial}
+.UISyncAllProgress>.UIGrid>tbody>tr>td.progressContainer{padding-top:10px;padding-bottom:10px;padding-left:0}
+.UISyncAllProgress .progressOuterContainer{background:#3492cc;border:1px solid #3492cc}
+.UISyncAllProgress .progressInnerContainer{background:#36c0ff;width:25px;color:#606472;padding:5px 5px 0 0;height:20px;text-align:right}
+.UIPieChart{position:relative}
+.UIPieChart .totalContainer{position:absolute;left:0;right:0;height:60px;text-align:center}
+.UIPieChart .totalLabelContainer{font-size:13px;color:#606472;text-align:center}
+.UIPieChart .totalAmountContainer{font-family:'Ubuntu Mono';padding-top:10px;font-size:25px;color:#606472;display:inline-block}
+.UIPieChart .loadingContainer{background-color:transparent}
+.freebird .pieChartLegend.legendContainer>.UIGrid{margin-left:20px;cursor:pointer}
+.freebird .pieChartLegend.legendContainer>.UIGrid>tbody>tr td{vertical-align:middle}
+.freebird .pieChartLegend.legendContainer>.UIGrid>tbody>tr>td>a,.freebird .pieChartLegend.legendContainer>.UIGrid>tbody>tr>td .labelContainer,.freebird .pieChartLegend.legendContainer>.UIGrid .othersGroup td{padding:10px 5px}
+.freebird .pieChartLegend.legendContainer>.UIGrid>tbody>tr>td.firstColumn>a,.freebird .pieChartLegend.legendContainer>.UIGrid .othersGroup td.firstColumn{padding-right:0;padding-left:0}
+.freebird .pieChartLegend.legendContainer>.UIGrid .UIAmount.totalAmountContainer{text-align:right;color:#606472}
+.freebird .pieChartLegend.legendContainer>.UIGrid .legendItemPercentContainer{text-align:right;color:#606472;padding-left:20px}
+.freebird .pieChartLegend.legendContainer>.UIGrid .othersGroup.expanded td{border-top:1px solid #f2f2f2}
+.freebird .pieChartLegend.legendContainer>.UIGrid .othersData{display:table-row}
+.freebird .pieChartLegend.legendContainer>.UIGrid .legendSymbol{position:relative;margin-left:10px;width:14px;height:14px;border-radius:7px;border-color:transparent}
+.freebird .pieChartLegend.legendContainer>.UIGrid{white-space:nowrap}
+.UIChart .tooltipContainer.cursorValue{font-size:15px;padding:0;color:white;position:absolute;display:none;white-space:nowrap;background:transparent}
+.UIChart .tooltipContainer .arrowContainer{height:10px;background-image:url(/media/ui/UIPopup/popup-arrow-top-selected.png);background-size:20px 10px;background-position:50% 0;background-repeat:no-repeat}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIChart .tooltipContainer .arrowContainer{background-image:url(/media/ui/UIPopup/popup-arrow-top-selected@2x.png)}
+}
+.UIChart .tooltipContainer .titleContainer{background-color:#36c0ff;padding:5px 10px}
+.UIChart .tooltipContainer .detailsContainer{padding:10px;background-color:#2b2f3e}
+.UIChart .tooltipContainer .seriesValue{text-align:right;padding-left:15px}
+.UIChart .clickable{cursor:pointer}
+.UIChart .tooltipContainer.expanded .detailsContainer{padding:0}
+.UIChart .tooltipContainer .detailsContainer .UIGrid.transactionList td{padding:10px}
+.UIChart .tooltipContainer .detailsContainer .UIGrid.transactionList .UIAmount{text-align:right;padding-left:20px}
+.UIChart .tooltipContainer .detailsContainer .tooltipFooter{background-color:#606472;padding:10px}
+.UIChart .tooltipContainer .detailsContainer .tooltipFooter,.UIChart .tooltipContainer .detailsContainer .tooltipFooter a{color:#f9f9f9}
+.UIChart .tooltipContainer .detailsContainer .tooltipFooter .seeAllLink{margin-left:20px}
+.UIPaymentInput .paymentInputContainer.UIGrid>tbody>tr td{padding:5px 10px}
+.UIPaymentInput .paymentInputContainer.UIGrid>tbody>tr td.firstColumn{padding-top:10px;text-align:right}
+.UIPaymentInput .paymentInputContainer input[type=text]{width:auto}
+.UIPaymentInput .helpContentContainer{max-width:400px;margin-left:80px}
+.UIPaymentInput .helpContentContainer li{margin-top:5px}
+.UIContactSettle .inputsContainer.UIGrid>tbody>tr td{vertical-align:middle;padding:10px 10px 0 0}
+.UIGroupSettle .inputsContainer.UIGrid>tbody>tr>td{padding:10px;vertical-align:middle}
+.UIGroupSettle .inputsContainer.UIGrid>tbody>tr td.firstColumn{text-align:right}
+.UILoanChart{max-width:700px}
+.UILoanChart .balanceListContainer{margin-top:10px}
+.UILoanChart .balanceListContainer.UIGrid>tbody>tr>td{padding:10px 0 10px;white-space:nowrap}
+.UILoanChart .balanceListContainer.UIGrid>tbody>tr>td.firstColumn{padding-right:20px;vertical-align:middle}
+.UILoanChart .balanceListContainer.UIGrid>tbody>tr>td.separatorCell{border-left:2px solid #606472}
+.UILoanChart .balanceListContainer .UIAmount{padding:4px 10px 0;background:#f2f2f2;border-top-left-radius:5px;border-bottom-left-radius:5px}
+.UILoanChart .balanceListContainer.UIGrid>tbody>tr>td.lastColumn .UIAmount{border-top-left-radius:0;border-bottom-left-radius:0;border-top-right-radius:5px;border-bottom-right-radius:5px}
+.UILoanChart .balanceListContainer .UIProgressBar,.UILoanChart .balanceListContainer .UIProgressBar .outer{background:#f2f2f2;border-color:transparent}
+.UILoanChart .balanceListContainer .UIProgressBar.red .inner{background:#e97f70;float:right}
+.UILoanChart .balanceListContainer .UIProgressBar.green .inner{background:#5fdc9f}
+.UILoanChart .balanceListContainer .UIProgressBar.green,.UILoanChart .balanceListContainer .UIProgressBar.green .inner,.UILoanChart .balanceListContainer .UIProgressBar.green .outer{border-top-left-radius:0;border-bottom-left-radius:0}
+.UILoanChart .balanceListContainer .UIProgressBar.green{padding-left:0}
+.UILoanChart .balanceListContainer .UIProgressBar.red,.UILoanChart .balanceListContainer .UIProgressBar.red .inner,.UILoanChart .balanceListContainer .UIProgressBar.red .outer{border-top-right-radius:0;border-bottom-right-radius:0}
+.UILoanChart .balanceListContainer .UIProgressBar.red{padding-right:0}
+.UILoanChart .emptyBalanceContainer{padding:30px 0;font-size:18px}
+.UILoanChart .nameContainer{text-align:right}
+.UILoanChart.modeConcise .UIProgressBar .outer,.UILoanChart.modeConcise .UIProgressBar .inner{height:16px}
+.UILoanChart.modeConcise .UIProgressBar{padding:0;border:0}
+.UILoanChart.modeConcise .UIAmount{height:16px;padding-top:2px;font-size:14px}
+.UILoanChart .actionLink{margin-left:15px}
+.UILoanChart .actionsContainer{margin-top:4px}
+.UILoanChart.modeConcise .actionsContainer{margin-top:0}
+.UIForecast .UIForecastNumbers{padding-right:80px}
+.UIForecast .UIForecastTransactions{margin-top:20px}
+.UIForecast .transactionActionsContainer.UIGrid>tbody>tr>td{padding-left:15px}
+.UIForecastNumbers.UIGrid>tbody>tr td{padding-bottom:15px;white-space:nowrap}
+.UIForecastNumbers.UIGrid>tbody>tr td.lastColumn{padding-left:20px;text-align:right}
+.UIForecastNumbers.UIGrid>tbody>tr>td.lastRow{border-top:1px solid #e4e3e7;padding-top:15px;padding-bottom:15px}
+.UIForecastTransactions .transactionsContainer.UIGrid{white-space:nowrap}
+.UIForecastTransactions .transactionsContainer.UIGrid>tbody>tr>th{border-top:1px solid #e4e3e7;text-align:left}
+.UIForecastTransactions .transactionsContainer.UIGrid>tbody>tr>th,.UIForecastTransactions .transactionsContainer.UIGrid>tbody>tr>td{padding:6px 10px;border-bottom:1px solid #e4e3e7;vertical-align:middle}
+.UIForecastTransactions .transactionsContainer.UIGrid>tbody>tr>th{padding-top:15px;padding-bottom:15px}
+.UIForecastTransactions .transactionsContainer.UIGrid>tbody>tr>td.lastColumn{padding-right:0}
+.UIForecastTransactions th .amountColumnHeader{text-align:right;padding-right:20px}
+.UIForecastTransactions .UIAmount{text-align:right;padding:8px 10px}
+.UIForecastTransactions .tagList.UIGrid>tbody>tr>td{padding-left:10px}
+.UIForecastTransactions .descriptionContainer{padding:5px 0 5px 40px;background-repeat:no-repeat;background-position:0 50%}
+.UIForecastTransactions .descriptionContainer.budget{background-image:url(/media/freebird/UISidebar/icon-budgetsNormal.png);background-size:21px 21px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIForecastTransactions .descriptionContainer.budget{background-image:url(/media/freebird/UISidebar/icon-budgetsNormal@2x.png)}
+}
+.UIForecastTransactions .descriptionContainer.reminder{background-image:url(/media/freebird/UISidebar/icon-remindersNormal.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIForecastTransactions .descriptionContainer.reminder{background-image:url(/media/freebird/UISidebar/icon-remindersNormal@2x.png)}
+}
+.UIForecastTransactions .descriptionContainer.transaction{background-image:url(/media/freebird/UISidebar/icon-accountsNormal.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIForecastTransactions .descriptionContainer.transaction{background-image:url(/media/freebird/UISidebar/icon-accountsNormal@2x.png)}
+}
+.UIForecastTransactions .emptyStateContainer{text-align:center;padding:70px 0 20px}
+.UIForecastTransactions .emptyStateContainer .emptyStateTitle{color:#36c0ff;font-size:30px}
+.UIForecastTransactions .emptyStateContainer .emptyStateContent{color:#2b2f3e;font-size:18px;margin-top:10px}
+.UIForecastTransactions .emptyStateContainer .emptyStateContent a{text-decoration:underline;margin-left:5px}
+.UIForecastTransactions .forecastActionContainer{display:inline-block;margin:0 15px;background-repeat:no-repeat;background-position:0 0;width:20px;height:20px}
+.UIForecastTransactions .forecastActionContainer.editAction{background-image:url(/media/freebird/app/UIAction/icon-edit.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIForecastTransactions .forecastActionContainer.editAction{background-image:url(/media/freebird/app/UIAction/icon-edit@2x.png)}
+}
+.UIForecastTransactions .forecastActionContainer.deleteAction{background-image:url(/media/freebird/app/UIAction/icon-delete.png);background-size:18px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIForecastTransactions .forecastActionContainer.deleteAction{background-image:url(/media/freebird/app/UIAction/icon-delete@2x.png)}
+}
+.UIMembershipPayment .inputLabel{color:#606472}
+.UIMembershipPayment .planInputsContainer{margin-bottom:30px}
+.UIMembershipPayment .paymentMethodButtonsContainer.UIGrid>tbody>tr>td.firstColumn{padding-right:15px}
+.UIMembershipPayment .paymentMethodButtonsContainer.UIGrid>tbody>tr>td.lastColumn{padding-left:15px}
+.UIMembershipPayment .amountContainer{padding-top:20px;text-align:center;height:60px}
+.UIMembershipPayment .amountContainer .savingsContainer{margin-top:5px;color:#36c0ff}
+.UIMembershipPayment .renewalInfoContainer{color:#606472;margin:15px 0 20px;text-align:center}
+.UIMembershipPayment .securitySealsContainer.UIGrid{margin-top:60px}
+.UIMembershipPayment .securitySealsContainer.UIGrid td{vertical-align:middle;text-align:center}
+.UIMembershipPayment .planInputsContainer.UIGrid>tbody>tr>td{padding-right:20px}
+.UIMembershipPayment .planInputsContainer.UIGrid>tbody>tr>td.lastColumn{padding-right:0}
+.UIMembershipPayment .planInputsContainer .UIDropdown .dropdownTitleContainer{min-width:100px}
+.UIMembershipPayment .expiryDateDropdownsContainer.UIGrid>tbody>tr>td.firstColumn{padding-right:10px}
+.UIMembershipPayment .creditCardInputsContainer{display:none}
+.UIMembershipPayment .creditCardInputsContainer .inputLabel{margin-top:10px;white-space:nowrap}
+.UIMembershipPayment .creditCardInputsContainer input[name=cardCVV],.UIMembershipPayment .creditCardInputsContainer input[name=cardZip]{width:100px}
+.UIMembershipPlans.UIGrid>tbody>tr>td{padding:0;white-space:nowrap;border-right:1px solid #dcdce2}
+.UIMembershipPlans.UIGrid>tbody>tr>td.lastColumn{border-right:0}
+.UIMembershipPlans .topBorderContainer{height:10px;opacity:.5}
+.UIMembershipPlans .topBorderContainer.basic{background:#dcdce2}
+.UIMembershipPlans .topBorderContainer.plus{background:#36c0ff}
+.UIMembershipPlans .topBorderContainer.pro{background:#ee624c}
+.UIMembershipPlans .planFeaturesContainer .featureListLabel,.UIMembershipPlans .planTitleContainer .planTitleLabel{font-size:13px;color:#606472}
+.UIMembershipPlans .planTitleContainer,.UIMembershipPlans .buttonContainer{margin:20px 20px}
+.UIMembershipPlans .planTitleContainer{padding:0 20px;border-bottom:1px solid #dcdce2}
+.UIMembershipPlans .planTitleContainer .planCostLabel{font-size:30px}
+.UIMembershipPlans .planTitleContainer .planCostInfoLabel{font-size:12px;color:#999}
+.UIMembershipPlans .planTitleContainer .secondaryText{color:#dcdce2}
+.UIMembershipPlans .planTitleContainer .planCostListContainer.UIGrid>tbody>tr>td{vertical-align:middle;padding-right:10px}
+.UIMembershipPlans .planTitleContainer .planPricingLabel{padding:10px 0;color:#606472}
+.UIMembershipPlans .planTitleContainer.basic .planCostLabel{color:#606472}
+.UIMembershipPlans .planTitleContainer.plus .planCostLabel{color:#36c0ff}
+.UIMembershipPlans .planTitleContainer.pro .planCostLabel{color:#ee624c}
+.UIMembershipPlans .planFeaturesContainer{padding:0 40px;margin-bottom:30px}
+.UIMembershipPlans .planFeaturesContainer .featureListContainer .featureLabel{padding-top:20px}
+.UIMembershipPlans .planFeaturesContainer .featureListContainer.basic .featureLabel,.UIMembershipPlans .planFeaturesContainer .featureListContainer .featureLabel.previousPlan{font-weight:normal}
+.UIMembershipPlans .buttonContainer{margin-top:0}
+.UIMembershipPlans .UIButton.selectPlanButton.plus .buttonTitleContainer{background:#36c0ff}
+.UIMembershipPlans .UIButton.selectPlanButton.pro .buttonTitleContainer{background:#ee624c}
+.UIMembershipPlans .UIHoverable .hoverContainer{width:300px;left:-305px;top:-10px;height:150px;background-image:url(/media/ui/UIPopup/popup-arrow-right.png);background-size:11px 18px;background-repeat:no-repeat;background-position:100% 6px;padding-right:9px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIMembershipPlans .UIHoverable .hoverContainer{background-image:url(/media/ui/UIPopup/popup-arrow-right@2x.png)}
+}
+.UIMembershipPlans .featureTooltip{padding:20px;background:#2b2f3e;white-space:normal;color:white;font-weight:normal}
+.UIMembershipPlans div.featureTooltip{line-height:20px}
+.UIMembershipUpsell .seeAllPlansLink{display:block;margin-top:10px;white-space:nowrap;color:#999;font-size:13px}
+.UIMembershipUpsell .noticeTextContainer{color:#999}
+.UIMembershipUpsell.pageSection .noticeTextContainer{color:#000}
+.UIMembershipBlock{background:white}
+.UIMembershipBlock.fullPage{margin:20px;padding:25px}
+.UIMembershipBlock .titleContainer{font-size:20px}
+.UIMembershipBlock.fullPage .titleContainer{font-size:25px}
+.UIMembershipBlock .descriptionContainer{color:#606472}
+.UIMembershipBlock .descriptionContainer{margin-top:10px}
+.UIMembershipBlock.fullPage .descriptionContainer{margin-top:25px}
+.UIMembershipBlock.fullPage{font-size:17px}
+.UIMembershipBlock .descriptionContainer div,.UIMembershipBlock .descriptionContainer li{line-height:21px}
+.UIMembershipBlock .actionsContainer{margin-top:25px}
+.UIMembershipBlock .actionsContainer.UIGrid>tbody>tr>td{vertical-align:middle;padding-right:20px}
+.UIMembershipBlock .blockContainer{padding-top:25px;padding-left:25px}
+.UIMembershipBlock.fullPage .blockContainer{padding-top:35px;max-width:500px;margin:auto}
+.UIMembershipBlock .seeAllPlansLink{color:#999;font-size:13px}
+.UIMembershipBlock .seeAllPlansLink:hover{color:#000}
+.proFeature{padding-left:60px;background-image:url(/media/freebird/membership/pro-badge.png);background-size:50px 20px;background-position:0 0;background-repeat:no-repeat;min-height:20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.proFeature{background-image:url(/media/freebird/membership/pro-badge@2x.png)}
+}
+.UIDashboardEmpty{height:900px;position:relative;text-align:center;background-image:url(/media/freebird/UIDashboard/logo-background.png);background-size:454px 454px;background-position:50% 100px;background-repeat:no-repeat}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIDashboardEmpty{background-image:url(/media/freebird/UIDashboard/logo-background@2x.png)}
+}
+.UIDashboardEmpty .nuxBackgroundContainer{background-image:url(/media/freebird/UINux/nux-dashboard.png);background-size:1291px 895px;background-repeat:no-repeat;background-size:cover;-webkit-filter:blur(10px);-moz-filter:blur(10px);-o-filter:blur(10px);-ms-filter:blur(10px);filter:blur(10px);position:absolute;left:0;right:0;top:0;bottom:0}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIDashboardEmpty .nuxBackgroundContainer{background-image:url(/media/freebird/UINux/nux-dashboard@2x.png)}
+}
+.UIDashboardEmpty .nuxContentContainer{margin-top:200px;position:relative;display:inline-block}
+.UIDashboardEmpty .nuxTitleContainer{font-size:35px;color:#36c0ff}
+.UIDashboardEmpty .nuxMessageContainer{font-size:25px;color:#606472;margin-top:30px}
+.UIDashboardEmpty .buttonsContainer{margin:40px auto 0}
+.UIDashboardEmpty .buttonsContainer.UIGrid>tbody>tr>td{padding-right:30px}
+.UIAlertPopup.UIPopup .popupContentContainer{width:350px;white-space:normal}
+.UIAlertPopup .popupHandleContainer{background-image:url(/media/freebird/app/UIHeader/icons-alertNormal.png);background-size:18px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIAlertPopup .popupHandleContainer{background-image:url(/media/freebird/app/UIHeader/icons-alertNormal@2x.png)}
+}
+.UIAlertPopup .UIGrid.alertListContainer>tbody>tr td{padding:10px 15px;background:#353a4c;border-bottom:1px solid #2b2f3e;vertical-align:top}
+.UIAlertPopup .UIGrid.alertListContainer>tbody>tr td.lastRow{border:0}
+.UIAlertPopup .emptyStateContainer{display:none}
+.UIAlertPopup.empty .emptyStateContainer{display:block}
+.UIAlertPopup.empty .alertListContainer{display:none}
+.UIAlertPopup .emptyStateContainer{padding:40px 0;text-align:center}
+.UIAlertPopup{position:relative}
+.UIAlertPopup.opening .popupHandleContainer,.UIAlertPopup.open .popupHandleContainer{background-image:url(/media/freebird/app/UIHeader/icons-alertActive.png);background-size:18px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIAlertPopup.opening .popupHandleContainer,.UIAlertPopup.open .popupHandleContainer{background-image:url(/media/freebird/app/UIHeader/icons-alertActive@2x.png)}
+}
+.UIAlertPopup .popupHandleContainer .badgeContainer{position:absolute;top:0;right:6px;background:#e64b30;border:1px solid #e64b30;border-radius:9px;font-size:11px;color:white;padding:3px 6px}
+.UIAlertPopup.opening .popupHandleContainer .badgeContainer,.UIAlertPopup.open .popupHandleContainer .badgeContainer{color:#606472;border-color:white;background:white}
+.UIFreebirdFeedback .commentsInput{height:100px;margin:20px 0}
+.UIAccount .UIDashboardForecast .UIButton.seeAllButton{margin-top:30px;display:inline-block}
+.UIAccount .UIAccountBalanceChart{margin-top:30px}
+.UIAccountOutOfSyncNotice .noticeTextContainer{background-image:url(/media/freebird/sync/icon-SyncError-Drawer.png);background-size:24px 20px;background-repeat:no-repeat;background-position:0 50%;padding-left:35px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIAccountOutOfSyncNotice .noticeTextContainer{background-image:url(/media/freebird/sync/icon-SyncError-Drawer@2x.png)}
+}
+.UIAccountOutOfSyncNotice .disableAction{text-decoration:underline;font-size:12px;display:block;margin:7px 0 0 15px}
+.UIAccountOutOfSyncNotice .noticeTextContainer{text-align:left}
+.UIMembershipFeedback .commentsInput{height:100px;margin:20px 0}
+.UIReport.modeConcise .UICategories .legendContainer{margin-left:100px}
+.UINetWorth .chartContainer{margin-top:25px}
+@media only screen and (max-width:1280px){.UIAllocationChart .legendItemPercentContainer{display:none}
+}
+.UITagMove .labelContainer{color:#606472;margin-bottom:10px}
+.UIHelpTopic{color:#606472;max-width:750px}
+.UIHelpTopic,.freebird .UIHelpTopic div,.UIHelpTopic li{line-height:22px}
+.UIHelpTopic .helpTopicTitle{color:#36c0ff;font-size:35px}
+.runtimeTouch .UIHelpTopic .helpTopicTitle{font-size:20px}
+.UIHelpTopic .helpTopicDescription{margin-top:40px}
+.UIHelpTopic .faqsContainer{margin-top:25px;border-top:1px solid #dcdce2;padding-top:25px}
+.UIHelpTopic .faqsContainer .titleContainer{color:#606472;margin-bottom:30px}
+.UIHelpTopic .faqsContainer .questionContainer{color:#606472;margin-top:20px;cursor:pointer}
+.UIHelpTopic .faqsContainer .answerContainer{margin:20px 0 60px;display:none;margin-left:20px}
+.UIHelpTopic a{text-decoration:underline}
+.UIHelpTopic .UIGrid.popularBanks>tbody>tr>td{padding:5px}
