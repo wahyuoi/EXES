@@ -1,0 +1,391 @@
+textarea:focus,input:focus{outline:0}
+textarea,input[type=text],input[type=email],input[type=number],input[type=password]{border:1px solid #d0d0f0;max-width:100%}
+textarea.autoWidth,input[type=text].autoWidth,input[type=password].autoWidth,input[type=number].autoWidth{width:auto}
+input[type=checkbox]{margin:0}
+input[type=text].search{background:white url("/media/icons/actions/search-dark.png") no-repeat scroll 5px 50%;padding-left:20px;border:1px solid #d0d0f0;min-height:15px}
+img{vertical-align:middle}
+.block{display:block}
+a.underline,a.hoverable:hover,.hoverableLink:hover{text-decoration:underline}
+a,.a{cursor:pointer}
+.hidden{display:none}
+.pageBody,.pageBody *{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+ul.square{list-style-type:square}
+a.bg{color:#777}
+a:hover.bg{color:#0e8bb0;text-decoration:underline}
+a.text{color:#000}
+a:hover.text{text-decoration:underline}
+.destructiveAction{background-color:#ec6552}
+.freebird a.destructiveAction{color:#ec6552;background-color:transparent}
+.clickable{cursor:pointer}
+body{font-family:Arial,sans-serif;font-size:13px}
+.smallerFont{font-size:11px}
+.smallFont{font-size:12px}
+.bigFont{font-size:15px}
+.biggerFont{font-size:16px}
+.nFontWeight{font-weight:normal}
+.bFontWeight{font-weight:bold}
+.bgText{color:#777}
+.strongerBgText,.tipTitle{color:#444}
+td,th,textarea,input,select,a{font-family:inherit;font-size:inherit;color:inherit}
+input[type=button],input[type=submit]{font-size:12px}
+.noWrap{white-space:nowrap}
+body{margin:0}
+textarea,input[type=text],input[type=password],select{margin:0}
+textarea,input[type=text],input[type=password]{padding:2px}
+form{padding:0;margin:0}
+p,div.p{padding:5px 0 8px}
+ul,ol{margin:5px 0 0}
+ul li,ol li{padding:0 2px 5px 0}
+ol.noIndent,ul.noIndent{padding-left:20px;margin-left:0}
+.tPadding{padding-top:5px}
+.ttPadding{padding-top:10px}
+.tttPadding{padding-top:15px}
+.zMargin{margin:0}
+table.izPadding td,.zPadding{padding:0}
+.ztMargin{margin-top:0}
+.zlMargin{margin-left:0}
+.stMargin{margin-top:2px}
+.tMargin{margin-top:5px}
+.ttMargin{margin-top:10px}
+.tttMargin{margin-top:15px}
+.zbMargin{margin-bottom:0}
+.bMargin{margin-bottom:5px}
+.bbMargin{margin-bottom:10px}
+.bbbMargin{margin-bottom:15px}
+.bPadding{padding-bottom:5px}
+.bbPadding{padding-bottom:10px}
+.bbbPadding{padding-bottom:15px}
+.tMargin{margin-top:5px}
+.ttMargin{margin-top:10px}
+.vMargin{margin:5px 0}
+.vvMargin{margin:10px 0}
+.hMargin{margin-left:5px;margin-right:5px}
+.hhMargin{margin-left:10px;margin-right:10px}
+.hhhMargin{margin-left:15px;margin-right:15px}
+.vPadding{padding-top:5px;padding-bottom:5px}
+.vvPadding{padding-top:10px;padding-bottom:10px}
+.vvvPadding{padding-top:15px;padding-bottom:15px}
+.vvvvPadding{padding-top:20px;padding-bottom:20px}
+.hPadding{padding-right:5px;padding-left:5px}
+.hhPadding{padding-right:10px;padding-left:10px}
+.hhhPadding{padding-right:15px;padding-left:15px}
+.lPadding{padding-left:5px}
+.llPadding{padding-left:10px}
+.lllPadding{padding-left:15px}
+.rPadding{padding-right:5px}
+.rbPadding{padding-right:5px;padding-bottom:5px}
+.rrPadding{padding-right:10px}
+.rrrPadding{padding-right:15px}
+.rrrrPadding{padding-right:20px}
+.lMargin,.lM{margin-left:5px}
+.vMargin{margin-top:5px;margin-bottom:5px}
+.llMargin{margin-left:10px}
+.lllMargin{margin-left:15px}
+.llllMargin{margin-left:20px}
+.rMargin{margin-right:5px}
+.rrMargin{margin-right:10px}
+.rrrMargin{margin-right:15px}
+.aMargin{margin:5px}
+.aaMargin{margin:10px}
+.aaaMargin{margin:15px}
+.aPadding{padding:5px}
+.aaPadding{padding:10px}
+.aaaPadding{padding:15px}
+.alwaysHidden{display:none}
+.bigTPadding{padding-top:30px}
+.bigBPadding{padding-bottom:30px}
+.bigRPadding{padding-right:30px}
+.bigLPadding{padding-left:30px}
+.bigTMargin{margin-top:30px}
+.bigBMargin{margin-bottom:30px}
+.bigLMargin{margin-left:30px}
+.bigRMargin{margin-right:30px}
+.bigHMargin{margin-left:30px;margin-right:30px}
+.bigAMargin{margin:30px}
+.xPadding{padding:0}
+.xMargin{margin:0}
+.ibbMargin div{margin-bottom:10px}
+ul.iaaPadding li,table.iaaPadding>tbody>tr>td,table.iaaPadding>tbody>tr>th{padding:10px}
+ul.ivPadding li,table.ivPadding>tbody>tr>td,table.ivPadding>tbody>tr>th{padding:5px 0}
+ol.ibPadding li,ul.ibPadding li,table.ibPadding>tbody>tr>td,table.ibPadding>tbody>tr>th{padding-bottom:5px}
+ul.iaPadding li,table.iaPadding>tbody>tr>td,table.iaPadding>tbody>tr>th{padding:5px}
+table.itPadding>tbody>tr>td{padding-top:5px}
+table.ibPadding>tbody>tr>td{padding-bottom:5px}
+table.iaPadding>tbody>tr>td.label{padding-left:0}
+table.thickpadded>tbody>tr>td,table.thickpadded>tbody>tr>th{padding:10px}
+table.lopadded>tbody>tr>td,table.lopadded>tbody>tr>th{padding:2px}
+.noSpacing{padding:0;margin:0}
+div.vspacer{margin:3px 0}
+div.hspacer,span.hspacer{margin:0 3px}
+table.itValign td,table.itValign th,.tValign{vertical-align:top}
+table.ibValign td,.bValign{vertical-align:bottom}
+table.icValign td,.cValign{vertical-align:middle}
+table.icAlign td,.cAlign{text-align:center}
+table.ilAlign td,table.ilAlign th,.lAlign,.lA{text-align:left}
+table.irAlign td,.rAlign,.rA{text-align:right}
+.lF{float:left}
+.rF{float:right}
+.cF{clear:both;font-size:0;height:0;overflow:hidden}
+.clearfix:after{content:" ";visibility:hidden;display:block;height:0;clear:both}
+.block{display:block}
+.layerPage{z-index:10}
+.layerStatic{z-index:30}
+.layerTabTitles{z-index:31}
+.layerHeader{z-index:40}
+.layerDetail{z-index:50}
+.layerDetail2{z-index:51}
+.layerDetail3{z-index:52}
+.layerDetail4{z-index:53}
+.layerSidebar{z-index:60}
+.layerOverlayBg{z-index:65}
+.layerOverlay{z-index:70}
+.layerDropdown{z-index:80}
+.layerDropdown.autocompleter{z-index:85}
+div#page_indicator{z-index:100}
+.dBorder{background:url("/media/backgrounds/dotted.gif") repeat-x bottom}
+.tBorder,.hBorder{border-top:1px solid #e0e0e0}
+.bBorder,.hBorder{border-bottom:1px solid #e0e0e0}
+.lBorder,.vBorder{border-left:1px solid #e0e0e0}
+.rBorder,.vBorder{border-right:1px solid #e0e0e0}
+.aBorder{border:1px solid #e0e0e0}
+a img{border:0}
+.greyBg{background-color:#f7f7f7}
+.whiteBg{background-color:white}
+.vFaint{background-color:#e7f4fa}
+.faint{background-color:#d7eaf4}
+.yellowBg{background-color:#ffffd4}
+ul.arrow,ul li ul.arrow{list-style-image:url("/media/icons/arrows/right.gif")}
+.loadingContainer{position:absolute;left:0;top:0;right:0;bottom:0;background:url(/media/icons/indicator.gif) no-repeat 50% 50%;background-color:white;opacity:.5;display:none}
+.loading .loadingContainer{display:block}
+input[type=text].loading,input[type=tel].loading,input[type=email].loading,input[type=amount].loading,input[type=number].loading,input[type=password].loading{background-image:url(/media/icons/indicator.gif);background-position:97% 50%;background-repeat:no-repeat;padding-right:30px}
+table.UIGrid.fullWidth{width:100%}
+table.UIGrid td{vertical-align:top}
+table.UIGrid.vAlignMiddle td{vertical-align:middle}
+table.UIGrid.ivBorder>tbody>tr>td{border-right:1px solid #ededed}
+table.UIGrid.ivBorder>tbody>tr>td.lastColumn{border-right:0}
+table.UIGrid.ihBorder>tbody>tr>td{border-bottom:1px solid #ededed}
+table.UIGrid.ihBorder>tbody>tr>td.lastRow{border-bottom:0}
+table.UIGrid.borderColorWhite>tbody>tr>td{border-color:white}
+.UIHoverable{position:relative}
+.UIHoverable .hoverContainer{display:none;position:absolute;top:0;bottom:0}
+a.UIHoverable:hover>.hoverContainer{display:block}
+.UIHoverable .hoverContainer>div{height:100%}
+.UIEditable{position:relative;cursor:pointer;display:inline-block}
+.UIEditable>.UIHoverable .hoverContainer{right:-30px;width:30px}
+.UIEditable .editButton{background-color:#f1f1f2;background-image:url("/media/ui/UIEditable/EditButton.png");background-position:50% 50%;background-repeat:no-repeat}
+.UIEditable>.UIHoverable>.contentContainer{border:1px solid transparent;padding:8px 10px}
+.UIEditable>a.UIHoverable:hover>.contentContainer,.UIEditable input[type=text]{border:1px solid #f1f1f2}
+.UIEditable.editingEnabled>.UIHoverable>.hoverContainer{display:none}
+.UIEditable .editContainer{display:none}
+.UIEditable.editingEnabled>.editContainer{display:block}
+.UIEditable.editingEnabled>.UIHoverable>.contentContainer{visibility:hidden}
+.UIEditable input[type=text]{padding:5px}
+.UIEditable .editContainer{display:none;position:absolute;top:0;left:0}
+.UIEditable>.UIHoverable .hoverContainer .UIButton .buttonTitleContainer,.UIEditable .UIButton.primaryButton .buttonTitleContainer{padding:0;border:0;background:0}
+.UIEditable .primaryButton.submitButton.UIButton .buttonTitleContainer{background-color:#606472;background-image:url("/media/ui/UIEditable/SubmitButton.png");background-position:50% 50%;background-repeat:no-repeat}
+.UIEditable .primaryButton.cancelButton.UIButton .buttonTitleContainer{background-color:#606472;background-image:url("/media/ui/UIEditable/icon-cancelEdit.png");background-position:50% 50%;background-repeat:no-repeat}
+.UIEditable .editButton,.UIEditable .deleteButton,.UIEditable .addButton,.UIEditable .primaryButton.UIButton.submitButton .buttonTitleContainer,.UIEditable .primaryButton.UIButton.cancelButton .buttonTitleContainer{width:33px;height:33px}
+.UIEditable .primaryButton.UIButton.cancelButton .buttonTitleContainer{color:#e64b30;text-align:center;padding-top:10px;border:2px solid #606472}
+.UIEditable .primaryButton.UIButton.cancelButton .buttonTitleContainer,.UIEditable .primaryButton.UIButton.cancelButton.enabled.unselected.hoverable a.buttonTitleContainer:hover{background-color:#f1f1f2}
+.UIEditable .deleteButton{background-color:#ec6552;background-image:url(/media/ui/UIDropdown/unselect.png);background-size:16px 16px;background-position:50% 50%;background-repeat:no-repeat}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIEditable .deleteButton{background-image:url(/media/ui/UIDropdown/unselect@2x.png)}
+}
+.UIEditable .addButton{background-image:url(/media/ui/UIEditable/AddButton.png);background-size:8px 8px;background-position:50% 50%;background-repeat:no-repeat;background-color:#efeff1;border:1px solid #e6e6e9;cursor:pointer}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIEditable .addButton{background-image:url(/media/ui/UIEditable/AddButton@2x.png)}
+}
+.UIControl{cursor:pointer;font-size:13px}
+.UIControl .controlTitleContainer{padding:8px 15px;white-space:nowrap}
+.UIControl.enabled .controlTitleContainer{background-color:#606472;color:white}
+.UIControl.enabled.unselected.hoverable a.controlTitleContainer:focus,.UIControl.enabled.unselected.hoverable a.controlTitleContainer:hover{background-color:#2b2f3e}
+.UIControl.disabled .controlTitleContainer{cursor:not-allowed;background-color:#f9f9f9;color:#dcdce2}
+.UIControl.selected .controlTitleContainer{color:white;background-color:#36c0ff}
+.UIControl,.UIControl .controlTitleContainer{display:inline-block;vertical-align:top}
+.UIControl.fullWidthControl,.UIControl.fullWidthControl .controlTitleContainer{display:block}
+.UIButton>.buttonTitleContainer{text-align:center}
+.UIButton>.buttonTitleContainer .buttonTitleImageContainer{float:right;margin-left:15px;background-repeat:no-repeat;background-position:0 50%;background-size:contain}
+.UIButton.enabled.styleDestructive .buttonTitleContainer,.UIButton.enabled.styleDestructive a.buttonTitleContainer:focus,.UIButton.enabled.styleDestructive a.buttonTitleContainer:hover{background:#ec6552}
+.UIButton.submitButton .fakeSubmitButton{font-size:0;padding:0;border:0;height:0;display:block}
+.UIButton.UIControl.orangeButton .controlTitleContainer.buttonTitleContainer,.UIButton.UIControl.orangeButton a.controlTitleContainer.buttonTitleContainer:hover{background:#ee624c}
+.UIButton.UIControl.blueButton .controlTitleContainer.buttonTitleContainer,.UIButton.UIControl.blueButton a.controlTitleContainer.buttonTitleContainer:hover{background-color:#36c0ff}
+.UIPopup{position:relative}
+.UIPopup .popupHandleContainer{cursor:pointer}
+.UIPopup .popupOverlayContainer{position:absolute;left:0}
+.UIPopup .popupContentContainer{background:#2b2f3e;white-space:nowrap;box-shadow:2px 4px 4px 0 #333}
+.UIPopup .popupContentContainer,.UIPopup .popupContentContainer a{color:white}
+.UIPopup .popupContentContainer input[type=text]{color:#333}
+.UIPopup.closed .popupOverlayContainer{display:none}
+.UIPopup.open .popupOverlayContainer{display:block}
+.UIPopup .popupCloseContainer{cursor:pointer}
+.UIPopup .popupArrowContainer{background-repeat:no-repeat}
+.UIPopup.alignBottomCenter .popupArrowContainer{height:9px;background-image:url(/media/ui/UIPopup/popup-arrow-top-selected.png);background-size:20px 10px;background-position:50% 0}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIPopup.alignBottomCenter .popupArrowContainer{background-image:url(/media/ui/UIPopup/popup-arrow-top-selected@2x.png)}
+}
+.UIPopup.alignBottomLeft .popupArrowContainer{height:9px;background-image:url(/media/ui/UIPopup/popup-arrow-top-selected.png);background-size:20px 10px;background-position:2px 0}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIPopup.alignBottomLeft .popupArrowContainer{background-image:url(/media/ui/UIPopup/popup-arrow-top-selected@2x.png)}
+}
+.UIPopup.alignRight .popupArrowContainer{margin-top:10px;width:9px;height:20px;background-image:url(/media/ui/UIPopup/popup-arrow-left-selected.png);background-size:10px 20px;background-position:0 0}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIPopup.alignRight .popupArrowContainer{background-image:url(/media/ui/UIPopup/popup-arrow-left-selected@2x.png)}
+}
+.UIDropdown .dropdownTitleContainer .dropdownArrowContainer{width:25px;background-image:url(/media/ui/UIDropdown/icon-dropdown-arrow-down.png);background-size:10px 6px;background-repeat:no-repeat;background-position:15px 50%}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIDropdown .dropdownTitleContainer .dropdownArrowContainer{background-image:url(/media/ui/UIDropdown/icon-dropdown-arrow-down@2x.png)}
+}
+.UIDropdown.open.unselected .dropdownTitleContainer{background-color:#2b2f3e}
+.UIDropdown.enabled.open .dropdownTitleContainer .dropdownArrowContainer{background-image:url(/media/ui/UIDropdown/Dropdown:Up.png);background-size:10px 6px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIDropdown.enabled.open .dropdownTitleContainer .dropdownArrowContainer{background-image:url(/media/ui/UIDropdown/Dropdown:Up@2x.png)}
+}
+.UIDropdown.disabled .dropdownTitleContainer .dropdownArrowContainer{background-image:url(/media/ui/UIDropdown/Dropdown-inactive.png);background-size:10px 6px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIDropdown.disabled .dropdownTitleContainer .dropdownArrowContainer{background-image:url(/media/ui/UIDropdown/Dropdown-inactive@2x.png)}
+}
+.UIDropdown .popupContentContainer .dropdownSearchContainer .searchInput{background-image:url(/media/ui/UISearchField/search.png);background-size:15px 14px;background-repeat:no-repeat;background-position:10px 50%;width:100%;border:1px solid #353a4b;border-width:0 0 1px 0;padding-left:35px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIDropdown .popupContentContainer .dropdownSearchContainer .searchInput{background-image:url(/media/ui/UISearchField/search@2x.png)}
+}
+.UIDropdown .popupContentContainer .dropdownSearchContainer{padding:2px 0 1px;margin:0 2px}
+.UIDropdown .dropdownOption{padding:8px 15px;border-bottom:1px solid #353a4b;white-space:nowrap}
+.UIDropdown .dropdownOptionsContainer{max-height:400px;overflow:hidden}
+.UIDropdown a.optionHoverable.UIHoverable:hover .dropdownOption,.UIDropdown .dropdownOption.highlighted{background:#606472}
+.UIDropdown .dropdownOptionsContainer .dropdownOption.selected,.UIDropdown .dropdownOptionsContainer a.optionHoverable.UIHoverable:hover .dropdownOption.selected{color:white;background-color:#43b7fc}
+.UIDropdown .dropdownOptionsContainer .UIGrid td.firstColumn{text-align:center;vertical-align:middle;padding-right:10px}
+.UIDropdown .buttonsContainer{display:none}
+.UIDropdown.selected .buttonsContainer{display:block}
+.UIDropdown .popupContentContainer .buttonsContainer .buttonTitleContainer{background:#2b2f3d;width:auto;border-bottom:0}
+.UIDropdown .dropdownOptionsContainer .optionsLoadingContainer{min-height:100px;background:url(/media/freebird/loading/Loading-small-buttonbg.gif) 50% 50% no-repeat}
+.UIDropdown .dropdownOptionsContainer .unselectButtonContainer{background:#ec6552;padding-right:10px;color:white;display:none}
+.UIDropdown.selected .unselectButtonContainer{display:block}
+.UIDropdown .dropdownOptionsContainer .unselectButton{padding:10px 25px 10px 20px;background:url(/media/ui/UIDropdown/unselect.png) 100% 50% no-repeat}
+table.UIGrid.UILinkSelector>tbody>tr>td{padding:0 10px;border-color:#d9d9de}
+table.UILinkSelector.UIGrid>tbody td.firstColumn{padding-left:0}
+.UILinkSelector td.firstColumn{padding-left:0}
+.UILinkSelector td.lastColumn{padding-right:0}
+.UILinkSelector{color:#d9d9de}
+.UILinkSelector a{cursor:pointer}
+.UILinkSelector a:hover,.UILinkSelector a.selected{color:#292d3a}
+a.UILinkToggle{cursor:pointer}
+.UISearchField{background-color:white;border:1px solid #e4e3e7}
+.UISearchField input.searchInput{min-height:15px;border:1px solid #e4e3e7;border-width:0 1px 0 0}
+.UISearchField .UIButton.searchButton .controlTitleContainer.buttonTitleContainer{background:white url(/media/ui/UISearchField/search.png) 50% 50% no-repeat;border:0;padding:10px 20px}
+.UIProgressBar{border:1px solid #dcdce2;padding:2px}
+.UIProgressBar,.UIProgressBar .outer,.UIProgressBar .inner{border-radius:5px}
+.UIProgressBar .outer,.UIProgressBar .inner{height:17px}
+.UIProgressBar .outer{background:white}
+.UIProgressBar .inner{background:#cdcdcd;min-width:7px}
+.UIProgressBar.blue .inner{background:#73c4e9}
+.UIProgressBar.red .inner{background:#e97f70}
+.UIProgressBar.orange .inner{background:#fdb77b}
+.UIProgressBar.green .inner{background:#5fdc9f}
+.freebird .ui-datepicker{padding:0;width:auto;background:#2b2f3e}
+.freebird .ui-datepicker-header,.freebird .ui-state-default{background:transparent}
+.freebird .ui-widget-content{border:0}
+.freebird .ui-datepicker-header{border:0;padding:3px 0}
+.freebird .ui-datepicker-header .ui-datepicker-title{margin-top:3px}
+.freebird .ui-datepicker-header .ui-datepicker-prev,.freebird .ui-datepicker-header .ui-datepicker-next{top:5px}
+.freebird .ui-datepicker-header .ui-icon{background-repeat:no-repeat;background-position:50% 50%;background-size:6px 10px}
+.freebird .ui-datepicker-header .ui-datepicker-prev{left:2px}
+.freebird .ui-datepicker-header .ui-datepicker-next{right:2px}
+.freebird .ui-datepicker-header .ui-state-hover{background-color:transparent;border:1px solid transparent}
+.freebird .ui-datepicker-header .ui-datepicker-prev .ui-icon{background-image:url(/media/ui/UIPeriodPicker/icons-arrowLeft-hover.png);background-size:6px 10px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.freebird .ui-datepicker-header .ui-datepicker-prev .ui-icon{background-image:url(/media/ui/UIPeriodPicker/icons-arrowLeft-hover@2x.png)}
+}
+.freebird .ui-datepicker-header .ui-datepicker-prev.ui-state-hover .ui-icon{background-image:url(/media/ui/UIPeriodPicker/icons-arrowLeft-hover.png);background-size:6px 10px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.freebird .ui-datepicker-header .ui-datepicker-prev.ui-state-hover .ui-icon{background-image:url(/media/ui/UIPeriodPicker/icons-arrowLeft-hover@2x.png)}
+}
+.freebird .ui-datepicker-header .ui-datepicker-next .ui-icon{background-image:url(/media/ui/UIPeriodPicker/icons-arrowRight-hover.png);background-size:6px 10px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.freebird .ui-datepicker-header .ui-datepicker-next .ui-icon{background-image:url(/media/ui/UIPeriodPicker/icons-arrowRight-hover@2x.png)}
+}
+.freebird .ui-datepicker-header .ui-datepicker-next.ui-state-hover .ui-icon{background-image:url(/media/ui/UIPeriodPicker/icons-arrowRight-hover.png);background-size:6px 10px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.freebird .ui-datepicker-header .ui-datepicker-next.ui-state-hover .ui-icon{background-image:url(/media/ui/UIPeriodPicker/icons-arrowRight-hover@2x.png)}
+}
+.freebird .ui-state-default{font-weight:bold;border:0;padding:5px}
+.freebird .ui-priority-secondary{color:#f9f9f9}
+.freebird .ui-state-hover{color:white}
+.freebird .ui-datepicker-title select{border:0;background:#2b2f3e;color:white;outline:0}
+.freebird .ui-datepicker-month{margin-right:5px}
+.freebird table.ui-datepicker-calendar{border-spacing:0;margin-bottom:0}
+.freebird .ui-datepicker-calendar>thead>tr>th{color:white;background:#606472;font-weight:bold;border:2px solid #2b2f3e;padding:5px}
+.freebird .ui-datepicker-calendar>tbody>tr>td{padding:1px;text-align:center}
+.freebird .ui-datepicker-calendar>tbody>tr>td a{color:white;background:#353a4c;border:1px solid transparent}
+.freebird .ui-datepicker-calendar>tbody>tr>td.selectedDate a,.freebird .ui-datepicker-calendar>tbody>tr>td>a.ui-state-active{color:white;background:#43b7fc}
+.freebird .ui-datepicker-calendar>tbody>tr>td.dateInSelectedRange a,.freebird .ui-datepicker-calendar>tbody>tr>td>a.ui-state-highlight{border:1px solid #43b7fc}
+.UIPeriodPicker.UIPopup .popupOverlayContainer{width:225px}
+.UIPeriodPicker .customPeriodContainer .customPeriodDetailsContainer{display:none}
+.UIPeriodPicker .customPeriodContainer.selected .customPeriodDetailsContainer{display:block}
+.UIPeriodPicker .customPeriodContainer .customDateInput{width:100%;text-align:center}
+.UIPeriodPicker .customPeriodDetailsContainer>.UIGrid>tbody>tr>td{border:1px solid #2b2f3e;border-width:0 1px 0 0}
+.UIPeriodPicker .customPeriodDetailsContainer>.UIGrid>tbody>tr>td.lastColumn{border-width:0 0 0 1px}
+.UIPeriodPicker .customPeriodDetailsContainer .customDateLabelsContainer{margin-top:3px}
+.UIPeriodPicker .customPeriodDetailsContainer .customPeriodSubmitButton{margin-top:3px}
+.UIPeriodPicker .dateLabelContainer{padding:10px 5px;text-align:center;background:#606472}
+.UIPeriodPicker .dateLabelContainer.selected{background:#43b7fc;color:white}
+.UIPeriodPicker .dateLabelContainer .dateTypeLabel{margin-bottom:5px}
+.UIPeriodPicker.UIControl.UIPopup .popupContentContainer{padding:3px}
+.UIPeriodPicker.UIControl.UIPopup .popupContentContainer .shortcutsContainer .UIControl.UIButton{margin-bottom:3px}
+.UIPeriodPicker.UIControl.UIPopup .popupContentContainer .UIControl.UIButton.unselected .controlTitleContainer.buttonTitleContainer{background-color:#606472;border:0;color:white}
+.UIPeriodPicker.UIControl.UIPopup .popupContentContainer .UIControl.UIButton.selected .controlTitleContainer.buttonTitleContainer{background-color:#36c0ff;border:0;color:white}
+.UIPeriodPicker.UIPopup .popupArrowContainer{background-image:url(/media/ui/UIPopup/popup-arrow-top.png);background-size:18px 11px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIPeriodPicker.UIPopup .popupArrowContainer{background-image:url(/media/ui/UIPopup/popup-arrow-top@2x.png)}
+}
+.UIPeriodPicker .calendarHandleContainer{background-image:url(/media/freebird/app/UIFilters/dropdown-dark.png);background-size:10px 5px;background-repeat:no-repeat;background-position:100% 50%;padding-right:15px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIPeriodPicker .calendarHandleContainer{background-image:url(/media/freebird/app/UIFilters/dropdown-dark@2x.png)}
+}
+.UIPeriodPicker .calendarHandleContainer .periodDescriptionContainer{background-image:url(/media/ui/UIPeriodPicker/icon-calendar.png);background-size:20px 20px;background-repeat:no-repeat;background-position:0 50%;padding-left:20px;font-size:14px;background-size:contain}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIPeriodPicker .calendarHandleContainer .periodDescriptionContainer{background-image:url(/media/ui/UIPeriodPicker/icon-calendar@2x.png)}
+}
+.UIModalDialog{box-shadow:2px 3px 5px 0 #000}
+.UIModalDialog .closeIconContainer{position:absolute;width:25px;height:25px;top:5px;right:5px;cursor:pointer;background:url(/media/ui/UIModalDialog/icon-ModalClose.png) 50% 50% no-repeat}
+.UIModalDialog .modalTitleContainer{color:white;font-size:25px}
+.UIModalDialog.styleRegular .modalTitleContainer{background-color:#36c0ff}
+.UIModalDialog.styleError .modalTitleContainer{padding-left:90px;background:#ee624c url(/media/ui/UIModalDialog/icon-error.png) 20px 50% no-repeat}
+.UIModalDialog .modalContentContainer{background-color:white}
+.UIModalDialog .modalButtonsContainer{background-color:#f9f9f9}
+.UIModalDialog .modalTitleContainer{padding:20px 30px}
+.UIModalDialog .modalContentContainer,.UIModalDialog .modalButtonsContainer{padding:30px}
+.UIModalDialog .UIGrid.modalButtonsContainer>tbody td.firstColumn{padding-right:10px}
+@media only screen and (max-width:1280px){.UIModalDialog .modalContentContainer,.UIModalDialog .modalButtonsContainer{padding:20px}
+}
+.UIMenu .optionLink{display:block;padding:10px;white-space:nowrap;cursor:pointer;background:#353a4c;margin:0 1px}
+.UIMenu a.optionLink:hover{background:#606472}
+.UIAmount{white-space:nowrap}
+.UIAmount.greenAmount{color:#51b44f}
+.UIAmount.redAmount{color:#e64b30}
+.UIAmount .debtSign{font-size:10px}
+.UIAmount .transferInSign,.UIAmount .transferOutSign,.UIAmount .transferSign{width:15px;background-repeat:no-repeat;background-position:0 50%;display:inline-block}
+.UIAmount .transferInSign{background-image:url(/media/icons/money/transfer-in.gif)}
+.UIAmount .transferOutSign{background-image:url(/media/icons/money/transfer-out.gif)}
+.UIAmount .transferSign{background-image:url(/media/icons/money/transfer.gif)}
+.UIAmount.movement{background-repeat:no-repeat;background-position:0 50%;padding-left:25px}
+.UIAmount.movement.moveUp.moveGood{background-image:url(/media/freebird/UICategories/icon-TopGreen.png);background-size:contain}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIAmount.movement.moveUp.moveGood{background-image:url(/media/freebird/UICategories/icon-TopGreen@2x.png)}
+}
+.UIAmount.movement.moveUp.moveBad{background-image:url(/media/freebird/UICategories/icon-TopRed.png);background-size:contain}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIAmount.movement.moveUp.moveBad{background-image:url(/media/freebird/UICategories/icon-TopRed@2x.png)}
+}
+.UIAmount.movement.moveDown.moveGood{background-image:url(/media/freebird/UICategories/icon-DownGreen.png);background-size:contain}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIAmount.movement.moveDown.moveGood{background-image:url(/media/freebird/UICategories/icon-DownGreen@2x.png)}
+}
+.UIAmount.movement.moveDown.moveBad{background-image:url(/media/freebird/UICategories/icon-DownRed.png);background-size:contain}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UIAmount.movement.moveDown.moveBad{background-image:url(/media/freebird/UICategories/icon-DownRed@2x.png)}
+}
+.UITutorial{width:0;height:0}
+.UITutorial .tooltipContainer{position:fixed;background:#2b2f3e;display:none;padding:10px;color:#fff;width:300px;z-index:110}
+.UITutorial .tutorialTitleContainer,.UITutorial .tutorialContentContainer{padding-left:10px;padding-right:10px}
+.UITutorial .tutorialTitleContainer{margin-top:5px}
+.UITutorial .tutorialContentContainer{margin:15px 0 15px}
+.freebird.pageBody .UITutorial div.tutorialContentContainer{line-height:24px}
+.UITutorial .tutorialBackButton{border:2px solid #606472;color:#606472;font-size:17px;margin-right:10px;padding-top:6px;text-align:center;width:33px;height:33px;cursor:pointer}
+.UITutorial .tutorialDoneButton{display:none}
+.UITutorial.firstStep .tutorialBackButton{display:none}
+.UITutorial.lastStep .tutorialDoneButton{display:block}
+.UITutorial.lastStep .tutorialNextButton{display:none}
+.freebird .tutorialHighlighted{position:relative;z-index:110;background:#fff}
+.UITutorial .tutorialDataContainer{display:none}
+.UITutorial .highlightBackgroundContainer{position:fixed;top:0;left:0;border:5px solid #2b2f3e;display:none;z-index:120}
+.UICheckbox{cursor:pointer;width:20px;height:20px;background-image:url(/media/ui/UICheckbox/Custom-checkboxes-normal.png);background-size:20px 20px;background-repeat:no-repeat;background-position:0 0}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UICheckbox{background-image:url(/media/ui/UICheckbox/Custom-checkboxes-normal@2x.png)}
+}
+.UICheckbox.selected{background-image:url(/media/ui/UICheckbox/Custom-checkboxes-Selected.png);background-size:20px 20px}
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-moz-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.UICheckbox.selected{background-image:url(/media/ui/UICheckbox/Custom-checkboxes-Selected@2x.png)}
+}
+.UIList.bulletStyleSquare{list-style-type:square;padding-left:20px}
+ul.UIList.bulletStyleNone{list-style-type:none}
+ul.UIList li{padding:initial}
+ul.UIResponsiveList{list-style-type:none;padding:0;margin:0}
+ul.UIResponsiveList li{float:left}
