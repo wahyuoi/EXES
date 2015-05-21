@@ -14,7 +14,7 @@
                 <form action="/login" method="post">
                     <div class="form-group">
                         <div class="input-group"> <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                            <input class="form-control" placeholder="Email" name="email" type="text" id="email" required>
+                            <input class="form-control" placeholder="Email" name="email" type="text" id="email" required autofocus="">
                             <span class="success">${messages.email}</span>
                         </div>
                     </div>

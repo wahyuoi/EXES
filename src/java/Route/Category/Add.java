@@ -1,8 +1,8 @@
 package Route.Category;
 
+import Controller.Category;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -14,8 +14,9 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author wahyuoi
  */
-@WebServlet(name = "RetrieveCategory", urlPatterns = {"/category"})
-public class Retrieve extends HttpServlet {    
+@WebServlet(name = "AddCategory", urlPatterns = {"/category/add"})
+public class Add extends HttpServlet {
+
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -33,13 +34,8 @@ public class Retrieve extends HttpServlet {
         if (!userController.isLogin(cookies)){
             response.sendRedirect("/");
             return;
-        }    
-        
-        int id = userController.getUserId(cookies);
-        Controller.Category categoryController = new Controller.Category();
-        List<Object> allCat = categoryController.getAllCategoryByUserId(id);
-        request.setAttribute("list", allCat);
-        request.getRequestDispatcher("/View/Category/retrieve.jsp").forward(request, response);
+        }
+        request.getRequestDispatcher("/View/Category/add.jsp").forward(request, response);
     }
 
     /**
@@ -53,7 +49,20 @@ public class Retrieve extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        doGet(request, response);
+        Controller.User userController = new Controller.User();
+        Cookie[] cookies = request.getCookies();
+        if (!userController.isLogin(cookies)){
+            response.sendRedirect("/");
+            return;
+        }
+        
+        int jenis = Integer.parseInt(request.getParameter("jenis"));
+        String kategori = request.getParameter("kategori");
+        int id = userController.getUserId(cookies);
+        
+        Category catController = new Controller.Category();
+        catController.add(jenis, id, kategori);
+        response.sendRedirect("/category");
     }
 
     /**
