@@ -6,15 +6,15 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!-- amCharts javascript sources -->
-<script type="text/javascript" src="/Exes/js/amcharts.js"></script>
-<script type="text/javascript" src="/Exes/js/serial.js"></script>
-<script type="text/javascript" src="/Exes/js/light.js"></script>
+<script type="text/javascript" src="/js/amcharts.js"></script>
+<script type="text/javascript" src="/js/serial.js"></script>
+<script type="text/javascript" src="/js/light.js"></script>
 
 <!-- amCharts javascript code -->
-<script type="text/javascript" src="/Exes/js/report.js"></script>
+<script type="text/javascript" src="/js/report.js"></script>
 
 <!-- css core-->
-<link rel="stylesheet" href="/Exes/css/report.css">
+<link rel="stylesheet" href="/css/report.css">
 <%@include file="../navmenu.jsp" %>
 
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">

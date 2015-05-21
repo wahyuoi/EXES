@@ -34,7 +34,7 @@ public class Retrieve extends HttpServlet {
         Controller.User userController = new Controller.User();
         Cookie[] cookies = request.getCookies();
         if (!userController.isLogin(cookies)){
-            response.sendRedirect("/Exes");
+            response.sendRedirect("/");
             return;
         }    
         

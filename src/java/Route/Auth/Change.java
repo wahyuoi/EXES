@@ -29,7 +29,7 @@ public class Change extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {        
-            response.sendRedirect("/Exes/profile");        
+            response.sendRedirect("/profile");        
     }
 
     /**
@@ -63,7 +63,7 @@ public class Change extends HttpServlet {
             request.setAttribute("messages", messages);
             request.getRequestDispatcher("View/profile.jsp").forward(request, response);
         } else {
-            response.sendRedirect("/Exes");
+            response.sendRedirect("/");
         }
     }
 

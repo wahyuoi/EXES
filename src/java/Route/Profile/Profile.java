@@ -31,7 +31,7 @@ public class Profile extends HttpServlet {
         if (userController.isLogin(request.getCookies())) {
             request.getRequestDispatcher("View/profile.jsp").forward(request, response);
         } else {
-            response.sendRedirect("/Exes");
+            response.sendRedirect("/");
         }
     }
 
@@ -55,10 +55,10 @@ public class Profile extends HttpServlet {
             for (Cookie cook : cooky) {
                 response.addCookie(cook);
             }
-            response.sendRedirect("/Exes");
+            response.sendRedirect("/");
             return;
         }
-        response.sendRedirect("/Exes/profile");
+        response.sendRedirect("/profile");
     }
 
     /**

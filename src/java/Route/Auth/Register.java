@@ -33,7 +33,7 @@ public class Register extends HttpServlet {
         Cookie[] cookies = request.getCookies();
         
         if (userController.isLogin(cookies)){
-            response.sendRedirect("/Exes");
+            response.sendRedirect("/");
             return;
         }
         request.getRequestDispatcher("View/Auth/register.jsp").forward(request, response);

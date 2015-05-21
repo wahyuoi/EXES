@@ -1,10 +1,9 @@
-package Route.Auth;
+package Route.Category;
 
-import Util.DatabaseInfo;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,32 +12,9 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author wahyuoi
  */
-@WebServlet(name = "DeleteAccount", urlPatterns = {"/auth/delete"})
-public class Delete extends HttpServlet {
+@WebServlet(name = "RetrieveCategory", urlPatterns = {"/category"})
+public class Retrieve extends HttpServlet {    
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        Controller.User userController = new Controller.User();
-        Cookie[] cookies = request.getCookies();
-        if (userController.isLogin(cookies)) {                                
-            DatabaseInfo dbInfo = new DatabaseInfo();
-            String idUser = userController.getCookiesByName(cookies, "IDUSER");
-            dbInfo.delete(Integer.parseInt(idUser), POJO.User.class.getName());
-            
-        } 
-        response.sendRedirect("/");        
-    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -50,7 +26,7 @@ public class Delete extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        request.getRequestDispatcher("View/Category/retrieve.jsp").forward(request, response);
     }
 
     /**
@@ -64,7 +40,7 @@ public class Delete extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+//        processRequest(request, response);
     }
 
     /**

@@ -32,7 +32,7 @@ public class Login extends HttpServlet {
         Cookie[] cookies = request.getCookies();
         
         if (userController.isLogin(cookies)){
-            response.sendRedirect("/Exes/transaction");
+            response.sendRedirect("/transaction");
             return;
         }
         request.getRequestDispatcher("View/Auth/login.jsp").forward(request, response);
@@ -56,7 +56,7 @@ public class Login extends HttpServlet {
         Cookie[] cookies = request.getCookies();
         
         if (userController.isLogin(cookies)){
-            response.sendRedirect("/Exes/transaction");
+            response.sendRedirect("/transaction");
             return;
         }
         
@@ -70,7 +70,7 @@ public class Login extends HttpServlet {
             response.addCookie(cook);
             cook = new Cookie("IDUSER", messages.get("IDUSER"));
             response.addCookie(cook);
-            response.sendRedirect("/Exes/transaction");
+            response.sendRedirect("/transaction");
         } else {
             request.getRequestDispatcher("View/Auth/login.jsp").forward(request, response);
         }        

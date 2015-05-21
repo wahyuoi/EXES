@@ -31,7 +31,7 @@ public class Add extends HttpServlet {
         if (userController.isLogin(cookies)) {                                
             request.getRequestDispatcher("/View/Transaction/add.jsp").forward(request, response);
         } else { // user does not login
-            response.sendRedirect("/Exes");
+            response.sendRedirect("/");
         }
         
     }
@@ -50,7 +50,7 @@ public class Add extends HttpServlet {
         Controller.User userController = new Controller.User();
         Cookie[] cookies = request.getCookies();
         if (!userController.isLogin(cookies)){
-            response.sendRedirect("/Exes");
+            response.sendRedirect("/");
         }
         int idUser = userController.getUserId(cookies);
         String matauang = request.getParameter("matauang");
@@ -63,7 +63,7 @@ public class Add extends HttpServlet {
         
         trxController.add(idUser, matauang, nominal, kategori, deskripsi, jenis);  
         
-        response.sendRedirect("/Exes/transaction");
+        response.sendRedirect("/transaction");
     }
 
     /**

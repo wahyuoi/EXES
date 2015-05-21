@@ -29,7 +29,7 @@ public class Update extends HttpServlet {
             throws ServletException, IOException {
         Controller.User userController = new Controller.User();
         if (!userController.isLogin(request.getCookies())){
-            response.sendRedirect("/Exes");
+            response.sendRedirect("/");
             return;
         }
         Controller.Transaction trxController = new Controller.Transaction();
@@ -43,7 +43,7 @@ public class Update extends HttpServlet {
         
         POJO.Transaction trx = trxController.getTrasactionById(_ids);
         if (trx == null){
-            response.sendRedirect("/Exes");
+            response.sendRedirect("/");
         }   else {
             request.setAttribute("trx", trx);
             request.getRequestDispatcher("/View/Transaction/update.jsp").forward(request, response);
@@ -72,7 +72,7 @@ public class Update extends HttpServlet {
         Transaction trx = new Transaction();
         trx.update(id, idUser, nominal, matauang, deskripsi, kategori, jenis);
         
-        response.sendRedirect("/Exes/transaction");
+        response.sendRedirect("/transaction");
     }
 
     /**

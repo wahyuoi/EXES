@@ -31,7 +31,7 @@ public class Delete extends HttpServlet {
         Controller.User userController = new Controller.User();
         Cookie[] cookies = request.getCookies();
         if (!userController.isLogin(cookies)){
-            response.sendRedirect("/Exes");
+            response.sendRedirect("/");
             return;
         }
         String id = (String) request.getParameter("id");
@@ -45,7 +45,7 @@ public class Delete extends HttpServlet {
         Controller.Transaction trxController = new Transaction();        
         int idUser = userController.getUserId(cookies);
         trxController.delete(_id, idUser);
-        response.sendRedirect("/Exes/transaction");
+        response.sendRedirect("/transaction");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

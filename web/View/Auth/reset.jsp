@@ -14,7 +14,7 @@
             <hr>
 
             <p>Enter your email address below to reset your password.</p>
-            <form method="post" action="/Exes/reset">
+            <form method="post" action="/reset">
                 <div style="padding-left:280px;padding-right: 280px;">
                     <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control">
                 </div>

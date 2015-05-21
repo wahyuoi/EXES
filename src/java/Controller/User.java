@@ -66,7 +66,7 @@ public class User {
                 // send token email to user
                 SendEmail sendEmail = new SendEmail();
                 String subject = "Activate Your EXES Account";
-                String body = "http://localhost:8084/Exes/activate?token=" + token + "&id=" + idUser;
+                String body = "http://localhost:8084/activate?token=" + token + "&id=" + idUser;
                 sendEmail.sendEmail(email, subject, body);
             }
 
@@ -268,7 +268,7 @@ public class User {
                     // send token to user
                     SendEmail sendEmail = new SendEmail();
                     String subject = "Reset Your EXES Password";
-                    String body = "http://localhost:8084/Exes/reset?token=" + token + "&id=" + idUser;
+                    String body = "http://localhost:8084/reset?token=" + token + "&id=" + idUser;
                     sendEmail.sendEmail(email, subject, body);
 
                     // show notif

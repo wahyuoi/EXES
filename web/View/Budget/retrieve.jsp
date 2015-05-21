@@ -5,9 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<link rel="stylesheet" href="/Exes/css/core.css">
-<link rel="stylesheet" href="/Exes/css/freebirdApp.css">
-<script type="text/javascript" src="/Exes/js/freebirdApp.js"></script>
+<link rel="stylesheet" href="/css/core.css">
+<link rel="stylesheet" href="/css/freebirdApp.css">
+<script type="text/javascript" src="/js/freebirdApp.js"></script>
 <%@include file="../navmenu.jsp" %>
 
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">

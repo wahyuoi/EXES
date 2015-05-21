@@ -19,12 +19,12 @@
         <title>EXES</title>
 
         <!-- Bootstrap core CSS -->
-        <link href="/Exes/css/bootstrap.min.css" rel="stylesheet">
-        <link href="/Exes/css/bootstrap-select.css" rel="stylesheet">
-        <link href="/Exes/css/bootstrap-select.min.css" rel="stylesheet">
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/css/bootstrap-select.css" rel="stylesheet">
+        <link href="/css/bootstrap-select.min.css" rel="stylesheet">
 
         <!-- Custom styles for this template -->
-        <link href="/Exes/css/dashboard.css" rel="stylesheet">
+        <link href="/css/dashboard.css" rel="stylesheet">
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -47,8 +47,8 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/Exes/profile">Profile</a></li>
-                        <li><a href="/Exes/logout">Logout</a></li>
+                        <li><a href="/profile">Profile</a></li>
+                        <li><a href="/logout">Logout</a></li>
                     </ul>
                 </div>
             </div>
@@ -57,9 +57,9 @@
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
-                        <li><a href="#">Transaction</a></li>
+                        <li><a href="/transaction">Transaction</a></li>
                         <li><a href="#">Reports</a></li>
                         <li><a href="#">Budgets</a></li>
-                        <li><a href="#">Category</a></li>
+                        <li><a href="/category">Category</a></li>
                     </ul>
                 </div>

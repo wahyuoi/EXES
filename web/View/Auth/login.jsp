@@ -11,7 +11,7 @@
             <h2>LOGIN</h2>
             <hr>
             <div style="padding-left:300px;padding-right: 300px;">
-                <form action="/Exes/login" method="post">
+                <form action="/login" method="post">
                     <div class="form-group">
                         <div class="input-group"> <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                             <input class="form-control" placeholder="Email" name="email" type="text" id="email" required>
@@ -25,7 +25,7 @@
                         </div>
                     </div>
                     <span class="pull-right">
-                        <a href="/Exes/reset"> Forgot Password?</a>
+                        <a href="/reset"> Forgot Password?</a>
                     </span>
                     <br>
                     <input class="btn btn-default" name="submit" type="submit" id="loginButton" value="Login">

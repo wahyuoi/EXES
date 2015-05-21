@@ -58,7 +58,7 @@ var chart = AmCharts.makeChart("chartdiv", {
     }, {
         "date": "2015-10-26",
         "value": 72,
-        "customBullet": "/Exes/img/redstar.png"
+        "customBullet": "/img/redstar.png"
     }, {
         "date": "2015-10-27",
         "value": 43
@@ -85,7 +85,7 @@ var chart = AmCharts.makeChart("chartdiv", {
     }],
     "graphs": [{
         "bulletSize": 14,
-        "customBullet": "/Exes/img/star.png",
+        "customBullet": "/img/star.png",
         "customBulletField": "customBullet",
         "valueField": "value",
          "balloonText":"<div style='margin:10px; text-align:left;'><span style='font-size:13px'>[[category]]</span><br><span style='font-size:18px'>Value:[[value]]</span>",

@@ -32,7 +32,7 @@ public class Logout extends HttpServlet {
             response.addCookie(cook);
         }
         
-        response.sendRedirect("/Exes");
+        response.sendRedirect("/");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

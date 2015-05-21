@@ -15,7 +15,7 @@
     <h1 class="page-header">Transaction History</h1>
     <div class="table-responsive">
         <form action="add" method="post">
-            <a href="/Exes/transaction/add"><div class="btn btn-primary">Add New</div></a>
+            <a href="/transaction/add"><div class="btn btn-primary">Add New</div></a>
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
@@ -42,8 +42,8 @@
                         <td><%= trx.getAmount()%></td>
                         <td><%= trx.getJenis()%></td>
                         <td><%= trx.getIdKategori()%></td>
-                        <td><a href="/Exes/transaction/update?id=<%= trx.getId()%>"><span class="glyphicon glyphicon-pencil"></span></a></td>
-                        <td><a href="/Exes/transaction/delete?id=<%= trx.getId()%>"><span class="glyphicon glyphicon-remove"></span></a></td>
+                        <td><a href="/transaction/update?id=<%= trx.getId()%>"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                        <td><a href="/transaction/delete?id=<%= trx.getId()%>"><span class="glyphicon glyphicon-remove"></span></a></td>
                     </tr>
                     <%
                         }
