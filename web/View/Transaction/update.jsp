@@ -4,11 +4,16 @@
     Author     : NK
 --%>
 
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="../navmenu.jsp" %>
+<% List<POJO.Category> listCat = (List<POJO.Category>) request.getAttribute("cat"); System.out.println(listCat.size());%>
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <h1 class="page-header">Edit Transaction</h1>
     <div class="table-responsive">
+        <%if (request.getAttribute("error")!=null) { %>
+        <div>${error}</div>
+        <% } %>
         <form action="update" method="post">
             <table class="table">
                 <thead>
@@ -35,7 +40,13 @@
                     </tr>
                     <tr>
                         <td><label>Category</label></td>
-                        <td><input class="form-control" name="kategori" type="number" value="${trx.getIdKategori()}"></td>
+                        <td>
+                            <select name="kategori" class="selectpicker form-control">
+                                <% for(POJO.Category temp : listCat){ %>
+                                <option value="<%= temp.getId() %>"> <%= temp.getNama() %></option>
+                                <% } %>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td><label>Description</label></td>
@@ -44,10 +55,9 @@
                     <tr>
                         <td><label>Type</label></td>
                         <td>
-                            <select class="selectpicker" name="jenis" value="${trx.getJenis()}">
-                                <option value="0">Income</option>
-                                <option value="1">Expense</option>
-                            </select>
+                            <input type="hidden" name="jenis" value="${trx.getJenis()}">
+                            <input value="${(trx.getJenis()==1)?"Expense":"Income"}" disabled class="form-control">
+                            
                         </td>
                     </tr>
                     <tr>

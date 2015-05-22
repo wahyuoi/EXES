@@ -5,7 +5,12 @@
 --%>
 
 
+<%@page import="Controller.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    Controller.User user = new User();
+    boolean isLogin = user.isLogin(request.getCookies());
+%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -52,7 +57,11 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand page-scroll" href="index.jsp#page-top">EXES</a>
+                        <% if (!isLogin) { %>
+                            <a class="navbar-brand page-scroll" href="index.jsp#page-top">EXES</a>
+                        <% } else { %>
+                            <a class="navbar-brand page-scroll" href="/transaction">EXES</a>
+                        <% } %>                    
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -71,13 +80,18 @@
                         <li>
                             <a class="page-scroll" href="index.jsp#contact">Contact</a>
                         </li>
-                        
+                        <% if (!isLogin) { %>
                         <li>
                             <a href="/login">Login</a>
                         </li>
                         <li>
                             <a href="/register">Sign Up</a>
                         </li>
+                        <% } else { %>
+                        <li>
+                            <a href="/logout">Logout</a>
+                        </li>    
+                        <% } %>
                         
                     </ul>
                 </div>

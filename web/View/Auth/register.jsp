@@ -37,7 +37,7 @@
                         </div>
                     </div>
                     -->
-                    <input name="submit" type="submit" id="loginButton" value="Login" class="btn btn-default">
+                    <input name="submit" type="submit" id="loginButton" value="Sign Up" class="btn btn-default">
                     <span class="success">${messages.success}</span>
                 </div>
             </form>

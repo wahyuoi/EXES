@@ -25,6 +25,7 @@ public class User {
 
     DatabaseInfo dbInfo;
     Map<String, String> messages;
+    private String URL_BASE = "http://exes.cloudapp.net:8085/";
 
     public User() {
         dbInfo = new DatabaseInfo();
@@ -66,7 +67,7 @@ public class User {
                 // send token email to user
                 SendEmail sendEmail = new SendEmail();
                 String subject = "Activate Your EXES Account";
-                String body = "http://localhost:8084/activate?token=" + token + "&id=" + idUser;
+                String body = "URL_BASEactivate?token=" + token + "&id=" + idUser;
                 sendEmail.sendEmail(email, subject, body);
             }
 
@@ -207,14 +208,14 @@ public class User {
 
         if (id == null || token == null) {
 
-            response.sendRedirect("Auth/reset.jsp");
+            response.sendRedirect("/View/Auth/reset.jsp");
 
         } else {
             // both exists
             POJO.User user = (POJO.User) dbInfo.getById(Integer.parseInt(id), POJO.User.class.getName());
             if (user == null) {
                 // no id in database
-                response.sendRedirect("Auth/reset.jsp");
+                response.sendRedirect("/View/Auth/reset.jsp");
             }
             // valid id
             if (token.equals(user.getToken())) {
@@ -225,13 +226,13 @@ public class User {
                 messages.put("token", token);
 
                 // show form
-                request.getRequestDispatcher("Auth/resetForm.jsp").forward(request, response);
+                request.getRequestDispatcher("/View/Auth/resetForm.jsp").forward(request, response);
 
             } else {
                 // invalid token
                 messages.put("success", "Expired token!");
                 try {
-                    request.getRequestDispatcher("Auth/reset.jsp").forward(request, response);
+                    request.getRequestDispatcher("/View/Auth/reset.jsp").forward(request, response);
                 } catch (ServletException ex) {
                     Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (IOException ex) {
@@ -268,7 +269,7 @@ public class User {
                     // send token to user
                     SendEmail sendEmail = new SendEmail();
                     String subject = "Reset Your EXES Password";
-                    String body = "http://localhost:8084/reset?token=" + token + "&id=" + idUser;
+                    String body = URL_BASE + "reset?token=" + token + "&id=" + idUser;
                     sendEmail.sendEmail(email, subject, body);
 
                     // show notif

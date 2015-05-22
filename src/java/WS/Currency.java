@@ -1,9 +1,15 @@
 package WS;
 
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
+import javax.jws.WebParam;
+import javax.servlet.ServletException;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -33,5 +39,19 @@ public class Currency {
         obj.put("detail", array);
 
         return obj;
+    }
+    
+    @WebMethod(operationName = "login")
+    public String doLogin(@WebParam(name = "email") String email, @WebParam(name = "password") String password) {
+        try {
+            Controller.User userController = new Controller.User();            
+            Map<String, String> ret = userController.doLogin(email, password);
+            return ret.get("LSESSID");
+        } catch (ServletException ex) {
+            Logger.getLogger(Currency.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Currency.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 }
