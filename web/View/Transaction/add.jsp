@@ -8,6 +8,10 @@
 <%@include file="../navmenu.jsp" %>
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <h1 class="page-header">Add Transaction</h1>
+    <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a href="add.jsp">Expense</a></li>
+        <li role="presentation"><a href="addInc.jsp">Income</a></li>
+    </ul>
     <div class="table-responsive">
         <form action="add" method="post">
             <table class="table">
@@ -40,15 +44,6 @@
                     <tr>
                         <td><label>Description</label></td>
                         <td><input class="form-control" name="deskripsi" type="text"></td>
-                    </tr>
-                    <tr>
-                        <td><label>Type</label></td>
-                        <td>
-                            <select class="selectpicker" name="jenis">
-                                <option value="0">Income</option>
-                                <option value="1">Expense</option>
-                            </select>
-                        </td>
                     </tr>
                     <tr>
                         <td></td>
