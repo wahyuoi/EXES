@@ -14,6 +14,11 @@ public class Category {
         dbInfo = new DatabaseInfo();
     }    
     
+    public String getName(int id, int userId){
+        POJO.Category temp = this.getCategoryByIdAndUserId(id, userId);
+        return temp.getNama();
+    }
+    
     public List<Object> getAllCategoryByUserId(int userId){
         return dbInfo.getAllByUserId(POJO.Category.class.getName(), userId);
     }
@@ -28,8 +33,13 @@ public class Category {
     }
 
     public void delete(int id, int userId) {
-        if (id>0)
-            dbInfo.deleteWithUserId(id, userId, POJO.Category.class.getName());
+        if (id>0){
+            POJO.Category x = (POJO.Category) dbInfo.getById(id, POJO.Category.class.getName());
+            if (x.getIdUser() == userId){
+                dbInfo.deleteWithUserId(id, userId, POJO.Category.class.getName());
+                updateToDefault(id, userId);
+            }
+        }
     }
 
     public POJO.Category getCategoryByIdAndUserId(int id, int userId) {
@@ -46,6 +56,24 @@ public class Category {
         cat.setJenis(jenis);
         cat.setNama(nama);
         dbInfo.update(cat, POJO.Category.class.getName());
+    }
+
+    public List<Object> getByJenis(int jenis, int userId) {
+        return dbInfo.getBy("jenis", jenis, userId, POJO.Category.class.getName());        
+    }
+
+    private void updateToDefault(int id, int idUser) {
+        // TRANSAKSI
+        Controller.Transaction trx = new Transaction();
+        List<Object> temp = trx.getTransactionByUserId(idUser);
+        for(Object o : temp){
+            POJO.Transaction x = (POJO.Transaction) o;
+            if (x.getIdKategori() == id){
+                x.setIdKategori(0);
+                trx.update(x);
+            }
+        }
+        // TODO KE BUDGET JUGA
     }
 
     

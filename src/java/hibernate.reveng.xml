@@ -2,10 +2,10 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="exes"/>
-  <table-filter match-name="UNVERIFIED_USER"/>
-  <table-filter match-name="TRANSACTION"/>
+  <table-filter match-name="BUDGET"/>
   <table-filter match-name="CATEGORY"/>
+  <table-filter match-name="TRANSACTION"/>
   <table-filter match-name="USER"/>
   <table-filter match-name="REMINDER"/>
-  <table-filter match-name="BUDGET"/>
+  <table-filter match-name="UNVERIFIED_USER"/>
 </hibernate-reverse-engineering>

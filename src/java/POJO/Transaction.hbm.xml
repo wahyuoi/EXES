@@ -1,32 +1,33 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Mar 6, 2015 3:45:07 PM by Hibernate Tools 4.3.1 -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 22, 2015 11:13:06 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="exes" name="POJO.Transaction" optimistic-lock="version" table="TRANSACTION">
-    <id name="id" type="java.lang.Integer">
-      <column name="id"/>
-      <generator class="identity"/>
-    </id>
-    <property name="idUser" type="int">
-      <column name="id_user" not-null="true"/>
-    </property>
-    <property name="tglTransaksi" type="timestamp">
-      <column length="19" name="tgl_transaksi"/>
-    </property>
-    <property name="deskripsi" type="string">
-      <column length="145" name="deskripsi"/>
-    </property>
-    <property name="amount" type="java.lang.Integer">
-      <column name="amount"/>
-    </property>
-    <property name="jenis" type="java.lang.Integer">
-      <column name="jenis"/>
-    </property>
-    <property name="idKategori" type="java.lang.Integer">
-      <column name="id_kategori"/>
-    </property>
-    <property name="mataUang" type="string">
-      <column length="3" name="mata_uang"/>
-    </property>
-  </class>
+    <class name="POJO.Transaction" table="TRANSACTION" catalog="exes" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="idUser" type="java.lang.Integer">
+            <column name="id_user" />
+        </property>
+        <property name="tglTransaksi" type="timestamp">
+            <column name="tgl_transaksi" length="19" />
+        </property>
+        <property name="deskripsi" type="string">
+            <column name="deskripsi" length="145" />
+        </property>
+        <property name="amount" type="java.lang.Double">
+            <column name="amount" precision="22" scale="0" />
+        </property>
+        <property name="jenis" type="java.lang.Integer">
+            <column name="jenis" />
+        </property>
+        <property name="idKategori" type="java.lang.Integer">
+            <column name="id_kategori" />
+        </property>
+        <property name="mataUang" type="string">
+            <column name="mata_uang" length="3" />
+        </property>
+    </class>
 </hibernate-mapping>

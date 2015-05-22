@@ -1,20 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Mar 6, 2015 3:45:07 PM by Hibernate Tools 4.3.1 -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 22, 2015 11:13:06 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="exes" name="POJO.Category" optimistic-lock="version" table="CATEGORY">
-    <id name="id" type="java.lang.Integer">
-      <column name="id"/>
-      <generator class="identity"/>
-    </id>
-    <property name="jenis" type="java.lang.Integer">
-      <column name="jenis"/>
-    </property>
-    <property name="nama" type="string">
-      <column length="20" name="nama"/>
-    </property>
-    <property name="idUser" type="java.lang.Integer">
-      <column name="id_user"/>
-    </property>
-  </class>
+    <class name="POJO.Category" table="CATEGORY" catalog="exes" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="jenis" type="java.lang.Integer">
+            <column name="jenis" />
+        </property>
+        <property name="nama" type="string">
+            <column name="nama" length="20" />
+        </property>
+        <property name="idUser" type="java.lang.Integer">
+            <column name="id_user" />
+        </property>
+    </class>
 </hibernate-mapping>

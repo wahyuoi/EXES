@@ -27,7 +27,12 @@ public class Add extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            request.getRequestDispatcher("/View/Budget/add.jsp").forward(request, response);
+        Controller.User userController = new Controller.User();
+        Cookie[] cookies = request.getCookies();
+        if (!userController.isLogin(cookies)){
+            response.sendRedirect("/");
+        }
+        request.getRequestDispatcher("/View/Budget/add.jsp").forward(request, response);
     }
 
     /**

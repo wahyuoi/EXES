@@ -1,23 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Mar 6, 2015 3:45:07 PM by Hibernate Tools 4.3.1 -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 22, 2015 11:13:06 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="exes" name="POJO.UnverifiedUser" optimistic-lock="version" table="UNVERIFIED_USER">
-    <id name="id" type="java.lang.Integer">
-      <column name="id"/>
-      <generator class="identity"/>
-    </id>
-    <property name="nama" type="string">
-      <column length="30" name="nama" not-null="true"/>
-    </property>
-    <property name="email" type="string">
-      <column length="30" name="email" not-null="true"/>
-    </property>
-    <property name="password" type="string">
-      <column length="20" name="password" not-null="true"/>
-    </property>
-    <property name="token" type="string">
-      <column length="20" name="token"/>
-    </property>
-  </class>
+    <class name="POJO.UnverifiedUser" table="UNVERIFIED_USER" catalog="exes" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="nama" type="string">
+            <column name="nama" length="30" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="30" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="20" not-null="true" />
+        </property>
+        <property name="token" type="string">
+            <column name="token" length="20" />
+        </property>
+    </class>
 </hibernate-mapping>

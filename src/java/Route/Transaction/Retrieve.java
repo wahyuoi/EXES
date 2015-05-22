@@ -41,6 +41,7 @@ public class Retrieve extends HttpServlet {
         int id = userController.getUserId(cookies);
         Controller.Transaction trxController = new Controller.Transaction();
         ArrayList<Object> ret = (ArrayList<Object>) trxController.getTransactionByUserId(id);
+        request.setAttribute("userId", id);
         request.setAttribute("list", ret);        
         request.getRequestDispatcher("/View/Transaction/retrieve.jsp").forward(request, response);
     }

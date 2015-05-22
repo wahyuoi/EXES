@@ -7,11 +7,13 @@
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/exes</property>
     <property name="hibernate.connection.username">exes</property>
     <property name="hibernate.connection.password">database</property>
-    <mapping resource="POJO/Reminder.hbm.xml"/>
-    <mapping resource="POJO/User.hbm.xml"/>
-    <mapping resource="POJO/UnverifiedUser.hbm.xml"/>
+    <property name="hibernate.hbm2ddl.auto">update</property>
+    <mapping resource="hibernate.hbm.xml"/>
     <mapping resource="POJO/Category.hbm.xml"/>
-    <mapping resource="POJO/Budget.hbm.xml"/>
+    <mapping resource="POJO/UnverifiedUser.hbm.xml"/>
     <mapping resource="POJO/Transaction.hbm.xml"/>
+    <mapping resource="POJO/Budget.hbm.xml"/>
+    <mapping resource="POJO/User.hbm.xml"/>
+    <mapping resource="POJO/Reminder.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

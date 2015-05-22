@@ -31,7 +31,7 @@
                     </tr>
                     <tr>
                         <td><label>Amount</label></td>
-                        <td><input class="form-control" name="nominal" type="number" value="${trx.getAmount()}"></td>
+                        <td><input class="form-control" name="nominal" value="${trx.getAmount()}"></td>
                     </tr>
                     <tr>
                         <td><label>Category</label></td>

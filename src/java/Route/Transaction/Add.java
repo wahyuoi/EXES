@@ -1,6 +1,8 @@
 package Route.Transaction;
 
+import Controller.Category;
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -28,8 +30,23 @@ public class Add extends HttpServlet {
             throws ServletException, IOException {
         Controller.User userController = new Controller.User();
         Cookie[] cookies = request.getCookies();
-        if (userController.isLogin(cookies)) {                                
-            request.getRequestDispatcher("/View/Transaction/add.jsp").forward(request, response);
+        if (userController.isLogin(cookies)) {      
+            int userId = userController.getUserId(cookies);
+            Controller.Category catController = new Category();
+            int jenis = 0;
+            try {
+                jenis = Integer.parseInt(request.getParameter("jenis"));
+                if (jenis!=0) jenis = 1;
+            } catch (Exception e) {
+            }
+             
+            List<Object> cat = catController.getByJenis(jenis, userId);
+                        
+            request.setAttribute("cat", cat);
+            if (jenis==1)
+                request.getRequestDispatcher("/View/Transaction/add.jsp").forward(request, response);
+            else 
+                request.getRequestDispatcher("/View/Transaction/addInc.jsp").forward(request, response);
         } else { // user does not login
             response.sendRedirect("/");
         }
@@ -54,10 +71,29 @@ public class Add extends HttpServlet {
         }
         int idUser = userController.getUserId(cookies);
         String matauang = request.getParameter("matauang");
-        int nominal = Integer.parseInt(request.getParameter("nominal"));
-        int kategori = Integer.parseInt(request.getParameter("kategori"));
+        double nominal;
+        int kategori = 0;
+        try {
+            kategori = Integer.parseInt(request.getParameter("kategori"));            
+        } catch (Exception e) {
+        }
         String deskripsi = request.getParameter("deskripsi");
         int jenis = Integer.parseInt(request.getParameter("jenis"));
+        try {
+            nominal = Double.parseDouble(request.getParameter("nominal"));   
+            if (nominal<0) 
+                throw new Exception();
+        } catch (Exception e) {
+            request.setAttribute("error", "Input Nominal Harus Positive Numeric");
+            Controller.Category catController = new Category();
+            List<Object> cat = catController.getByJenis(jenis, idUser);                        
+            request.setAttribute("cat", cat);
+            if (jenis==1)
+                request.getRequestDispatcher("/View/Transaction/add.jsp").forward(request, response);
+            else 
+                request.getRequestDispatcher("/View/Transaction/addInc.jsp").forward(request, response);
+            return;
+        }                
         
         Controller.Transaction trxController = new Controller.Transaction();
         

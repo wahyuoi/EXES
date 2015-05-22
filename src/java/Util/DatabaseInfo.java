@@ -132,4 +132,16 @@ public class DatabaseInfo {
         afterClass();
         return ret;
     }
+
+    public List<Object> getBy(String key, int value, int id_user, String clazz) {
+        beforeClass();
+
+        List<Object> ret = new ArrayList<Object>();
+        String query = "from " + clazz + " where id_user = '" + id_user + "' and " + key + " = '" 
+                + value +"'";
+        ret = session.createQuery(query).list();
+
+        afterClass();
+        return ret;
+    }
 }

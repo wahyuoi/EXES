@@ -15,7 +15,7 @@ public class Transaction {
         dbInfo = new DatabaseInfo();
     }
     
-    public void add(int idUser, String matauang, int nominal, int kategori, String deskripsi, int jenis) {
+    public void add(int idUser, String matauang, double nominal, int kategori, String deskripsi, int jenis) {
         POJO.Transaction trx = new POJO.Transaction();
         trx.setIdUser(idUser);
         trx.setMataUang(matauang);
@@ -46,7 +46,7 @@ public class Transaction {
         return ret;
     }
 
-    public void update(int id, int idUser, int nominal, String matauang, String deskripsi, int kategori, int jenis) {
+    public void update(int id, int idUser, double nominal, String matauang, String deskripsi, int kategori, int jenis) {
         POJO.Transaction trx = (POJO.Transaction) dbInfo.getById(id, POJO.Transaction.class.getName());
         trx.setAmount(nominal);
         trx.setDeskripsi(deskripsi);
@@ -55,6 +55,10 @@ public class Transaction {
         trx.setMataUang(matauang);
         
         dbInfo.update(trx, POJO.Transaction.class.getName());
+    }
+
+    void update(POJO.Transaction x) {
+        dbInfo.update(x, POJO.Transaction.class.getName());
     }
     
 }
