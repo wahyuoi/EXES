@@ -90,7 +90,7 @@ public class Update extends HttpServlet {
             if (nominal<0) 
                 throw new Exception();
         } catch (Exception e) {
-            request.setAttribute("error", "Input Nominal Harus Positive Numeric");
+            request.setAttribute("error", "Perhatian! Input nominal harus bilangan bulat positif");
             Controller.Category cat = new Category();            
             List<Object> cats = cat.getByJenis(jenis, userController.getUserId(cookies));      
             System.err.println(cats.size());

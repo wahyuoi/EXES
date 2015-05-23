@@ -15,7 +15,7 @@
         <li role="presentation" class="active"><a href="/transaction/add?jenis=0">Income</a></li>    </ul>
     <div class="table-responsive">
         <% if (request.getAttribute("error")!= null){ %>
-        <div><%= request.getAttribute("error") %></div>
+        <div class="alert alert-warning" role="alert"><%= request.getAttribute("error") %></div>
         <%}%>
         <form action="add" method="post">
             <table class="table">
