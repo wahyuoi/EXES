@@ -31,10 +31,10 @@
                 <tr>
                     <td></td>
                     <td>
-                        <span class="success">${messages.success}</span>
-                        <span class="success">${messages.oldPassword}</span>
-                        <span class="success">${messages.newPassword}</span>
-                        <span class="success">${messages.confirmPassword}</span>
+                        <span class="alert alert-success" role="alert">${messages.success}</span>
+                        <span class="alert alert-danger" role="alert">${messages.oldPassword}</span>
+                        <span class="alert alert-danger" role="alert">${messages.newPassword}</span>
+                        <span class="alert alert-danger" role="alert">${messages.confirmPassword}</span>
                     </td>
                     <td>
                         <input class="form-control" name="idUser" value="<%= request.getAttribute("idUser")%>" type="hidden">
