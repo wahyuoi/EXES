@@ -12,7 +12,7 @@
     <h1 class="page-header">Edit Transaction</h1>
     <div class="table-responsive">
         <%if (request.getAttribute("error")!=null) { %>
-        <div>${error}</div>
+        <div class="alert alert-warning" role="alert">${error}</div>
         <% } %>
         <form action="update" method="post">
             <table class="table">
