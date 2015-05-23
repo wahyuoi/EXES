@@ -103,7 +103,7 @@ public class Update extends HttpServlet {
         
         Controller.Category category = new Category();
         category.update(id, jenis, nama, userId);
-        response.sendRedirect("category");
+        response.sendRedirect("/category");
     }
 
     /**

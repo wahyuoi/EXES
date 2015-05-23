@@ -6,8 +6,12 @@
 
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@include file="../navmenu.jsp" %>
-<% List<POJO.Category> listCat = (List<POJO.Category>) request.getAttribute("cat"); System.out.println(listCat.size());%>
+<% List<POJO.Category> listCat = (List<POJO.Category>) request.getAttribute("cat"); 
+    POJO.Transaction trx2 = (POJO.Transaction) request.getAttribute("trx");
+%>
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <h1 class="page-header">Edit Transaction</h1>
     <div class="table-responsive">
@@ -36,7 +40,7 @@
                     </tr>
                     <tr>
                         <td><label>Amount</label></td>
-                        <td><input class="form-control" name="nominal" value="${trx.getAmount()}"></td>
+                        <td><input class="form-control" name="nominal" value="<fmt:formatNumber type="number" maxFractionDigits="3" groupingUsed="false" value="<%= trx2.getAmount()%>" />"></td>
                     </tr>
                     <tr>
                         <td><label>Category</label></td>
