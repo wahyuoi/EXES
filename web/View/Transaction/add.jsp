@@ -17,7 +17,7 @@
     <div class="table-responsive">
         
         <% if (request.getAttribute("error")!= null){ %>
-        <div><%= request.getAttribute("error") %></div>
+        <div class="alert alert-warning" role="alert"><%= request.getAttribute("error") %></div>
         <%}%>
         <form action="add" method="post">
             <table class="table">
