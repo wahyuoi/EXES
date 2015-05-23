@@ -11,7 +11,7 @@
 <%@include file="../navmenu.jsp" %>
 <%
     ArrayList<Object> list = (ArrayList<Object>) request.getAttribute("list");
-    Controller.Category catCon = new Category();
+    Controller.Category catCon = new Controller.Category();
     int userId = (int)request.getAttribute("userId");
 %>    
 

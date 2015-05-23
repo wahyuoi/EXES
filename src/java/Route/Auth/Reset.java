@@ -52,6 +52,7 @@ public class Reset extends HttpServlet {
         String email = request.getParameter("email");
         if (email != null){
             userController.doSendResetToken(request, response);
+            return;
         }
         
         String id = request.getParameter("id");

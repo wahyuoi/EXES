@@ -53,7 +53,8 @@ public class Update extends HttpServlet {
             int jenis = trx.getJenis();
             List<Object> cats = cat.getByJenis(jenis, userController.getUserId(cookies));      
             System.err.println(cats.size());
-            request.setAttribute("trx", trx);
+            request.setAttribute("selected", trx.getIdKategori());
+            request.setAttribute("trx", trx);            
             request.setAttribute("cat", cats);
             request.setAttribute("jenis", trx.getJenis());
             request.getRequestDispatcher("/View/Transaction/update.jsp").forward(request, response);

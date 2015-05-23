@@ -8,6 +8,7 @@ import java.util.List;
  * @author wahyuoi
  */
 public class Category {
+    public static String UNCATEGORIZED = "UNCATEGORIZED";
     private DatabaseInfo dbInfo;
     
     public Category(){
@@ -16,6 +17,7 @@ public class Category {
     
     public String getName(int id, int userId){
         POJO.Category temp = this.getCategoryByIdAndUserId(id, userId);
+        if (temp == null) return Controller.Category.UNCATEGORIZED;
         return temp.getNama();
     }
     

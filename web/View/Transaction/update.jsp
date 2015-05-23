@@ -31,10 +31,10 @@
                         <td><label>Currency</label></td>
                         <td>
                             <select class="selectpicker" name="matauang" value="${trx.getMataUang()}">
-                                <option value="IDR">Indonesian Rupiah</option>
-                                <option value="USD">United States Dollar</option>
-                                <option value="EUR">Euro</option>
-                                <option value="JPY">Japanese Yen</option>
+                                <option ${"IDR".equals(trx.getMataUang())?"selected":""} value="IDR">Indonesian Rupiah</option>
+                                <option ${"USD".equals(trx.getMataUang())?"selected":""} value="USD">United States Dollar</option>
+                                <option ${"EUR".equals(trx.getMataUang())?"selected":""} value="EUR">Euro</option>
+                                <option ${"JPY".equals(trx.getMataUang())?"selected":""} value="JPY">Japanese Yen</option>
                             </select>
                         </td>
                     </tr>
@@ -46,8 +46,9 @@
                         <td><label>Category</label></td>
                         <td>
                             <select name="kategori" class="selectpicker form-control">
+                                <option ${(selected ==  0)?"selected":""} value="0"> <%=Controller.Category.UNCATEGORIZED%></option>                                
                                 <% for(POJO.Category temp : listCat){ %>
-                                <option value="<%= temp.getId() %>"> <%= temp.getNama() %></option>
+                                <option ${(selected ==  trx.getIdKategori())?"selected":""} value="<%= temp.getId() %>"> <%= temp.getNama() %></option>
                                 <% } %>
                             </select>
                         </td>
