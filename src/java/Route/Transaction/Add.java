@@ -84,7 +84,7 @@ public class Add extends HttpServlet {
             if (nominal<0) 
                 throw new Exception();
         } catch (Exception e) {
-            request.setAttribute("error", "Input Nominal Harus Positive Numeric");
+            request.setAttribute("error", "Perhatian! Input nominal harus bilangan bulat positif");
             Controller.Category catController = new Category();
             List<Object> cat = catController.getByJenis(jenis, idUser);                        
             request.setAttribute("cat", cat);
