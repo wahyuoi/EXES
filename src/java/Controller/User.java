@@ -25,7 +25,7 @@ public class User {
 
     DatabaseInfo dbInfo;
     Map<String, String> messages;
-    private String URL_BASE = "http://exes.cloudapp.net:8085/";
+    private String URL_BASE = "http://exes.cloudapp.net/";
 
     public User() {
         dbInfo = new DatabaseInfo();
@@ -67,7 +67,7 @@ public class User {
                 // send token email to user
                 SendEmail sendEmail = new SendEmail();
                 String subject = "Activate Your EXES Account";
-                String body = "URL_BASEactivate?token=" + token + "&id=" + idUser;
+                String body = URL_BASE + "activate?token=" + token + "&id=" + idUser;
                 sendEmail.sendEmail(email, subject, body);
             }
 
@@ -154,6 +154,8 @@ public class User {
     }
 
     public boolean isLogin(Cookie[] cookies) {
+        if (cookies == null)
+            return false;
         for (Cookie cooky : cookies) {
             if ("LSESSID".equals(cooky.getName())) {
                 return true;
