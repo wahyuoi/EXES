@@ -1,6 +1,7 @@
 package Controller;
 
 import Util.DatabaseInfo;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,8 +22,12 @@ public class Category {
         return temp.getNama();
     }
     
-    public List<Object> getAllCategoryByUserId(int userId){
-        return dbInfo.getAllByUserId(POJO.Category.class.getName(), userId);
+    public List<POJO.Category> getAllCategoryByUserId(int userId){
+        List<Object> temp = dbInfo.getAllByUserId(POJO.Category.class.getName(), userId);
+        List<POJO.Category> ret = new ArrayList<POJO.Category>();
+        for(Object o : temp)
+            ret.add((POJO.Category)o);
+        return ret;
     }
 
     public void add(int jenis, int id, String kategori) {

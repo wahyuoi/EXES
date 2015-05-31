@@ -17,7 +17,11 @@
                     <th width="40px;"></th>
                 </tr>
             </thead>
-            <% String email = (new Controller.User()).getUserEmail(request.getCookies()); %>
+            <% Controller.User userCon = new Controller.User();
+                POJO.User user = (POJO.User) userCon.getUser(request.getCookies());
+                String email = user.getEmail();
+                String token = user.getToken();
+            %>
             <tbody>                                
                 <tr>
                     <td><label>Email</label></td>
@@ -27,6 +31,11 @@
                     <td><label>Password</label></td>
                     <td><input type="text" class="form-control" placeholder="*****" readonly></td>
                     <td><a data-toggle="modal" href="#reset"  class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                </tr>
+                <tr>
+                    <td><label>Token</label></td>
+                    <td><%= token %></td>
+                    <td><div align="right"><a href="/change/token"  class="btn btn-info" ><i class="fa fa-warning"></i> Change Token</a></div></td>
                 </tr>
                 <tr>
                     <td></td>

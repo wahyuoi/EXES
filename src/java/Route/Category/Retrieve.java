@@ -37,7 +37,7 @@ public class Retrieve extends HttpServlet {
         
         int id = userController.getUserId(cookies);
         Controller.Category categoryController = new Controller.Category();
-        List<Object> allCat = categoryController.getAllCategoryByUserId(id);
+        List<POJO.Category> allCat = categoryController.getAllCategoryByUserId(id);
         request.setAttribute("list", allCat);
         request.getRequestDispatcher("/View/Category/retrieve.jsp").forward(request, response);
     }

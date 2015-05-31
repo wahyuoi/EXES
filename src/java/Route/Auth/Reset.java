@@ -52,16 +52,20 @@ public class Reset extends HttpServlet {
         String email = request.getParameter("email");
         if (email != null){
             userController.doSendResetToken(request, response);
+            // forward page       
+            request.getRequestDispatcher("/View/Auth/reset.jsp").forward(request, response);
             return;
-        }
+        } else {
         
-        String id = request.getParameter("id");
-        String token = request.getParameter("token");
-        if (id != null && token != null){
-            userController.doSaveNewPassword(request, response);
-        }
+            String id = request.getParameter("id");
+            String token = request.getParameter("token");
+            if (id != null && token != null){
+                userController.doSaveNewPassword(request, response);                
+            }
+            // forward page       
+            request.getRequestDispatcher("/View/Auth/reset.jsp").forward(request, response);
+        }        
         
-        response.sendRedirect("View/Auth/reset.jsp");
     }
 
     /**

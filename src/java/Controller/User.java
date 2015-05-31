@@ -130,9 +130,9 @@ public class User {
                 messages.put("IDUSER", ((POJO.User) user.get(0)).getId().toString());
                 // update token
                 // if user login, token will automatically updated
-                POJO.User curUser = (POJO.User) user.get(0);
-                curUser.setToken(messages.get("LSESSID"));
-                dbInfo.update(curUser, POJO.User.class.getName());
+                //POJO.User curUser = (POJO.User) user.get(0);
+                //curUser.setToken(messages.get("LSESSID"));
+                //dbInfo.update(curUser, POJO.User.class.getName());
             } else {
                 messages.put("error", "Wrong email or password");
             }
@@ -282,10 +282,6 @@ public class User {
                 }
             }
         }
-
-        // forward page       
-        request.getRequestDispatcher("Auth/reset.jsp").forward(request, response);
-
     }
 
     public void doSaveNewPassword(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -297,18 +293,18 @@ public class User {
         String confirmPassword = request.getParameter("confirmPassword");
 
         if (id == null || token == null) {
-            response.sendRedirect("Auth/reset.jsp");
+            response.sendRedirect("/View/Auth/reset.jsp");
         } else if (newPassword == null || !newPassword.equals(confirmPassword)) {
             messages.put("newPassword", "Mismatch password!");
             messages.put("id", id);
             messages.put("token", token);
-            request.getRequestDispatcher("Auth/resetForm.jsp").forward(request, response);
+            request.getRequestDispatcher("/View/Auth/resetForm.jsp").forward(request, response);
         } else {
             // both exists
             POJO.User user = (POJO.User) dbInfo.getById(Integer.parseInt(id), POJO.User.class.getName());
             if (user == null) {
                 // no id in database
-                response.sendRedirect("Auth/reset.jsp");
+                response.sendRedirect("/View/Auth/reset.jsp");
 
             }
             // valid id
@@ -320,12 +316,12 @@ public class User {
                 dbInfo.update(user, POJO.User.class.getName());
                 // show form
                 messages.put("success", "Reset berhasil, silakan login");
-                request.getRequestDispatcher("Auth/login.jsp").forward(request, response);
+                request.getRequestDispatcher("/View/Auth/login.jsp").forward(request, response);
 
             } else {
                 // invalid token
                 messages.put("success", "Expired token!");
-                request.getRequestDispatcher("Auth/login.jsp").forward(request, response);
+                request.getRequestDispatcher("/View/Auth/login.jsp").forward(request, response);
             }
         }
 
@@ -353,5 +349,31 @@ public class User {
 
     public void deleteAccount(int id) {
         dbInfo.delete(id, POJO.User.class.getName());
+    }
+    
+    public Map<String, String> regenerateToken(Cookie[] cookies){
+        int id = this.getUserId(cookies);
+        POJO.User user = (POJO.User) dbInfo.getById(id, POJO.User.class.getName());
+        String LSESSID = Token.generateToken(System.currentTimeMillis() + "");
+                
+        user.setToken(LSESSID);
+        dbInfo.update(user, POJO.User.class.getName());
+        messages.put("LSESSID", LSESSID);
+        return messages;
+    }
+    public POJO.User getUser(Cookie[] cookies){
+        int id = Integer.parseInt(getCookiesByName(cookies, "IDUSER"));
+        POJO.User user = (POJO.User) dbInfo.getById(id, POJO.User.class.getName());
+        return user;        
+    }
+
+    public POJO.User getUser(String token) {
+        return (POJO.User) dbInfo.getByToken(token, POJO.User.class.getName());
+    }
+
+    public int getUserId(String token) {
+        POJO.User user = (POJO.User) dbInfo.getByToken(token, POJO.User.class.getName());
+        return user.getId();
+
     }
 }

@@ -26,8 +26,8 @@
                         </div>
                     </div>                    
                     
-                    <input name="id" type="hidden" value=${messages.id}/>
-                    <input name="token" type="hidden" value=${messages.token}/>
+                    <input name="id" type="hidden" value="${messages.id}">
+                    <input name="token" type="hidden" value="${messages.token}">
                     <input name="submit" type="submit" id="loginButton" value="Reset" class="btn btn-default">
                     <span class="success">${messages.success}</span>
                 </div>

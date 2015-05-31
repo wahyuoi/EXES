@@ -20,11 +20,6 @@
         <property name="token" type="string">
             <column name="token" length="20" />
         </property>
-        <set name="transactions" table="TRANSACTION" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="id_user" />
-            </key>
-            <one-to-many class="POJO.Transaction" />
-        </set>
+       
     </class>
 </hibernate-mapping>

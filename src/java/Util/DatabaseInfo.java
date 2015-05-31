@@ -144,4 +144,15 @@ public class DatabaseInfo {
         afterClass();
         return ret;
     }
+    // get row by id
+    public Object getByToken(String token, String clazz) {
+        beforeClass();
+        String queryString = "from " + clazz + " where token = '" + token + "'";
+        Query query = session.createQuery(queryString);
+
+        Object obj = query.uniqueResult();
+
+        afterClass();
+        return obj;
+    }
 }
