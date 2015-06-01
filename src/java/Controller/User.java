@@ -67,7 +67,10 @@ public class User {
                 // send token email to user
                 SendEmail sendEmail = new SendEmail();
                 String subject = "Activate Your EXES Account";
-                String body = URL_BASE + "activate?token=" + token + "&id=" + idUser;
+                String body = "Thank you for registering!\n" +
+                                 "Before you can start using EXES, please verify you email address by clicking on the link below:\n\n";
+                body += URL_BASE + "activate?token=" + token + "&id=" + idUser;
+                body += "\nWe're looking forward to assist you in managing your financial plan. ";
                 sendEmail.sendEmail(email, subject, body);
             }
 
@@ -271,7 +274,8 @@ public class User {
                     // send token to user
                     SendEmail sendEmail = new SendEmail();
                     String subject = "Reset Your EXES Password";
-                    String body = URL_BASE + "reset?token=" + token + "&id=" + idUser;
+                    String body = "our request to reset password has been accepted. Please click on the link below to proceed:\n\n";
+                    body += URL_BASE + "reset?token=" + token + "&id=" + idUser;
                     sendEmail.sendEmail(email, subject, body);
 
                     // show notif
@@ -373,6 +377,7 @@ public class User {
 
     public int getUserId(String token) {
         POJO.User user = (POJO.User) dbInfo.getByToken(token, POJO.User.class.getName());
+        if (user == null) return -1;
         return user.getId();
 
     }

@@ -30,13 +30,13 @@ public class Category {
         return ret;
     }
 
-    public void add(int jenis, int id, String kategori) {
+    public int add(int jenis, int id, String kategori) {
         POJO.Category cat = new POJO.Category();
         cat.setIdUser(id);
         cat.setJenis(jenis);
         cat.setNama(kategori);
         
-        dbInfo.insert(cat);
+        return dbInfo.insert(cat);
     }
 
     public void delete(int id, int userId) {
@@ -72,15 +72,21 @@ public class Category {
     private void updateToDefault(int id, int idUser) {
         // TRANSAKSI
         Controller.Transaction trx = new Transaction();
-        List<Object> temp = trx.getTransactionByUserId(idUser);
-        for(Object o : temp){
-            POJO.Transaction x = (POJO.Transaction) o;
+        List<POJO.Transaction> temp = trx.getTransactionByUserId(idUser);
+        for(POJO.Transaction x : temp){            
             if (x.getIdKategori() == id){
                 x.setIdKategori(0);
                 trx.update(x);
             }
         }
         // TODO KE BUDGET JUGA
+    }
+
+    public boolean isExists(int idCategory, int idJenis) {
+        POJO.Category cat = (POJO.Category) dbInfo.getById(idCategory, POJO.Category.class.getName());
+        if (cat == null) return false;
+        if (cat.getJenis() != idJenis) return false;
+        return true;
     }
 
     

@@ -1,6 +1,7 @@
 package Controller;
 
 import Util.DatabaseInfo;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -32,8 +33,12 @@ public class Transaction {
         return ret;
     }
     
-    public List<Object> getTransactionByUserId(int id_user){
-        return dbInfo.getAllByUserId(POJO.Transaction.class.getName(), id_user);
+    public List<POJO.Transaction> getTransactionByUserId(int id_user){
+        List<Object> temp = dbInfo.getAllByUserId(POJO.Transaction.class.getName(), id_user);
+        List<POJO.Transaction> ret = new ArrayList<>();
+        for (Object o : temp)
+            ret.add((POJO.Transaction) o);
+        return ret;
     }
 
     public void delete(int _id, int idUser) {
