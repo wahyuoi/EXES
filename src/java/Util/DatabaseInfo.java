@@ -1,6 +1,8 @@
 package Util;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -154,5 +156,39 @@ public class DatabaseInfo {
 
         afterClass();
         return obj;
+    }
+
+    public List<Object> getByMonth(String clazz, int idUser, Date first, Date second) {
+        beforeClass();
+        String att = "tgl_transaksi";
+        List<Object> ret = new ArrayList<Object>();
+        
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        boolean isFirst = false; 
+ 
+        StringBuilder query = new StringBuilder("from " + clazz+ " where idUser = '" + idUser + "'");        
+        if (first != null){
+            if (isFirst) {
+                query.append(" where "+ att +" >= '" + sdf.format(first) + "'");
+            } else {
+                query.append(" and "+ att +" >= '" + sdf.format(first) + "'");                
+            }
+            isFirst = false;
+        }
+        
+        if (second != null){
+            if (isFirst) {
+                query.append(" where "+ att +" < '" + sdf.format(second) + "'");                        
+            } else {
+                query.append(" and "+ att +" <= '" + sdf.format(second) + "'");
+            }
+            isFirst = false;
+        }
+        
+        query.append(" order by "+att);
+        ret = session.createQuery(query.toString()).list();
+
+        afterClass();
+        return ret;
     }
 }

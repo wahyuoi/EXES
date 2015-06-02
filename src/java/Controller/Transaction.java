@@ -2,6 +2,7 @@ package Controller;
 
 import Util.DatabaseInfo;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -64,6 +65,44 @@ public class Transaction {
 
     void update(POJO.Transaction x) {
         dbInfo.update(x, POJO.Transaction.class.getName());
+    }
+  
+    public List<POJO.Transaction> getTransactionByDate(int idUser, int dateA, int monthA, int yearA, int dateB, int monthB, int yearB){
+        Date first = new Date(yearA-1900, monthA-1, dateA);
+        Date second = null;
+        if (yearB != -1)
+            second = new Date(yearB-1900, monthB-1, dateB);        
+        
+        List<Object> temp = dbInfo.getByMonth(POJO.Transaction.class.getName(), idUser, first, second);
+        
+        List<POJO.Transaction> ret = new ArrayList<>();
+        for (Object o : temp)
+            ret.add((POJO.Transaction) o);
+        return ret;  
+    }
+    
+    public List<POJO.Transaction> getTransactionByMonth(int idUser, int month, int year) {
+        int yearB = year + month/12;
+        int monthB = month%12 + 1;
+        return this.getTransactionByDate(idUser, 1, month, year, 1, monthB, yearB);  
+    }
+
+    public List<POJO.Transaction> getTransactionFromDate(int idUser, int date, int month, int year) {
+        return this.getTransactionByDate(idUser, date, month, year, -1, -1, -1);
+    }
+
+    public List<POJO.Transaction> getTransactionBetweenDate(int idUser, int dateA, int monthA, int yearA, int dateB, int monthB, int yearB) {
+        int[] tgl = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        int add = dateB/tgl[monthB];
+        dateB = dateB%tgl[monthB] + 1;
+        
+        if (add > 0){
+            add = monthB/12;
+            monthB = monthB%12 + 1;
+            yearB += add;
+        }
+        return this.getTransactionByDate(idUser, dateA, monthA, yearA, dateB, monthB, yearB);
+        
     }
     
 }

@@ -144,13 +144,70 @@ public class service {
     /**
      * Web service operation
      */
-    @WebMethod(operationName = "operation")
-    public POJO.TransactionWrapper operation(@WebParam(name = "token") String token) {
+    @WebMethod(operationName = "getTransaction")
+    public POJO.TransactionWrapper getTransaction(@WebParam(name = "token") String token) {
         Controller.User userCon = new User();
         int idUser = userCon.getUserId(token);
         if (idUser == -1) return null;
         Controller.Transaction trx = new Transaction();
         List<POJO.Transaction> all = trx.getTransactionByUserId(idUser);
+        TransactionWrapper ret = new TransactionWrapper();
+        ret.setList(all);
+        return ret;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getMataUang")
+    public POJO.MataUangWrapper getMataUang(@WebParam(name = "token") String token) {
+        //TODO write your implementation code here:
+        Controller.User userCon = new User();
+        int idUser = userCon.getUserId(token);
+        if (idUser == -1) return null;
+        return new POJO.MataUangWrapper();
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getTransactionByMonth")
+    public TransactionWrapper getTransactionByMonth(@WebParam(name = "token") String token, @WebParam(name = "month") int month, @WebParam(name = "year") int year) {
+        Controller.User userCon = new User();
+        int idUser = userCon.getUserId(token);
+        if (idUser == -1) return null;
+        Controller.Transaction trx = new Transaction();
+        List<POJO.Transaction> all = trx.getTransactionByMonth(idUser, month, year);
+        TransactionWrapper ret = new TransactionWrapper();
+        ret.setList(all);
+        return ret;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getTransactionFromDate")
+    public TransactionWrapper getTransactionFromDate(@WebParam(name = "token") String token, @WebParam(name = "date") int date, @WebParam(name = "month") int month, @WebParam(name = "year") int year) {
+        Controller.User userCon = new User();
+        int idUser = userCon.getUserId(token);
+        if (idUser == -1) return null;
+        Controller.Transaction trx = new Transaction();
+        List<POJO.Transaction> all = trx.getTransactionFromDate(idUser, date, month, year);
+        TransactionWrapper ret = new TransactionWrapper();
+        ret.setList(all);
+        return ret;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getTransactionBetweenDate")
+    public TransactionWrapper getTransactionBetweenDate(@WebParam(name = "token") String token, @WebParam(name = "dateA") int dateA, @WebParam(name = "monthA") int monthA, @WebParam(name = "yearA") int yearA, @WebParam(name = "dateB") int dateB, @WebParam(name = "monthB") int monthB, @WebParam(name = "yearB") int yearB) {
+        Controller.User userCon = new User();
+        int idUser = userCon.getUserId(token);
+        if (idUser == -1) return null;
+        Controller.Transaction trx = new Transaction();
+        List<POJO.Transaction> all = trx.getTransactionBetweenDate(idUser, dateA, monthA, yearA, dateB, monthB, yearB);
         TransactionWrapper ret = new TransactionWrapper();
         ret.setList(all);
         return ret;
