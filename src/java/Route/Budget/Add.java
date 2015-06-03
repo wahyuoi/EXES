@@ -1,7 +1,10 @@
 package Route.Budget;
 
+import Controller.Category;
+import POJO.Budget;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -32,6 +35,27 @@ public class Add extends HttpServlet {
         if (!userController.isLogin(cookies)){
             response.sendRedirect("/");
         }
+        int idUser = userController.getUserId(cookies);
+        Controller.Category catCon = new Category();        
+        List<Object> categories = catCon.getByJenis(1, idUser);
+        
+        Controller.Budget budgetCon = new Controller.Budget();
+        List<Object> budgets = budgetCon.getById(idUser);
+        
+        // remove categories that have been used
+        for (Object o : budgets){
+            Budget tempA = (POJO.Budget) o;
+            for (Object p : categories) {
+                POJO.Category tempB = (POJO.Category) p;
+                if (tempA.getIdKategori() == tempB.getId()) {
+                    categories.remove(p);
+                    break;
+                }
+            }
+        }
+        
+        request.setAttribute("budgets", budgets);
+        request.setAttribute("cats", categories);
         request.getRequestDispatcher("/View/Budget/add.jsp").forward(request, response);
     }
 
@@ -58,9 +82,36 @@ public class Add extends HttpServlet {
         String[] kategori = request.getParameterValues("kategori");
         String[] limit = request.getParameterValues("limit");
         String[] rollover = request.getParameterValues("rollover");
+        int N = limit.length;
+        // mark rollover
+        boolean[] rolling = new boolean[N];
+        for (int ii=0;ii<N; ++ii)
+            rolling[ii] = false;
+        if (rollover != null)
+            for (int ii=0; ii<rollover.length; ++ii)
+                rolling[Integer.parseInt(rollover[ii])] = true;
         
-        POJO.Budget budget = new POJO.Budget();
-        
+        // save 
+        Controller.Budget budgetCon = new Controller.Budget();
+        for (int ii=0; ii<N; ++ii){
+            int idSiklus = Integer.parseInt(siklus[ii]);
+            int idKategori = Integer.parseInt(kategori[ii]);
+            if (limit[ii].trim().isEmpty())
+                limit[ii]="0";
+            double idLimit = Double.parseDouble(limit[ii]);
+            int idRollover = (rolling[ii])?1:0;
+            
+            Budget cur = budgetCon.getBudgetByCategoryAndUserId(idKategori, idUser);
+            if (cur == null)
+                cur = new POJO.Budget();
+            
+            cur.setSiklus(idSiklus);
+            cur.setIdKategori(idKategori);
+            cur.setIdUser(idUser);
+            cur.setBatas(idLimit);
+            cur.setRollover(idRollover);
+            int id = budgetCon.save(cur);
+        }
     }
 
     /**

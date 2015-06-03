@@ -4,8 +4,12 @@
     Author     : NK
 --%>
 
+<%@page import="java.util.List"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<% List<Object> cats = (List<Object>)request.getAttribute("cats"); %>
+<% List<Object> budgets = (List<Object>)request.getAttribute("budgets"); %>
 <%@include file="../navmenu.jsp" %>
 <!--<script language="javascript">
     $(document).ready(function(){
@@ -16,7 +20,7 @@
     }
 </script>-->
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-    <h1 class="page-header">Add Transaction</h1>
+    <h1 class="page-header">Set Bugdet</h1>
     <div class="table-responsive">
         <form action="add" method="post">
             <table class="table" id="dataTable">
@@ -32,7 +36,7 @@
                     <tr>
                         <td><label>Overall Spending Limit</label></td>
                         <td><input class="form-control" name="limit" type="number" placeholder="Amount"></td>
-                        <td>
+                        <td>                                                                                   
                             <input class="form-control" name="kategori" type="hidden" value="-1">                            
                             <select class="selectpicker" name="siklus">
                                 <option value="1">per Week</option>
@@ -41,11 +45,49 @@
                             </select>
                         </td>
                     </tr>
+                    <% if (cats.size() > 0) { %>
                     <tr>
                         <td colspan="4"><label>Spending Limit per Category</label></td>
                     </tr>                    
+                    <% } 
+                        int ids = 0;
+                        for(Object o : budgets) {
+                        POJO.Budget budget = (POJO.Budget) o;
+                        if (budget.getIdKategori() == -1 ) continue;
+                        ++ids;
+                    %>
                     <tr>
-                        <td><input class="form-control" name="kategori" type="number" placeholder="Category"></td>
+                        <td>
+                            <input class="form-control" name="kategori" type="hidden"  value=<%= budget.getIdKategori() %> >
+                            <span class="form-control"> <%= budget.getIdKategori() %> </span>
+                        </td>
+                        <td><input class="form-control" name="limit"  placeholder="Amount" value=<fmt:formatNumber type="number" maxFractionDigits="3" value="<%=budget.getBatas()%>" /> ></td>
+                        <td>
+                            <select class="selectpicker" name="siklus">
+                                <option <%= (budget.getSiklus() == 1)?"selected":"" %> value="1">per Week</option>
+                                <option <%= (budget.getSiklus() == 2)?"selected":"" %> value="2">per Month</option>
+                                <option <%= (budget.getSiklus() == 3)?"selected":"" %> value="3">per Year</option>
+                            </select>
+                        </td>
+                        <td>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" <%= (budget.getRollover()==1)?"checked":"" %> name="rollover" value="<%= ids %>" > Rollover
+                                </label>
+                            </div>
+                        </td>
+                    </tr>  
+                    <%    
+                        } 
+                        for(Object o : cats) { 
+                        POJO.Category cat = (POJO.Category) o; 
+                        ++ids;
+                    %>
+                    <tr>
+                        <td>
+                            <input class="form-control" name="kategori" type="hidden"  value=<%= cat.getId() %> >
+                            <span class="form-control"> <%= cat.getNama()%> </span>
+                        </td>
                         <td><input class="form-control" name="limit" type="number" placeholder="Amount"></td>
                         <td>
                             <select class="selectpicker" name="siklus">
@@ -57,75 +99,22 @@
                         <td>
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" name="rollover" value="2"> Rollover
+                                    <input type="checkbox" name="rollover" value="<%= ids %>" > Rollover
                                 </label>
                             </div>
                         </td>
                     </tr>
+                    <% } %>
+                    <tr><td><input name="submit" type="submit" class=" btn btn-primary" id="loginButton" value="Save Budget" style="margin-left: 10px;"></td></tr>
+                    
+                    
+                   
+                    
                 </tbody>
             </table>
-            <button type="button" class=" btn btn-default" onclick="addRow('dataTable')" id="add" style="margin-left: 10px;">Add Another Budget</button>
-            <input name="submit" type="submit" class=" btn btn-primary" id="loginButton" value="Save Budget" style="margin-left: 10px;">
+                        
         </form>
     </div>
 </div>
 
 <%@include file="../footer.jsp" %>
-<script language="javascript">
-    function addRow(tableID) {
-        var table = document.getElementById(tableID);
-        var rowCount = table.rows.length;
-        var row = table.insertRow(rowCount);
-        var cell1 = row.insertCell(0);
-        var element1 = document.createElement("input");
-        element1.className="form-control";
-        element1.type = "text";
-        element1.name = "kategori";
-        element1.placeholder = "Category";
-        cell1.appendChild(element1);
-        
-        var cell2 = row.insertCell(1);
-        var element2 = document.createElement("input");
-        element2.className="form-control";
-        element2.type = "number";
-        element2.name = "limit";
-        element2.placeholder = "Amount";
-        cell2.appendChild(element2);
-        
-        var cell3 = row.insertCell(2);
-        var element2 = document.createElement("select");
-        element2.className="selectpicker";
-        element2.type = "text";
-        element2.name = "siklus";
-        
-        var option = document.createElement("option");
-        option.text = "per Week";
-        option.value = "1";
-        element2.add(option);
-        var option2 = document.createElement("option");
-        option2.text = "per Month";
-        option2.value = "2";
-        element2.add(option2);
-        var option3 = document.createElement("option");
-        option3.text = "per Year";
-        option3.value = "3";
-        element2.add(option3);
-        
-        cell3.appendChild(element2);
-        
-        var cell2 = row.insertCell(3);
-        var element5 = document.createElement("div");
-        var element4 = document.createElement("label");
-        var element3 = document.createElement("input");
-        element3.type = "checkbox";
-        element3.name = "rollover";
-        element4.appendChild(element3);
-        element4.innerHTML += " Rollover";
-        element5.className = "checkbox";
-        element5.appendChild(element4);
-        cell2.appendChild(element5);
-        
-        $('.selectpicker').selectpicker();
-
-    }
-</script>
