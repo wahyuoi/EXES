@@ -10,6 +10,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% List<Object> cats = (List<Object>)request.getAttribute("cats"); %>
 <% List<Object> budgets = (List<Object>)request.getAttribute("budgets"); %>
+<% POJO.Budget all = (POJO.Budget) request.getAttribute("all"); %>
 <%@include file="../navmenu.jsp" %>
 <!--<script language="javascript">
     $(document).ready(function(){
@@ -20,7 +21,7 @@
     }
 </script>-->
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-    <h1 class="page-header">Set Bugdet</h1>
+    <h1 class="page-header">Set Budget</h1>
     <div class="table-responsive">
         <form action="add" method="post">
             <table class="table" id="dataTable">
@@ -35,13 +36,13 @@
                 <tbody>
                     <tr>
                         <td><label>Overall Spending Limit</label></td>
-                        <td><input class="form-control" name="limit" type="number" placeholder="Amount"></td>
+                        <td><input class="form-control" name="limit" placeholder="Amount" value=<fmt:formatNumber type="number" groupingUsed="false" maxFractionDigits="0" value="<%=(all!=null)?all.getBatas():0%>" /> ></td>
                         <td>                                                                                   
                             <input class="form-control" name="kategori" type="hidden" value="-1">                            
                             <select class="selectpicker" name="siklus">
-                                <option value="1">per Week</option>
-                                <option value="2">per Month</option>
-                                <option value="3">per Year</option>
+                                <option <%= (all!=null && all.getSiklus()==1)?"selected":"" %> value="1">per Week</option>
+                                <option <%= (all!=null && all.getSiklus()==2)?"selected":"" %> value="2">per Month</option>
+                                <option <%= (all!=null && all.getSiklus()==3)?"selected":"" %> value="3">per Year</option>
                             </select>
                         </td>
                     </tr>

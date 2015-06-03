@@ -45,6 +45,10 @@ public class Add extends HttpServlet {
         // remove categories that have been used
         for (Object o : budgets){
             Budget tempA = (POJO.Budget) o;
+            if (tempA.getIdKategori() == -1){
+                request.setAttribute("all", o);
+                continue;
+            }
             for (Object p : categories) {
                 POJO.Category tempB = (POJO.Category) p;
                 if (tempA.getIdKategori() == tempB.getId()) {
@@ -98,6 +102,7 @@ public class Add extends HttpServlet {
             int idKategori = Integer.parseInt(kategori[ii]);
             if (limit[ii].trim().isEmpty())
                 limit[ii]="0";
+            limit[ii] = limit[ii].replace(",", "");
             double idLimit = Double.parseDouble(limit[ii]);
             int idRollover = (rolling[ii])?1:0;
             
