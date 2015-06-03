@@ -12,124 +12,22 @@
 
 <!-- amCharts javascript code -->
 <script>
-    var chart = AmCharts.makeChart("chartdiv", {
-    "type": "serial",
-    "theme": "light",
-    "dataProvider": [
-        {
-        "date": "2015-10-02",
-        "value": 5
-    }, 
-    {
-        "date": "2015-10-03",
-        "value": 15
-    }, 
-    {
-        "date": "2015-10-04",
-        "value": 13
-    }, {
-        "date": "2015-10-05",
-        "value": 17
-    }, {
-        "date": "2015-10-06",
-        "value": 15
-    }, {
-        "date": "2015-10-09",
-        "value": 19
-    }, {
-        "date": "2015-10-10",
-        "value": 21
-    }, {
-        "date": "2015-10-11",
-        "value": 20
-    }, {
-        "date": "2015-10-12",
-        "value": 20
-    }, {
-        "date": "2015-10-13",
-        "value": 19
-    }, {
-        "date": "2015-10-16",
-        "value": 25
-    }, {
-        "date": "2015-10-17",
-        "value": 24
-    }, {
-        "date": "2015-10-18",
-        "value": 26
-    }, {
-        "date": "2015-10-19",
-        "value": 27
-    }, {
-        "date": "2015-10-20",
-        "value": 25
-    }, {
-        "date": "2015-10-23",
-        "value": 29
-    }, {
-        "date": "2015-10-24",
-        "value": 28
-    }, {
-        "date": "2015-10-25",
-        "value": 30
-    }, {
-        "date": "2015-10-26",
-        "value": 72,
-        "customBullet": "/img/redstar.png"
-    }, {
-        "date": "2015-10-27",
-        "value": 43
-    }, {
-        "date": "2015-10-30",
-        "value": 31
-    }, {
-        "date": "2015-11-01",
-        "value": 30
-    }, {
-        "date": "2015-11-02",
-        "value": 29
-    }, {
-        "date": "2015-11-03",
-        "value": 27
-    }, {
-        "date": "2015-11-04",
-        "value": 26
-    }],
-    "valueAxes": [{
-        "axisAlpha": 0,
-        "dashLength": 4,
-        "position": "left"
-    }],
-    "graphs": [{
-        "bulletSize": 14,
-        "customBullet": "/img/star.png",
-        "customBulletField": "customBullet",
-        "valueField": "value",
-         "balloonText":"<div style='margin:10px; text-align:left;'><span style='font-size:13px'>[[category]]</span><br><span style='font-size:18px'>Value:[[value]]</span>",
-    }],
-    "marginTop": 20,
-    "marginRight": 70,
-    "marginLeft": 40,
-    "marginBottom": 20,
-    "chartCursor": {
-        "graphBulletSize": 1.5
-    },
-    "autoMargins": false,
-    "dataDateFormat": "YYYY-MM-DD",
-    "categoryField": "date",
-    "categoryAxis": {
-        "parseDates": true,
-        "axisAlpha": 0,
-        "gridAlpha": 0,
-        "inside": true,
-        "tickLength": 0
-    },
-    "export": {
-        "enabled": true
+   function gantiChart(){
+        var b = document.getElementById("bulan");
+        var t = document.getElementById("tahun");
+        var valb = b.options[b.selectedIndex].value;
+        var valt = t.options[t.selectedIndex].value;
+     
+        if (valb != "0") {
+            var s = document.createElement("script");
+            s.setAttribute('src','/js/reportbymonth.js');
+            document.head.appendChild(s);
+        } else {
+            var s = document.createElement("script");
+            s.setAttribute('src','/js/report.js');
+            document.head.appendChild(s);
+        }
     }
-});
-
-    
 </script>
 
 <!-- css core-->
@@ -143,6 +41,38 @@
         <li role="presentation"><a href="expense.jsp">Expense</a></li>
         <li role="presentation"><a href="income.jsp">Income</a></li>
     </ul>
+    
+    </br>
+    <tr>
+        <td>Select report for:</td>
+        <td>
+            <select class="selectpicker" name="bulan" id="bulan">
+                <option value="0">All</option>
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
+        </td>
+        <td>
+            <select class="selectpicker" name="tahun"  id="tahun">
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+            </select>
+        </td>
+        <td>
+            <button class="btn btn-primary" onclick="gantiChart()">Show</button>
+        </td>
+    </tr>
+    
     <div id="chartdiv"></div>
     <h5 align="right" style="padding-right: 100px;"><strong>Total: 1,113,000</strong></h5>
 </div>
