@@ -24,6 +24,38 @@
         <li role="presentation" class="active"><a href="expense.jsp">Expense</a></li>
         <li role="presentation"><a href="income.jsp">Income</a></li>
     </ul>
+    
+    </br>
+    <tr>
+        <td>Expense overview for:</td>
+        <td>
+            <select class="selectpicker" name="bulan" id="bulan">
+                <option value="0">All</option>
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
+        </td>
+        <td>
+            <select class="selectpicker" name="tahun"  id="tahun">
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+            </select>
+        </td>
+        <td>
+            <button class="btn btn-primary" onclick="gantiChart()">Show</button>
+        </td>
+    </tr>
+    
     <div id="chartdiv"></div>
     <h5 align="right" style="padding-right: 100px;"><strong>Total: 827</strong></h5>
 </div>
