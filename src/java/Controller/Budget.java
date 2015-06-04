@@ -35,6 +35,10 @@ public class Budget {
     public List<Object> getById(int idUser) {
         return dbInfo.getAllByUserId(POJO.Budget.class.getName(), idUser);
     }
+
+    void deleteAllUserId(int id) {
+        dbInfo.deleteAllUserId(id, POJO.Budget.class.getName());
+    }
     
     
 }

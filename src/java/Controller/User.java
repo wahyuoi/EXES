@@ -352,6 +352,15 @@ public class User {
     }
 
     public void deleteAccount(int id) {
+        Controller.Budget budgetCon = new Budget();
+        budgetCon.deleteAllUserId(id);
+        
+        Controller.Transaction trxCon = new Transaction();
+        trxCon.deleteAllUserId(id);
+        
+        Controller.Category catCon = new Category();
+        catCon.deleteAllUserId(id);
+        
         dbInfo.delete(id, POJO.User.class.getName());
     }
     

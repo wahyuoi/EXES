@@ -36,13 +36,13 @@
                 <tbody>
                     <tr>
                         <td><label>Overall Spending Limit</label></td>
-                        <td><input class="form-control" name="limit" placeholder="Amount" value=<fmt:formatNumber type="number" groupingUsed="false" maxFractionDigits="0" value="<%=(all!=null)?all.getBatas():0%>" /> ></td>
+                        <td><input class="form-control" type="number" name="limit" placeholder="Amount" value=<fmt:formatNumber type="number" groupingUsed="false" maxFractionDigits="0" value="<%=(all!=null)?all.getBatas():0%>" /> ></td>
                         <td>                                                                                   
                             <input class="form-control" name="kategori" type="hidden" value="-1">                            
                             <select class="selectpicker" name="siklus">
-                                <option <%= (all!=null && all.getSiklus()==1)?"selected":"" %> value="1">per Week</option>
+                                <!--<option <%= (all!=null && all.getSiklus()==1)?"selected":"" %> value="1">per Week</option>-->
                                 <option <%= (all!=null && all.getSiklus()==2)?"selected":"" %> value="2">per Month</option>
-                                <option <%= (all!=null && all.getSiklus()==3)?"selected":"" %> value="3">per Year</option>
+                                <!--<option <%= (all!=null && all.getSiklus()==3)?"selected":"" %> value="3">per Year</option>-->
                             </select>
                         </td>
                     </tr>
@@ -60,14 +60,14 @@
                     <tr>
                         <td>
                             <input class="form-control" name="kategori" type="hidden"  value=<%= budget.getIdKategori() %> >
-                            <span class="form-control"> <%= budget.getIdKategori() %> </span>
+                            <span class="form-control"> <%= ((POJO.Category)request.getAttribute(String.valueOf(budget.getIdKategori()))).getNama() %> </span>
                         </td>
-                        <td><input class="form-control" name="limit"  placeholder="Amount" value=<fmt:formatNumber type="number" maxFractionDigits="3" value="<%=budget.getBatas()%>" /> ></td>
+                        <td><input class="form-control" name="limit" type="number" placeholder="Amount" value=<fmt:formatNumber type="number" maxFractionDigits="3" value="<%=budget.getBatas()%>" /> ></td>
                         <td>
                             <select class="selectpicker" name="siklus">
-                                <option <%= (budget.getSiklus() == 1)?"selected":"" %> value="1">per Week</option>
+                                <!--<option <%= (budget.getSiklus() == 1)?"selected":"" %> value="1">per Week</option>-->
                                 <option <%= (budget.getSiklus() == 2)?"selected":"" %> value="2">per Month</option>
-                                <option <%= (budget.getSiklus() == 3)?"selected":"" %> value="3">per Year</option>
+                                <!--<option <%= (budget.getSiklus() == 3)?"selected":"" %> value="3">per Year</option>-->
                             </select>
                         </td>
                         <td>
@@ -92,9 +92,9 @@
                         <td><input class="form-control" name="limit" type="number" placeholder="Amount"></td>
                         <td>
                             <select class="selectpicker" name="siklus">
-                                <option value="1">per Week</option>
+                                <!--<option value="1">per Week</option>-->
                                 <option value="2">per Month</option>
-                                <option value="3">per Year</option>
+                                <!--<option value="3">per Year</option>-->
                             </select>
                         </td>
                         <td>

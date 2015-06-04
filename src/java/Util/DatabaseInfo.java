@@ -191,4 +191,12 @@ public class DatabaseInfo {
         afterClass();
         return ret;
     }
+
+    public void deleteAllUserId(int userId, String clazz) {
+        beforeClass();
+        String queryString = "delete from " + clazz + " where id_user = '" + userId + "'";
+        Query query = session.createQuery(queryString);
+        query.executeUpdate();        
+        afterClass();
+    }
 }

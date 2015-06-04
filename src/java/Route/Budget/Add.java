@@ -4,6 +4,7 @@ import Controller.Category;
 import POJO.Budget;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -52,6 +53,7 @@ public class Add extends HttpServlet {
             for (Object p : categories) {
                 POJO.Category tempB = (POJO.Category) p;
                 if (tempA.getIdKategori() == tempB.getId()) {
+                    request.setAttribute(tempB.getId().toString(), tempB);
                     categories.remove(p);
                     break;
                 }
@@ -117,6 +119,7 @@ public class Add extends HttpServlet {
             cur.setRollover(idRollover);
             int id = budgetCon.save(cur);
         }
+        response.sendRedirect("/budget");
     }
 
     /**

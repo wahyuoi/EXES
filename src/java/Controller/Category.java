@@ -89,5 +89,9 @@ public class Category {
         return true;
     }
 
+    void deleteAllUserId(int id) {
+        dbInfo.deleteAllUserId(id, POJO.Category.class.getName());
+    }
+
     
 }

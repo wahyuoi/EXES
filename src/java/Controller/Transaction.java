@@ -104,5 +104,37 @@ public class Transaction {
         return this.getTransactionByDate(idUser, dateA, monthA, yearA, dateB, monthB, yearB);
         
     }
+
+    void deleteAllUserId(int id) {
+        dbInfo.deleteAllUserId(id, POJO.Transaction.class.getName());
+    }
+
+    public List<POJO.Transaction> getTransactionByMonthAndJenisGroupByCategory(int idUser, int month, int year, int idJenis) {
+        List<POJO.Transaction> temp = getTransactionByMonth(idUser, month, year);        
+        List<POJO.Transaction> ret = new ArrayList<>();
+        double all = 0;
+        
+        for (POJO.Transaction t : temp)
+            if (t.getJenis() == idJenis){
+                all += t.getAmount();
+                boolean found = false;
+                for (POJO.Transaction r : ret){
+                    if (r.getIdKategori() == t.getIdKategori()) {
+                        r.setAmount(r.getAmount() + t.getAmount());
+                        found = true;
+                    }
+                }
+                
+                if (!found) {
+                    ret.add(t);
+                }
+                    
+            }
+        POJO.Transaction lastAll = new POJO.Transaction();
+        lastAll.setIdKategori(-1);
+        lastAll.setAmount(all);
+        ret.add(lastAll);
+        return ret;
+    }
     
 }

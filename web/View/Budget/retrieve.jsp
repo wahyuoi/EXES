@@ -4,15 +4,18 @@
     Author     : NK
 --%>
 
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="/css/core.css">
 <link rel="stylesheet" href="/css/freebirdApp.css">
 <script type="text/javascript" src="/js/freebirdApp.js"></script>
 <%@include file="../navmenu.jsp" %>
-
+<% 
+    List<Object> cats = (List<Object>) request.getAttribute("cats");    
+%>
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <h1 class="page-header">Budgets</h1>
-    <a href="update.jsp"  class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> &nbsp Edit</a>
+    <a href="/budget/add"  class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> &nbsp Edit</a>
     <div class="UIBudgetChart">
         <div class="budgetListContainer">
             <div autodelegate="false" class="block tttPadding" notify="page-reload">
@@ -20,130 +23,54 @@
                     <div class="budgetName">Overall</div>
                     <div>
                         <div class="lF">
-                            <div class="noWrap spentAmount layerDetail2 smallFont">SPENT&nbsp;1,234.00</div>
+                            <div class="noWrap spentAmount layerDetail2 smallFont">SPENT&nbsp;<%= (request.getAttribute("trx-1")!=null)?request.getAttribute("trx-1"):"0" %></div>
                         </div>
                         <div class="rF">
-                            <div class="noWrap leftAmount layerDetail2 smallFont">2,018.00&nbsp;LEFT</div>
+                            <div class="noWrap leftAmount layerDetail2 smallFont"><%= (request.getAttribute("left-1") != null)?(request.getAttribute("left-1"))+" LEFT":"No Budget" %></div>
                         </div>
                         <div class="cF"></div>
                     </div>
                     <div class="progressBarContainer">
                         <div class="UIProgressBar orange UIBudgetProgressBar">
                             <div class="outer">
-                                <div class="inner" style="width: 37.95%;"></div>
+                                <div class="inner" style="width: <%= request.getAttribute("persen-1") %>%;"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+                            
+            <% for(Object o : cats) { 
+                POJO.Category cat = (POJO.Category) o;
+                if (cat.getJenis() == 0) continue;
+                int idc = cat.getId();
+            %>
+                        
             <div autodelegate="false" class="block tttPadding" notify="page-reload">
                 <div class="budgetContainer limitGreen">
-                    <div class="budgetName">Food</div>
+                    <div class="budgetName"><%= cat.getNama() %></div>
                     <div>
                         <div class="lF">
-                            <div class="noWrap spentAmount layerDetail2 smallFont">SPENT&nbsp;0.00</div>                            
+                            <div class="noWrap spentAmount layerDetail2 smallFont">SPENT&nbsp;<%= request.getAttribute("trx"+idc) %></div>                            
                         </div>
                         <div class="rF">
-                            <div class="noWrap leftAmount layerDetail2 smallFont">33.00&nbsp;LEFT</div>
+                            <div class="noWrap leftAmount layerDetail2 smallFont"><%= (null==request.getAttribute("left"+idc))?"No Limit":request.getAttribute("left"+idc)+" LEFT" %></div>
                         </div>
                         <div class="cF"></div>
                     </div>
                     <div class="progressBarContainer">
                         <div class="UIProgressBar green UIBudgetProgressBar">
-                            <div class="outer"><div class="inner" style="width: 0%;">
+                            <div class="outer"><div class="inner" style="width: <%= (null==request.getAttribute("left"+idc))?"100":request.getAttribute("persen"+idc) %>%;">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div autodelegate="false" class="block tttPadding" notify="page-reload">
-                <div class="budgetContainer limitGreen">
-                    <div class="budgetName">Entertainment</div>
-                    <div>
-                        <div class="lF">
-                            <div class="noWrap spentAmount layerDetail2 smallFont">SPENT&nbsp;0.00</div>
-                        </div>
-                        <div class="rF">
-                            <div class="noWrap leftAmount layerDetail2 smallFont">20.00&nbsp;LEFT</div>
-                        </div>
-                        <div class="cF"></div>
-                    </div>
-                    <div class="progressBarContainer">
-                        <div class="UIProgressBar green UIBudgetProgressBar">
-                            <div class="outer">
-                                <div class="inner" style="width: 0%;"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div autodelegate="false" class="block tttPadding" notify="page-reload">
-                <div class="budgetContainer limitGreen">
-                    <div class="budgetName">Transportation</div>
-                    <div>
-                        <div class="lF">
-                            <div class="noWrap spentAmount layerDetail2 smallFont">SPENT&nbsp;0.00</div>
-                        </div>
-                        <div class="rF">
-                            <div class="noWrap leftAmount layerDetail2 smallFont">32.00&nbsp;LEFT</div>
-                        </div>
-                        <div class="cF"></div>
-                    </div>
-                    <div class="progressBarContainer">
-                        <div class="UIProgressBar green UIBudgetProgressBar">
-                            <div class="outer">
-                                <div class="inner" style="width: 0%;"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="UIBudgetPeriod">
-                <div class="periodDescriptionContainer">
-                    <div class="lF">MAY</div>
-                    <div class="rF">MAY</div>
-                    <div class="cF"></div>                    
-                </div>
-                <table cellspacing="0" cellpadding="0" class="UIGrid fullWidth dateListContainer">
-                    <tr>
-                        <td class="firstRow firstColumn lastRow">
-                            <div class="tickContainer">01</div>
-                        </td>
-                        <td class="firstRow lastRow">
-                            <div class="tickContainer">04</div>
-                        </td>
-                        <td class="firstRow lastRow">
-                            <div class="tickContainer">07</div>
-                        </td>
-                        <td class="firstRow lastRow">
-                            <div class="tickContainer">10</div>
-                        </td>
-                        <td class="firstRow lastRow">
-                            <div class="tickContainer">13</div>
-                        </td>
-                        <td class="firstRow lastRow">
-                            <div class="tickContainer">16</div>
-                        </td>
-                        <td class="firstRow lastRow">
-                            <div class="tickContainer">19</div>
-                        </td>
-                        <td class="firstRow lastRow">
-                            <div class="tickContainer">22</div>
-                        </td>
-                        <td class="firstRow lastRow">
-                            <div class="tickContainer">25</div>
-                        </td>
-                        <td class="firstRow lastRow">
-                            <div class="tickContainer">28</div>
-                        </td>
-                        <td class="firstRow lastColumn lastRow">
-                            <div class="tickContainer">31</div>
-                        </td>
-                    </tr>
-                </table>                
-            </div>
-            <div class="marker layerDetail today" style="left: 19%">
+
+            <% } %>
+            
+            <div class="marker layerDetail today" style="left: <%= request.getAttribute("today") %>%">
                 <div class="markerLabel smallerFont">TODAY</div>                
             </div>
         </div>
