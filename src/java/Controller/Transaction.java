@@ -136,5 +136,51 @@ public class Transaction {
         ret.add(lastAll);
         return ret;
     }
+
+    public List<Object> getTransactionThisMonthGroupByDate(int idUser, int idJenis) {
+        Date date = new Date();
+        int month = date.getMonth()+1;
+        String query =  "SELECT SUM( amount ) , DATE( tgl_transaksi ) \n" +
+                        "FROM  "+POJO.Transaction.class.getName()+" \n" +
+                        "WHERE id_user ="+idUser+"\n" +
+                        "AND jenis ="+idJenis+"\n" +
+                        "AND MONTH(tgl_transaksi) ="+month+"\n"+
+                        "GROUP BY DATE( tgl_transaksi ) ";
+        List<Object> ret = dbInfo.getByQuery(query);
+        return ret;
+    }
+
+    public List<Object> getAllTransactionGroupByMonth(int idUser, int idJenis) {
+        String query =  "SELECT SUM( amount ) , DATE( tgl_transaksi ) \n" +
+                        "FROM  "+POJO.Transaction.class.getName()+" \n" +
+                        "WHERE id_user ="+idUser+"\n" +
+                        "AND jenis ="+idJenis+"\n" +
+                        "GROUP BY YEAR( tgl_transaksi ) , MONTH( tgl_transaksi ) ";
+        List<Object> ret = dbInfo.getByQuery(query);
+        return ret;
+    }
+
+    public List<Object> getTransactionThisMonthByCategories(int idUser, int idJenis) {
+        Date date = new Date();
+        int month = date.getMonth()+1;
+        String query =  "SELECT SUM( amount ) , idKategori\n" +
+                        "FROM  "+POJO.Transaction.class.getName()+" \n" +
+                        "WHERE id_user = "+idUser+" \n" +
+                        "AND jenis ="+idJenis+"\n" +  
+                        "AND MONTH(tgl_transaksi) ="+month+"\n"+
+                        "GROUP BY idKategori";
+        List<Object> ret = dbInfo.getByQuery(query);
+        return ret;
+    }
+
+    public List<Object> getAllTransactionByCategories(int idUser, int idJenis) {
+        String query =  "SELECT SUM( amount ) , idKategori\n" +
+                        "FROM  "+POJO.Transaction.class.getName()+" \n" +
+                        "WHERE id_user = "+idUser+" \n" +
+                        "AND jenis ="+idJenis+"\n" +                        
+                        "GROUP BY idKategori";
+        List<Object> ret = dbInfo.getByQuery(query);
+        return ret;
+    }
     
 }

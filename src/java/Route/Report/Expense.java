@@ -3,17 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Route.Budget;
+package Route.Report;
 
-import Controller.Budget;
 import Controller.Category;
 import Controller.Transaction;
 import Controller.User;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,8 +22,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author wahyuoi
  */
-@WebServlet(name = "Retrieve", urlPatterns = {"/budget"})
-public class Retrieve extends HttpServlet {
+@WebServlet(name = "Expense", urlPatterns = {"/report/expense"})
+public class Expense extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,7 +34,7 @@ public class Retrieve extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Controller.User userCon = new User();
         Cookie[] cookies = request.getCookies();
@@ -47,35 +43,20 @@ public class Retrieve extends HttpServlet {
         }
         
         
-        Controller.Transaction trxCon = new Transaction();
-        Controller.Budget budgetCon = new Budget();
-        Controller.Category catCon = new Category();
-                
+        Controller.Transaction trxCon = new Transaction();   
         int idUser = userCon.getUserId(cookies);
-        
-        Calendar calendar = new GregorianCalendar();
-        int month = calendar.get(Calendar.MONTH)+1;
-        int year = calendar.get(Calendar.YEAR);                
-        
-        List<POJO.Category> cats = catCon.getAllCategoryByUserId(idUser);        
-        request.setAttribute("cats", cats);
-        
-        int idJenis = 1; // EXPENSE
-        List<POJO.Transaction> trx = trxCon.getTransactionByMonthAndJenisGroupByCategory(idUser, month, year, idJenis);
-        for (POJO.Transaction t : trx ){
-            request.setAttribute("trx"+t.getIdKategori(), t.getAmount());
+        Controller.Category catCon = new Category();
+        List<POJO.Category> cats = catCon.getAllCategoryByUserId(idUser);
+        for (POJO.Category cat : cats){
+            request.setAttribute(cat.getId()+"", cat.getNama());
         }
+        List<Object> month = trxCon.getTransactionThisMonthByCategories(idUser, 1);
+        List<Object> all = trxCon.getAllTransactionByCategories(idUser, 1);
         
-        List<Object> budgets = budgetCon.getById(idUser);
-        for (Object o : budgets) {
-            POJO.Budget b = (POJO.Budget) o;
-            request.setAttribute("left"+b.getIdKategori(), b.getBatas()-((Double)(request.getAttribute("trx"+b.getIdKategori()))));
-            request.setAttribute("persen"+b.getIdKategori(), (((Double)(request.getAttribute("trx"+b.getIdKategori())))) * 100.0 / b.getBatas());
-        }
-        int date = calendar.get(Calendar.DATE);
-        request.setAttribute("today", date*100.0/30);
-        request.setAttribute("trx", trx);
-        request.getRequestDispatcher("/View/Budget/retrieve.jsp").forward(request, response);
+        request.setAttribute("month", month);
+        request.setAttribute("all", all);
+        
+        request.getRequestDispatcher("/View/Report/income.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

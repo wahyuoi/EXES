@@ -58,7 +58,7 @@
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
                         <li><a href="/transaction"><span class="glyphicon glyphicon-usd"></span> &nbsp Transaction</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-book"></span> &nbsp Report</a></li>
+                        <li><a href="/report"><span class="glyphicon glyphicon-book"></span> &nbsp Report</a></li>
                         <li><a href="/budget"><span class="glyphicon glyphicon-stats"></span> &nbsp Budget</a></li>
                         <li><a href="/category"><span class="glyphicon glyphicon-tags"></span> &nbsp Category</a></li>
                     </ul>

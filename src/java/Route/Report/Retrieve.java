@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Route.Budget;
+package Route.Report;
 
 import Controller.Budget;
 import Controller.Category;
@@ -11,9 +11,6 @@ import Controller.Transaction;
 import Controller.User;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author wahyuoi
  */
-@WebServlet(name = "Retrieve", urlPatterns = {"/budget"})
+@WebServlet(name = "RetrieveReport", urlPatterns = {"/report"})
 public class Retrieve extends HttpServlet {
 
     /**
@@ -47,35 +44,23 @@ public class Retrieve extends HttpServlet {
         }
         
         
-        Controller.Transaction trxCon = new Transaction();
-        Controller.Budget budgetCon = new Budget();
-        Controller.Category catCon = new Category();
-                
+        Controller.Transaction trxCon = new Transaction();   
         int idUser = userCon.getUserId(cookies);
         
-        Calendar calendar = new GregorianCalendar();
-        int month = calendar.get(Calendar.MONTH)+1;
-        int year = calendar.get(Calendar.YEAR);                
+        // THIS MONTH
+        List<Object> thisMonthIncome = trxCon.getTransactionThisMonthGroupByDate(idUser, 0);
+        List<Object> thisMonthExpense = trxCon.getTransactionThisMonthGroupByDate(idUser, 1);
         
-        List<POJO.Category> cats = catCon.getAllCategoryByUserId(idUser);        
-        request.setAttribute("cats", cats);
+        List<Object> allIncome = trxCon.getAllTransactionGroupByMonth(idUser, 0);
+        List<Object> allExpense = trxCon.getAllTransactionGroupByMonth(idUser, 1);
         
-        int idJenis = 1; // EXPENSE
-        List<POJO.Transaction> trx = trxCon.getTransactionByMonthAndJenisGroupByCategory(idUser, month, year, idJenis);
-        for (POJO.Transaction t : trx ){
-            request.setAttribute("trx"+t.getIdKategori(), t.getAmount());
-        }
+        request.setAttribute("thisMonthIncome", thisMonthIncome);
+        request.setAttribute("thisMonthExpense", thisMonthExpense);
         
-        List<Object> budgets = budgetCon.getById(idUser);
-        for (Object o : budgets) {
-            POJO.Budget b = (POJO.Budget) o;
-            request.setAttribute("left"+b.getIdKategori(), b.getBatas()-((Double)(request.getAttribute("trx"+b.getIdKategori()))));
-            request.setAttribute("persen"+b.getIdKategori(), (((Double)(request.getAttribute("trx"+b.getIdKategori())))) * 100.0 / b.getBatas());
-        }
-        int date = calendar.get(Calendar.DATE);
-        request.setAttribute("today", date*100.0/30);
-        request.setAttribute("trx", trx);
-        request.getRequestDispatcher("/View/Budget/retrieve.jsp").forward(request, response);
+        request.setAttribute("allIncome", allIncome);
+        request.setAttribute("allExpense", allExpense);
+        
+        request.getRequestDispatcher("/View/Report/report.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

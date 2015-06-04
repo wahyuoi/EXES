@@ -199,4 +199,14 @@ public class DatabaseInfo {
         query.executeUpdate();        
         afterClass();
     }
+
+    public List<Object> getByQuery(String query) {
+        beforeClass();
+        
+        List<Object> ret = new ArrayList<Object>();        
+        ret = session.createQuery(query).list();
+        
+        afterClass();
+        return ret;
+    }
 }
